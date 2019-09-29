@@ -1,2 +1,2 @@
 # Defender
-An OOP implementation os the classic arcade game Defender.
+An OOP implementation of the classic arcade game Defender.
