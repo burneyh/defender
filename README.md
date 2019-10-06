@@ -1,17 +1,17 @@
 # Defender-CS319
 ## Defender arcade game for CS 319 Project
 
-Group Members:
+Group Members:\
 Hanzallah Azim Burney\
 Abdul Hamid Dabboussi\
 Perman Atayev\
 Gledis Zeneli\
-Endri Suknaj\
+Endri Suknaj
 
 
 ### Description of the Project
-In the project we are going to implement classic arcade game "Defender".
-Our aim is to create this game using the principles of object oriented programming.
+In the project we are going to implement classic arcade game "Defender".\
+Our aim is to create this game using the principles of object oriented programming.\
 The game is implemented in Java by using JavaFX library.
 
 ### Description of the Defender:
