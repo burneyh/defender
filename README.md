@@ -1,5 +1,4 @@
-# Defender-CS319
-## Defender arcade game for CS 319 Project
+# Defender arcade game for CS 319 Project
 
 Group Members:\
 Hanzallah Azim Burney\
