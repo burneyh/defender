@@ -2,11 +2,11 @@
 ## Defender arcade game for CS 319 Project
 
 Group Members:
-Hanzallah Azim Burney
-Abdul Hamid Dabboussi
-Perman Atayev
-Gledis Zeneli
-Endri Suknaj
+Hanzallah Azim Burney\
+Abdul Hamid Dabboussi\
+Perman Atayev\
+Gledis Zeneli\
+Endri Suknaj\
 
 
 ### Description of the Project
