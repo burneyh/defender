@@ -26,3 +26,6 @@ Each player has 4 different keys to control the movement of their spaceship and 
 Each time the alien successfully shoots the user's spaceship, user will lose one unit of health. In the beginning of each game, user will have 3 health units. The player will die if his spaceship is shot and he doesn't have any health units left. The bullets of spaceship go in a straight line until they hit an object (alien). 
 
 * Reference link to original Defender : https://en.wikipedia.org/wiki/Defender
+
+### Additional information
+Log of the group's weekly meetings is [here](https://docs.google.com/document/d/1lvyBzwGAg5UtiwbL4UJYyEOcgsWXgMMJIDW8_226dz8/edit?usp=sharing)
