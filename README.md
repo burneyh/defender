@@ -1,4 +1,4 @@
-# CS319 Defender Arcade Game
+# CS319 Defender Arcade Game, Group HAPEG
 
 ## Group Members
 - Hanzallah Azim Burney
