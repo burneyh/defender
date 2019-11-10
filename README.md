@@ -7,6 +7,9 @@
 - Gledis Zeneli
 - Endri Suknaj
 
+### Reports
+1 - [Analysis Report - Iteration 01](https://docs.google.com/document/d/1JPb92dDu950-aJ1DgYSoql6DCdnjJ6D2GfhKhU4UpK0/edit?usp=sharing)\
+2 - [Design Report - Iteration 01](https://docs.google.com/document/d/1etHOchjQNUX7RmGQH1DhGKkLeIsbZLU-kF3cbP45-t8/edit?usp=sharing)
 
 ## Project Description
 In the project we are going to implement classic arcade game "Defender".\
