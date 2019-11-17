@@ -11,4 +11,7 @@ public class MotherShip extends GameObject{
     public int getHealth(){
         return 0;
     }
+
+    public boolean isAlive(){return true;}
+
 }

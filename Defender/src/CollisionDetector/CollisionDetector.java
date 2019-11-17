@@ -15,18 +15,17 @@ public class CollisionDetector {
     }
 
     // to be implemented
-    private void updateScore() {
+    private void updateScore(int addAmount) {
+        Score += addAmount;
     }
 
 
     // to be updated;
     private void checkShipCollisionsWithAllien(MotherShip motherShip, Alien aliens[]) {
         Rectangle motherBox = motherShip.getHitbox();
-
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
-
-            if (motherBox.intersects(alienBox)){
+            if (motherShip.isAlive() && alien.isAlive() && motherBox.intersects(alienBox)){
                 motherShip.kill();
                 alien.kill();
             }
@@ -38,12 +37,13 @@ public class CollisionDetector {
 
         for(Projectile projectile: projectiles){
             Rectangle projectileBox = projectile.getHitbox();
-            if(projectileBox.intersects(motherBox)){
+            if(motherShip.isAlive() && projectile.isAlive() && projectileBox.intersects(motherBox)){
                 int damage = projectile.getDamage();
                 motherShip.updateHealth(damage);
 
                 if(motherShip.getHealth() <= 0){
                     motherShip.kill();
+                    break;
                 }
                 projectile.kill();
             }
@@ -54,19 +54,31 @@ public class CollisionDetector {
     private void checkProjectileCollisionWithAlien(Alien aliens[], Projectile projectiles[]){
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
-
             for(Projectile projectile: projectiles){
                 Rectangle projectileBox = projectile.getHitbox();
-//                if(projectileBox.intersects(alienBox) && (projectile instanceof  ShipProjectile)){
-//                    alien.kill();
-//                    projectile.kill();
-//                }
+                if(alien.isAlive() && projectile.isAlive() && projectileBox.intersects(alienBox) && (projectile instanceof  ShipProjectile)){
+                    alien.kill();
+                    projectile.kill();
+                    break;
+                }
             }
-
         }
     }
 
-    private void checkMutation(Alien aliens[]){
+    private void checkMutation(Alien aliens[], Human humans[]){
+        for(Human human: humans){
+            Rectangle humanBox = human.getHitbox();
+            for(Alien alien: aliens){
+                Rectangle alienBox = alien.getHitbox();
+
+                if(alien.isAlive() && human.isAlive() && alienBox.intersects(humanBox)){
+                    alien.kill();
+                    human.kill();
+                    // over for this alien;
+                    break;
+                }
+            }
+        }
     }
 
     public CollisionDetector getInstance() {
@@ -78,7 +90,7 @@ public class CollisionDetector {
     public void checkAllCollisions(MotherShip motherShip, Alien aliens[], Human humans[], Projectile projectiles[]){
         checkShipCollisionsWithAllien(motherShip, aliens);
         checkProjectileCollisionsWithShip(motherShip, projectiles);
-        checkMutation(aliens);
+        checkMutation(aliens, humans);
         checkProjectileCollisionWithAlien(aliens, projectiles);
     }
 

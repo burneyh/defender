@@ -63,6 +63,10 @@ class GameObject {
     }
 
     // to be implemented
+    public boolean isAlive(){
+        return true;
+    }
+
     public void move() {
 
     }

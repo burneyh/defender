@@ -8,4 +8,8 @@ public class Projectile extends GameObject {
     public int getDamage(){
         return 0;
     }
+
+    public boolean isAlive(){
+        return true;
+    }
 }
