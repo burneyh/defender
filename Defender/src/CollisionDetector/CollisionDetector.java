@@ -1,5 +1,6 @@
 package CollisionDetector;
 
+
 import GameObjects.*;
 
 public class CollisionDetector {
