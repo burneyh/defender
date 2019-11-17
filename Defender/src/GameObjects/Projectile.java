@@ -1,9 +1,14 @@
 package GameObjects;
 
 public class Projectile extends GameObject {
-    int damage;
+    private int damage;
 
     public Projectile(){
+        loadImage("res/Icons/004-rocket-1.png");
+        getImageDimensions();
+    }
 
+    public int getDamage() {
+        return damage;
     }
 }

@@ -85,7 +85,6 @@ public class GameEngine {
         projectiles = tempProjectiles;
 
 
-
         sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
     }
 

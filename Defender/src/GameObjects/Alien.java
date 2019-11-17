@@ -1,7 +1,6 @@
 package GameObjects;
 
 public class Alien extends GameObject {
-
     int points;
 
     public Alien(){

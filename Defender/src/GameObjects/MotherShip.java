@@ -32,9 +32,15 @@ public class MotherShip extends GameObject{
     public void updateHealth(int damage) {
         health  = health - damage;
     }
+
     public int getDirection() {
         return direction;
     }
+
+    public int getHealth(){
+        return health;
+    }
+
     public static MotherShip getInstance() {
         if (motherShip == null)
             motherShip = new MotherShip();
