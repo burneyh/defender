@@ -10,7 +10,7 @@ class GameObject {
     private Image image;
     private Rectangle hitbox;
 
-    public GameObject() {
+    public GameObject(int x, int y) {
         coordinates.setX(0);
         coordinates.setY(0);
         setSpeed(10);
@@ -27,8 +27,8 @@ class GameObject {
     }
 
     protected void getImageDimensions() {
-        width = image.getWidth(null);
-        height = image.getHeight(null);
+        width = image.getWidth();
+        height = image.getHeight();
     }
 
     protected void loadImage(String imageName) {
