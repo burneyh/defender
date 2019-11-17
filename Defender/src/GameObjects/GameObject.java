@@ -11,7 +11,6 @@ class GameObject {
     private Rectangle hitbox;
 
     public GameObject(){
-
     }
 
     public GameObject(int x, int y) {

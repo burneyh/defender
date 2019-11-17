@@ -1,4 +1,4 @@
 package GameObjects;
 
-public class Human {
+public class Human extends GameObject{
 }
