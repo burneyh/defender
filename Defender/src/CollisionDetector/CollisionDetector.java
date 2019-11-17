@@ -25,11 +25,11 @@ public class CollisionDetector {
         }
     }
 
-    private Boolean checkShipCollisionsWithAllien(Mothership motherShip, Aliens aliens[]) {
+    private Boolean checkShipCollisionsWithAllien(MotherShip motherShip, Aliens aliens[]) {
         return true;
     }
 
-    private Boolean checkProjectileCollisionsWithShip(Mothership motherShip, Projectile projectile[]) {
+    private Boolean checkProjectileCollisionsWithShip(MotherShip motherShip, Projectile projectile[]) {
         return true;
     }
 }
