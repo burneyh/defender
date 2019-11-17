@@ -27,13 +27,13 @@ class GameObject {
     }
 
     protected void getImageDimensions() {
-        width = image.getWidth();
-        height = image.getHeight();
+//        width = image.getWidth();
+//        height = image.getHeight();
     }
 
     protected void loadImage(String imageName) {
-        ImageIcon icon = new ImageIcon(imageName);
-        image = icon.getImage();
+//        ImageIcon icon = new ImageIcon(imageName);
+//        image = icon.getImage();
     }
 
     public Rectangle getHitbox() {
