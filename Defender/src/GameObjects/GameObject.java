@@ -1,7 +1,6 @@
 package GameObjects;
 
-import javafx.scene.image.*;
-import javafx.scene.shape.Rectangle;
+import java.awt.*;
 
 class GameObject {
     private Coordinate coordinates;
@@ -11,7 +10,6 @@ class GameObject {
     private Rectangle hitbox;
 
     public GameObject(){
-
     }
 
     public GameObject(int x, int y) {
