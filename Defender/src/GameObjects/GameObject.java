@@ -2,7 +2,7 @@ package GameObjects;
 
 import java.awt.*;
 
-class GameObject {
+public class GameObject {
     private Coordinate coordinates;
     private int width, height, speed;
     private Boolean alive;
