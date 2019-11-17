@@ -8,7 +8,8 @@ public class Mutant extends Alien {
         super(x, y);
         points = 200;
 
-        loadImage("/Defender/src/UserInterface/Icons/006-mutant.png");
+        loadImage("res/Icons/006-mutant.png");
+
         getImageDimensions();
     }
 
