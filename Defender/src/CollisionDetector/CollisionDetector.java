@@ -3,6 +3,7 @@ package CollisionDetector;
 
 import GameObjects.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 public class CollisionDetector {
@@ -12,7 +13,7 @@ public class CollisionDetector {
     }
 
     // to be updated;
-    private void checkShipCollisionsWithAllien(MotherShip motherShip, Alien aliens[]) {
+    private void checkShipCollisionsWithAlien(MotherShip motherShip, ArrayList<Alien> aliens) {
         Rectangle motherBox = motherShip.getHitbox();
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
@@ -24,7 +25,7 @@ public class CollisionDetector {
         }
     }
 
-    private void checkProjectileCollisionsWithShip(MotherShip motherShip, Projectile projectiles[]) {
+    private void checkProjectileCollisionsWithShip(MotherShip motherShip, ArrayList<Projectile>  projectiles) {
         Rectangle motherBox = motherShip.getHitbox();
 
         for(Projectile projectile: projectiles){
@@ -43,7 +44,7 @@ public class CollisionDetector {
     }
 
 
-    private void checkProjectileCollisionWithAlien(Alien aliens[], Projectile projectiles[]){
+    private void checkProjectileCollisionWithAlien(ArrayList<Alien> aliens, ArrayList<Projectile>  projectiles){
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
             for(Projectile projectile: projectiles){
@@ -57,7 +58,7 @@ public class CollisionDetector {
         }
     }
 
-    private void checkMutation(Alien aliens[], Human humans[]){
+    private void checkMutation(ArrayList<Alien> aliens, ArrayList<Human> humans){
         for(Human human: humans){
             Rectangle humanBox = human.getHitbox();
             for(Alien alien: aliens){
@@ -73,14 +74,14 @@ public class CollisionDetector {
         }
     }
 
-    public CollisionDetector getInstance() {
+    public static CollisionDetector getInstance() {
         if (collisionDetector == null)
             collisionDetector = new CollisionDetector();
         return collisionDetector;
     }
 
-    public void checkAllCollisions(MotherShip motherShip, Alien aliens[], Human humans[], Projectile projectiles[]){
-        checkShipCollisionsWithAllien(motherShip, aliens);
+    public void checkAllCollisions(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans, ArrayList<Projectile>  projectiles){
+        checkShipCollisionsWithAlien(motherShip, aliens);
         checkProjectileCollisionsWithShip(motherShip, projectiles);
         checkMutation(aliens, humans);
         checkProjectileCollisionWithAlien(aliens, projectiles);
