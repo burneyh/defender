@@ -12,60 +12,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MenuUIGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInterface/MenuUIGenerator.java">
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="265">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#797#798#0" expanded="true" />
-                <element signature="e#825#826#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#986#987#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CollisionDetector.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/CollisionDetector/CollisionDetector.java">
+      <file leaf-file-name="SceneGenerator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UserInterface/Scene/SceneGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="e#197#198#0" expanded="true" />
-                <element signature="e#222#223#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-                <element signature="e#727#728#0" expanded="true" />
-                <element signature="e#832#833#0" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameObjects/Projectile.java">
+      <file leaf-file-name="UI_test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/UI_test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="85">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInterface/UI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scene.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInterface/Scene.java">
+      <file leaf-file-name="MenuButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MenuButton.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+              <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -95,6 +78,10 @@
         <option value="$PROJECT_DIR$/src/CollisionDetector/CollisionDetector.java" />
         <option value="$PROJECT_DIR$/src/GameObjects/Projectile.java" />
         <option value="$PROJECT_DIR$/src/UserInterface/MenuUIGenerator.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/MenuButton.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/UI_test.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Scene/SceneGenerator.java" />
       </list>
     </option>
   </component>
@@ -125,32 +112,27 @@
               <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
               <item name="Defender" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="CollisionDetector" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Defender" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameEngine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
               <item name="Defender" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameObjects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Defender" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameObjects" type="462c0819:PsiDirectoryNode" />
-              <item name="GameObject.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
               <item name="Defender" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
+              <item name="Menu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Defender" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
+              <item name="Scene" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -179,14 +161,36 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.UI_test">
+    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UserInterface.Menu.MainMenu" />
+      <module name="Defender" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UserInterface.Menu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="MenuUIGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UserInterface.MenuUIGenerator" />
       <module name="Defender" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="UserInterface.*" />
+          <option name="PATTERN" value="UserInterface.Menu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="UI_test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UserInterface.Menu.UI_test" />
+      <module name="Defender" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UserInterface.Menu.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -232,8 +236,15 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Application.MenuUIGenerator" />
+      <item itemvalue="Application.MainMenu" />
+      <item itemvalue="Application.UI_test" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UI_test" />
+        <item itemvalue="Application.MainMenu" />
         <item itemvalue="Application.MenuUIGenerator" />
       </list>
     </recent_temporary>
@@ -253,7 +264,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -550,20 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/UI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameObjects/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -590,18 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/MenuUIGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameObjects/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -621,6 +605,65 @@
             <element signature="e#832#833#0" expanded="true" />
             <element signature="e#859#860#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/MenuUIGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MenuButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/UI_test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Scene/SceneGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
