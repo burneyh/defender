@@ -10,10 +10,15 @@ public class CollisionDetector {
         Score = 0;
     }
 
+    public static void main(){
+    }
+
     public CollisionDetector getInstance() {
         if (collisionDetector == null) {
             collisionDetector = new CollisionDetector();
         }
+
+
 
         return collisionDetector;
     }
