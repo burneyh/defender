@@ -1,4 +1,4 @@
 package GameObjects;
 
-public class Aliens {
+public class Alien extends GameObject{
 }
