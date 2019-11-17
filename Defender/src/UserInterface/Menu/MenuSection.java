@@ -17,7 +17,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            ft.play(); // TODO Connect ot game engine
         });
 
         MenuButton highScore = new MenuButton("High Score");
