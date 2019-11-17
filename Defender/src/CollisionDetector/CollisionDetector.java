@@ -3,22 +3,13 @@ package CollisionDetector;
 
 import GameObjects.*;
 import java.awt.*;
-import java.util.LinkedList;
 
 
 public class CollisionDetector {
-    private int Score;
     private static CollisionDetector collisionDetector = null;
 
     private CollisionDetector() {
-        Score = 0;
     }
-
-    // to be implemented
-    private void updateScore(int addAmount) {
-        Score += addAmount;
-    }
-
 
     // to be updated;
     private void checkShipCollisionsWithAllien(MotherShip motherShip, Alien aliens[]) {
@@ -28,6 +19,7 @@ public class CollisionDetector {
             if (motherShip.isAlive() && alien.isAlive() && motherBox.intersects(alienBox)){
                 motherShip.kill();
                 alien.kill();
+                break;
             }
         }
     }
