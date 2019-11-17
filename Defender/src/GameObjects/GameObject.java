@@ -74,7 +74,7 @@ class GameObject {
 class Coordinate {
     private int x, y;
 
-    coordinate(int x, int y){
+    public Coordinate(int x, int y){
         this.x = x;
         this.y = y;
     }
