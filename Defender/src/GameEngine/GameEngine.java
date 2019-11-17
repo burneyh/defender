@@ -74,7 +74,7 @@ public class GameEngine {
             if (human.isAlive())
                 tempHumans.add(human);
             else {
-                tempAliens.add(new Mutant(human.getCoordinates()));
+                tempAliens.add(new Mutant(human.getX(), human.getY()));
                 score -= Mutant.SCORE;
             }
         }
