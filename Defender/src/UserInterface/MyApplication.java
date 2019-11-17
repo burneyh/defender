@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class OurApplication extends Application {
+public class MyApplication extends Application {
     private static Scene displayedScene;
     private static Stage primaryStage;
     public final static int WIDTH = 500;
@@ -28,7 +28,7 @@ public class OurApplication extends Application {
     }
 
     private void setPrimaryStage(Stage pStage) {
-        OurApplication.primaryStage = pStage;
+        MyApplication.primaryStage = pStage;
     }
 
     public static void setScene(Scene scene) {

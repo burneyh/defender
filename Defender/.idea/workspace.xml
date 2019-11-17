@@ -168,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.OurApplication">
+  <component name="RunManager" selected="Application.MyApplication">
     <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UserInterface.Menu.MainMenu" />
       <module name="Defender" />
@@ -191,8 +191,8 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="OurApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UserInterface.OurApplication" />
+    <configuration name="MyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UserInterface.MyApplication" />
       <module name="Defender" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -258,11 +258,11 @@
       <item itemvalue="Application.MenuUIGenerator" />
       <item itemvalue="Application.MainMenu" />
       <item itemvalue="Application.UI_test" />
-      <item itemvalue="Application.OurApplication" />
+      <item itemvalue="Application.MyApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OurApplication" />
+        <item itemvalue="Application.MyApplication" />
         <item itemvalue="Application.UI_test" />
         <item itemvalue="Application.MainMenu" />
         <item itemvalue="Application.MenuUIGenerator" />
