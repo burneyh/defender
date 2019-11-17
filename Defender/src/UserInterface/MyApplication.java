@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 
 public class MyApplication extends Application {
     private static Stage primaryStage;
-    public final static int WIDTH = 500;
-    public final static int HEIGHT = 600;
+    public final static int WIDTH = 600;
+    public final static int HEIGHT = 500;
     public static void main(String[] args){
         launch(args);
     }

@@ -1,5 +1,6 @@
 package UserInterface.Menu;
 
+import UserInterface.MyApplication;
 import javafx.animation.FadeTransition;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
@@ -17,7 +18,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play(); // TODO Connect ot game engine
+            ft.play(); // TODO Connect to the game engine
         });
 
         MenuButton highScore = new MenuButton("High Score");
@@ -26,7 +27,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            MyApplication.setScene(HighScore.getInstance());
         });
 
         MenuButton help = new MenuButton("Help");
@@ -35,7 +36,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            MyApplication.setScene(Help.getInstance());
         });
 
         MenuButton about = new MenuButton("About");
@@ -44,7 +45,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            MyApplication.setScene(About.getInstance());
         });
 
         MenuButton exit = new MenuButton("Exit");
@@ -55,16 +56,6 @@ public class MenuSection extends Parent {
             ft.setOnFinished(e -> setVisible(false));
             ft.play();
             System.exit(0);
-        });
-
-
-        MenuButton btnResume = new MenuButton("RESUME");
-        btnResume.setOnMouseClicked(event -> {
-            FadeTransition ft = new FadeTransition(Duration.seconds(0.5), this);
-            ft.setFromValue(1);
-            ft.setToValue(0);
-            ft.setOnFinished(e -> setVisible(false));
-            ft.play();
         });
 
         menu1.getChildren().addAll(play, highScore, help, about, exit);

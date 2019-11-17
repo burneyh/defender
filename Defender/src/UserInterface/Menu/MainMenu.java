@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
-import javafx.animation.FadeTransition;
+import UserInterface.MyApplication;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -8,17 +9,14 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
-
-import static com.sun.glass.ui.Cursor.setVisible;
 
 public class MainMenu extends Scene {
     private static MainMenu menuInstance;
     private MainMenu(Pane root){
-        super(root);
+        super(root,MyApplication.WIDTH, MyApplication.HEIGHT );
         // Initialize window width and height
-        int windowWidth = 600;
-        int windowHeight = 500;
+        int windowWidth = MyApplication.WIDTH;
+        int windowHeight = MyApplication.HEIGHT;
 
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
@@ -33,19 +31,12 @@ public class MainMenu extends Scene {
 
         // Main Headline
         Text text = new Text("DEFENDER");
-        text.setTranslateX(150);
-        text.setTranslateY(125);
+        text.setTextOrigin(VPos.TOP);
+        text.setX(this.getWidth() / 2 - text.getLayoutBounds().getWidth() * 2.5);
+        text.setY(this.getHeight()/6);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
         text.setFill(Color.WHITE);
         root.getChildren().add(text);
-
-        text.setOnMouseClicked(event -> {
-            FadeTransition ft = new FadeTransition(Duration.seconds(0.5), text);
-            ft.setFromValue(1);
-            ft.setToValue(0);
-            ft.setOnFinished(e -> setVisible(false));
-            ft.play();
-        });
 
 
         MenuSection menuSection = new MenuSection();
