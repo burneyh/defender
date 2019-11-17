@@ -29,7 +29,7 @@ public class MenuSection extends Parent {
             r.setWidth(200);
             root.getChildren().add(r);
             Scene s = new Scene(root);
-            OurApplication.setScene(s, );
+            OurApplication.setScene(s);
         });
 
         MenuButton highScore = new MenuButton("High Score");
