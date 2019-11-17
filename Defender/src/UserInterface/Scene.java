@@ -1,4 +1,4 @@
 package UserInterface;
 
-public class MainMenu{
+public class Scene {
 }
