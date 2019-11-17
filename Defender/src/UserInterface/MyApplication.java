@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MyApplication extends Application {
-    private static Scene displayedScene;
     private static Stage primaryStage;
     public final static int WIDTH = 500;
     public final static int HEIGHT = 600;
@@ -18,17 +17,8 @@ public class MyApplication extends Application {
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
         stage.setTitle("DEFENDER");
-        displayedScene = MainMenu.getInstance();
-        primaryStage.setScene(displayedScene);
+        setScene( MainMenu.getInstance());
         primaryStage.show();
-    }
-
-    public static Stage getPrimaryStage() {
-        return primaryStage;
-    }
-
-    private void setPrimaryStage(Stage pStage) {
-        MyApplication.primaryStage = pStage;
     }
 
     public static void setScene(Scene scene) {
