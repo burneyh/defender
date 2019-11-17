@@ -1,10 +1,10 @@
 package GameEngine;
 
 import java.util.ArrayList;
-
+import GameObjects.*;
 
 public class GameEngine {
     private GameEngine(){
-        ArrayList<GameObjects> aliens = new ArrayList<Aliens>();
+        ArrayList<Aliens> aliens = new ArrayList<Aliens>();
     }
 }
