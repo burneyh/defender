@@ -21,7 +21,7 @@ public class MotherShip extends GameObject{
         up = 0;
         down = 0;
 
-        loadImage("/Defender/src/UserInterface/Icons/001-rocket.png");
+        loadImage("res/Icons/001-rocket.png");
         getImageDimensions();
     }
     public void updateScore(int score){

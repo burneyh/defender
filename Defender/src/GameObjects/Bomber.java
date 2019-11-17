@@ -4,7 +4,7 @@ public class Bomber extends Alien{
     public Bomber(int x, int y) {
         super(x, y);
         points = 100;
-        loadImage("/Defender/src/UserInterface/Icons/005-airplane.png");
+        loadImage("res/Icons/005-airplane.png");
         getImageDimensions();
     }
     public int getScore() {return points;}

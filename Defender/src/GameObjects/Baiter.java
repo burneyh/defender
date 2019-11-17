@@ -5,7 +5,7 @@ public class Baiter extends Alien{
     public Baiter(int x, int y) {
         super(x, y);
         points = 50;
-        loadImage("/Defender/src/UserInterface/Icons/monster.png");
+        loadImage("res/Icons/monster.png");
         getImageDimensions();
     }
     public int getScore() {return points;}
