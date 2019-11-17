@@ -5,6 +5,6 @@ import GameObjects.*;
 
 public class GameEngine {
     private GameEngine(){
-        ArrayList<Aliens> aliens = new ArrayList<Aliens>();
+        ArrayList<Alien> aliens = new ArrayList<Alien>();
     }
 }
