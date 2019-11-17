@@ -1,7 +1,6 @@
 package GameObjects;
 
-import javafx.scene.image.*;
-import javafx.scene.shape.Rectangle;
+import java.awt.*;
 
 class GameObject {
     private Coordinate coordinates;

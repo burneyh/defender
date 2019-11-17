@@ -2,7 +2,8 @@ package CollisionDetector;
 
 
 import GameObjects.*;
-import javafx.scene.shape.Rectangle;
+import java.awt.*;
+import java.util.LinkedList;
 
 
 public class CollisionDetector {
@@ -10,7 +11,6 @@ public class CollisionDetector {
     private static CollisionDetector collisionDetector = null;
 
     private CollisionDetector() {
-
         Score = 0;
     }
 
@@ -26,15 +26,48 @@ public class CollisionDetector {
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
 
+            if (motherBox.intersects(alienBox)){
+                motherShip.kill();
+                alien.kill();
+            }
+        }
+    }
+
+    private void checkProjectileCollisionsWithShip(MotherShip motherShip, Projectile projectiles[]) {
+        Rectangle motherBox = motherShip.getHitbox();
+
+        for(Projectile projectile: projectiles){
+            Rectangle projectileBox = projectile.getHitbox();
+            if(projectileBox.intersects(motherBox)){
+                int damage = projectile.getDamage();
+                motherShip.updateHealth(damage);
+
+                if(motherShip.getHealth() <= 0){
+                    motherShip.kill();
+                }
+                projectile.kill();
+            }
+        }
+    }
+
+
+    private void checkProjectileCollisionWithAlien(Alien aliens[], Projectile projectiles[]){
+        for(Alien alien: aliens){
+            Rectangle alienBox = alien.getHitbox();
+
+            for(Projectile projectile: projectiles){
+                Rectangle projectileBox = projectile.getHitbox();
+//                if(projectileBox.intersects(alienBox) && (projectile instanceof  ShipProjectile)){
+//                    alien.kill();
+//                    projectile.kill();
+//                }
+            }
 
         }
     }
 
-    private void checkProjectileCollisionsWithShip(MotherShip motherShip, Projectile projectile[]) {}
-
-    private void checkMutation(Alien aliens[]){}
-
-    private void checkProjectileCollisionWithAlien(Alien aliens[], Projectile projectiles[]){}
+    private void checkMutation(Alien aliens[]){
+    }
 
     public CollisionDetector getInstance() {
         if (collisionDetector == null)
