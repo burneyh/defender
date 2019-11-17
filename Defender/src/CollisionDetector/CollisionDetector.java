@@ -25,7 +25,7 @@ public CollisionDetector{
     }
 
     private Boolean checkShipCollisionsWithAllien(Mothership motherShip, Aliens aliens[]){
-
+        
     }
 
     private Boolean checkProjectileCollisionsWithShip(Mothership motherShip, Projectile projectile[])
