@@ -11,9 +11,6 @@ public class CollisionDetector {
         Score = 0;
     }
 
-    public static void main(){
-    }
-
     public CollisionDetector getInstance() {
         if (collisionDetector == null) {
             collisionDetector = new CollisionDetector();
@@ -23,16 +20,22 @@ public class CollisionDetector {
 
     // to be implemented
     private void updateScore() {
-//        if (checkProjectileCollisionsWithShip()) {
+
+        //        if (checkProjectileCollisionsWithShip()) {
 //            Score++;
 //        }
+
+
     }
 
-    private Boolean checkShipCollisionsWithAllien(MotherShip motherShip, Aliens aliens[]) {
+    private Boolean checkShipCollisionsWithAllien(MotherShip motherShip, Alien aliens[]) {
         return true;
     }
 
     private Boolean checkProjectileCollisionsWithShip(MotherShip motherShip, Projectile projectile[]) {
         return true;
     }
+
+    private Boolean checkMutation(Alien aliens){return true;}
+
 }
