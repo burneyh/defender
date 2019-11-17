@@ -8,7 +8,7 @@ import javafx.util.Duration;
 public class MenuSection extends Parent {
     public MenuSection(){
         VBox menu1 = new VBox(10);
-        menu1.setTranslateX(220);
+        menu1.setTranslateX(210);
         menu1.setTranslateY(150);
 
         MenuButton play = new MenuButton("Play");

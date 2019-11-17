@@ -1,9 +1,6 @@
 package UserInterface.Menu;
 
 import javafx.geometry.Pos;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.GaussianBlur;
-import javafx.scene.effect.Glow;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
