@@ -1,4 +1,6 @@
 package GameObjects;
 
-public class MotherShip {
+public class MotherShip extends GameObject{
+
+    
 }
