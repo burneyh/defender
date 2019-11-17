@@ -1,15 +1,24 @@
 package GameObjects;
-
 import java.awt.*;
+//import javafx.scene.image.*;
+//import javafx.scene.shape.Rectangle;
+import javax.swing.ImageIcon;
 
-public class GameObject {
+
+
+
+class GameObject {
+    public final static  int RIGHT = 0;
+    public final static int LEFT = 1;
+
     private Coordinate coordinates;
     private int width, height, speed;
-    private Boolean alive;
+    private boolean alive;
     private Image image;
     private Rectangle hitbox;
 
     public GameObject(){
+
     }
 
     public GameObject(int x, int y) {
@@ -17,7 +26,7 @@ public class GameObject {
         coordinates.setY(0);
         setSpeed(10);
         alive = true;
-        hitbox = new Rectangle(x, y, width, height);
+
     }
 
     public GameObject(int x, int y, int speed) {
@@ -25,23 +34,27 @@ public class GameObject {
         coordinates.setY(y);
         setSpeed(speed);
         alive = true;
-        hitbox = new Rectangle(x, y, width, height);
     }
 
     protected void getImageDimensions() {
-//        width = image.getWidth();
-//        height = image.getHeight();
+        width = image.getWidth(null);
+        height = image.getHeight(null);
+        hitbox = new Rectangle(coordinates.getX(), coordinates.getY(), width, height);
     }
 
     protected void loadImage(String imageName) {
-//        ImageIcon icon = new ImageIcon(imageName);
-//        image = icon.getImage();
+        ImageIcon icon = new ImageIcon(imageName);
+        image = icon.getImage();
+
     }
 
     public Rectangle getHitbox() {
         return hitbox;
     }
 
+    public Coordinate getCoordinates(){
+        return coordinates;
+    }
     public Image getImage() {
         return image;
     }
@@ -49,7 +62,9 @@ public class GameObject {
     public void kill() {
         alive = false;
     }
-
+    public boolean isAlive(){
+        return alive;
+    }
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -63,10 +78,6 @@ public class GameObject {
     }
 
     // to be implemented
-    public boolean isAlive(){
-        return true;
-    }
-
     public void move() {
 
     }
@@ -92,4 +103,7 @@ class Coordinate {
     public void setY(int y) {
         this.y = y;
     }
+    public int getX(){return x;}
+    public int getY(){return y;}
 }
+
