@@ -1,17 +1,17 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet dui placerat, 
-consequat massa maximus, consequat nulla. Nullam sodales lectus eget dolor efficitur aliquet. 
-Fusce pellentesque mi non elit pulvinar eleifend. Donec et nibh tincidunt, tincidunt massa ut, 
-condimentum magna. Maecenas consequat sollicitudin volutpat. Duis non consectetur ex, sit amet 
-tempus nulla. Nam vehicula lorem in vehicula fermentum. Suspendisse sodales accumsan nulla, 
-eget ultricies sem aliquet ut. Suspendisse tincidunt lorem vitae euismod eleifend. Vestibulum 
-finibus congue justo ut ullamcorper. Ut ligula massa, finibus eu risus a, elementum cursus dui. 
-Sed condimentum erat a nisl facilisis facilisis. Nunc scelerisque finibus massa, vel convallis 
-erat convallis nec.
-Aenean pellentesque finibus ex nec luctus. Phasellus congue, arcu quis viverra sodales, 
-sapien nibh maximus mi, in ornare urna ante ut tellus. Phasellus laoreet posuere tortor et 
-molestie. Maecenas suscipit libero quis quam pretium scelerisque. Nunc ut ornare libero, 
-non egestas libero. Fusce vel fermentum felis. Curabitur dictum malesuada mi, nec rhoncus 
-lacus laoreet ut. Aenean imperdiet, velit in semper sodales, mi nunc euismod purus, in vestibulum 
-sapien dui nec ipsum. Fusce eget tempor lorem. Suspendisse feugiat quam sodales tortor convallis
- feugiat. Nullam sit amet ultrices massa, eget ornare tellus. Vestibulum non nibh dolor. Donec 
-sollicitudin quis enim vel sollicitudin. Sed id semper odio. Nam ut diam neque. 
+Defender is based on the classic 1981 arcade game of the same name developed by
+Williams Electronics. It was the company’s most popular game selling over 55,000
+units and praised for its gameplay and audio-visuals at the time [1]. This desktop
+based version tasks a single player to control a spacecraft and prevent aliens
+from turning humans living on a planet into mutants. The player must try to save
+as many souls as possible from each wave of aliens.
+
+Developers:
+    1 - Hanzallah Azim Burney
+    2 - Abdul Hamid Dabboussi
+    3 - Perman Atayev
+    4 - Endri Suknaj
+    5 - Gledis Zeneli
+
+[1] “Defender (1981 video game),” Wikipedia, 18-Sep-2019. [Online].
+     Available: https://en.wikipedia.org/wiki/Defender_(1981_video_game).
+     [Accessed: 10-Oct-2019].

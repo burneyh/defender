@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import java.io.BufferedReader;
@@ -38,6 +40,16 @@ public class About extends Scene {
         // Add background to root
         root.getChildren().add(bg);
 
+        // Main Headline
+        Text text = new Text("About");
+        text.setTextOrigin(VPos.TOP);
+        text.setY(10);
+        text.setX(200);
+        text.setY(this.getHeight()/6);
+        text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
+        text.setFill(Color.WHITE);
+        root.getChildren().add(text);
+
         // Back Button
         try{
             // https://www.flaticon.com/authors/freepik
@@ -57,15 +69,17 @@ public class About extends Scene {
         Text ta = new Text();
         try{
             File input = new File("src/UserInterface/TextFiles/about.txt");
-            BufferedReader br = new BufferedReader(new FileReader(input));
+            FileReader fr = new FileReader(input);
+            BufferedReader br = new BufferedReader(fr);
 
             StringBuilder sb = new StringBuilder();
-            while (br.readLine() != null){
-                sb.append(br.readLine());
+            String st;
+            while ((st = br.readLine()) != null){
+                sb.append(st);
                 sb.append('\n');
             }
-            System.out.println(sb);
-            ta.setY(200);
+            ta.setTranslateX(15);
+            ta.setY(75);
             ta.setFont(new Font("Arial", 16));
             ta.setFill(Color.WHITE);
             ta.setText(sb.toString());
@@ -76,9 +90,6 @@ public class About extends Scene {
         }
 
         root.getChildren().add(ta);
-
-
-        // TODO
     }
 
     public static About getInstance(){
