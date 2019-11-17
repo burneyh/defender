@@ -5,6 +5,6 @@ import java.util.ArrayList;
 
 public class GameEngine {
     private GameEngine(){
-        ArrayList<GameObjects> aliens = new ArrayList<Aliens>();
+        ArrayList<GameObject> aliens = new ArrayList<Aliens>();
     }
 }
