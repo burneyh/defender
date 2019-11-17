@@ -1,8 +1,13 @@
 package UserInterface.Menu;
 
+import UserInterface.OurApplication;
 import javafx.animation.FadeTransition;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class MenuSection extends Parent {
@@ -17,7 +22,14 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            Pane root = new Pane();
+            Rectangle r = new Rectangle();
+            r.setFill(Color.RED);
+            r.setHeight(200);
+            r.setWidth(200);
+            root.getChildren().add(r);
+            Scene s = new Scene(root);
+            OurApplication.setScene(s, );
         });
 
         MenuButton highScore = new MenuButton("High Score");

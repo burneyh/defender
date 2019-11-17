@@ -6,9 +6,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class OurApplication extends Application {
-    private Scene displayedScene;
-    public static int globalWidth = 500;
-    public static int globalHeight = 600;
+    private static Scene displayedScene;
+    public final static int globalWidth = 500;
+    public final static int globalHeight = 600;
     public static void main(String[] args){
         launch(args);
     }
@@ -16,12 +16,12 @@ public class OurApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("DEFENDER");
-        setScene(MainMenu.getInstance());
+        displayedScene = MainMenu.getInstance();
         stage.setScene(displayedScene);
         stage.show();
     }
 
-    public void setScene(Scene scene) {
-        this.displayedScene = scene;
+    public static void setScene(Scene scene) {
+        OurApplication..setScene(scene);
     }
 }

@@ -59,5 +59,4 @@ public class MainMenu extends Scene {
         }
         return menuInstance;
     }
-
 }
