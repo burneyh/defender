@@ -10,6 +10,10 @@ class GameObject {
     private Image image;
     private Rectangle hitbox;
 
+    public GameObject(){
+
+    }
+
     public GameObject(int x, int y) {
         coordinates.setX(0);
         coordinates.setY(0);
