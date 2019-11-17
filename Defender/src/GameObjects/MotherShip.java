@@ -12,7 +12,7 @@ public class MotherShip extends GameObject{
     private int up;
     private int down;
 
-    public MotherShip(){
+    private MotherShip(){
         super(300, 250);
         health = 100;
         score = 0;
