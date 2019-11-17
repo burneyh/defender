@@ -77,6 +77,14 @@ class GameObject {
         coordinates.setY(y);
     }
 
+    public int getX() {
+        return coordinates.getX();
+    }
+
+    public int getY() {
+        return coordinates.getY();
+    }
+
     // to be implemented
     public void move() {
 

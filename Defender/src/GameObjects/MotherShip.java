@@ -2,14 +2,15 @@ package GameObjects;
 
 public class MotherShip extends GameObject{
 
+    private static MotherShip motherShip = null;
 
-    int health;
-    int score;
-    int direction;
-    int left;
-    int right;
-    int up;
-    int down;
+    private int health;
+    private int score;
+    private int direction;
+    private int left;
+    private int right;
+    private int up;
+    private int down;
 
     public MotherShip(){
         super(300, 250);
@@ -34,7 +35,9 @@ public class MotherShip extends GameObject{
     public int getDirection() {
         return direction;
     }
-    public MotherShip getinstance() {
-        return this;
+    public static MotherShip getInstance() {
+        if (motherShip == null)
+            motherShip = new MotherShip();
+        return motherShip;
     }
 }

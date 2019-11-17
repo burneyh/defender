@@ -1,10 +1,15 @@
 package GameObjects;
 
 public class Mutant extends Alien {
+    public static final int SCORE = 200;
+
     public Mutant(int x, int y) {
+
         super(x, y);
         points = 200;
+
         loadImage("res/Icons/006-mutant.png");
+
         getImageDimensions();
     }
 
