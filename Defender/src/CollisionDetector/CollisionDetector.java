@@ -18,17 +18,14 @@ public class CollisionDetector {
         if (collisionDetector == null) {
             collisionDetector = new CollisionDetector();
         }
-
-
-
         return collisionDetector;
     }
 
     // to be implemented
     private void updateScore() {
-        if (checkProjectileCollisionsWithShip()) {
-            Score++;
-        }
+//        if (checkProjectileCollisionsWithShip()) {
+//            Score++;
+//        }
     }
 
     private Boolean checkShipCollisionsWithAllien(MotherShip motherShip, Aliens aliens[]) {
