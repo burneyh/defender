@@ -5,8 +5,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
-import java.util.ArrayList;
-
 public class MenuUIGenerator extends Application {
 
     public void generateHelpUI(){}
@@ -21,6 +19,9 @@ public class MenuUIGenerator extends Application {
         Pane root = new Pane();
         root.setPrefSize(800,600);
         Scene scene  = new Scene(root);
+
+
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }
