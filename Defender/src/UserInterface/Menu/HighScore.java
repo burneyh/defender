@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -30,13 +30,31 @@ public class HighScore extends Scene {
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
 
-        // Main Menu Background
-        Rectangle bg = new Rectangle(windowWidth,windowHeight);
-        Color gameCol = Color.rgb(38,6,71);
-        bg.setFill(gameCol);
+//        // Main Menu Background
+//        Rectangle bg = new Rectangle(windowWidth,windowHeight);
+//        Color gameCol = Color.rgb(38,6,71);
+//        bg.setFill(gameCol);
+//
+//        // Add background to root
+//        root.getChildren().add(bg);
 
-        // Add background to root
-        root.getChildren().add(bg);
+        try{
+            FileInputStream input = new FileInputStream("res/bg_image.jpg");
+            // create a image
+            Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+
+            // create a background image
+            BackgroundImage backgroundimage = new BackgroundImage(image,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            Background background = new Background(backgroundimage);
+            root.setBackground(background);
+        }
+        catch(Exception e){
+
+        }
 
         // Main Headline
         Text text = new Text("High Scores");
@@ -50,11 +68,12 @@ public class HighScore extends Scene {
 
         // Back Button
         try{
-            // https://www.flaticon.com/authors/freepik
-            FileInputStream input = new FileInputStream("res/back-button.png"); // TODO
-            Image image = new Image(input);
+            FileInputStream input = new FileInputStream("res/back-button.png");
+            Image image = new Image(input, 20,20, false,false);
             ImageView imageView = new ImageView(image);
             Button back = new Button("", imageView);
+            back.setStyle("-fx-background-color:transparent");
+            back.setTranslateY(10);
             back.setOnAction(e -> {
                 MyApplication.setScene(MainMenu.getInstance());
             });
@@ -72,13 +91,15 @@ public class HighScore extends Scene {
 
             StringBuilder sb = new StringBuilder();
             String st;
+            sb.append("NAME ---------- SCORE");
+            sb.append("\n");
             while ((st = br.readLine()) != null){
                 sb.append(st);
                 sb.append('\n');
             }
             ta.setTranslateX(150);
             ta.setY(100);
-            ta.setFont(new Font("Arial", 20));
+            ta.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
             ta.setFill(Color.WHITE);
             ta.setText(sb.toString());
 

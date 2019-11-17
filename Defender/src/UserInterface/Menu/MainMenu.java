@@ -3,12 +3,15 @@ package UserInterface.Menu;
 import UserInterface.MyApplication;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+
+import java.io.FileInputStream;
 
 public class MainMenu extends Scene {
     private static MainMenu menuInstance;
@@ -22,12 +25,31 @@ public class MainMenu extends Scene {
         root.setPrefSize(windowWidth,windowHeight);
 
         // Main Menu Background
-        Rectangle bg = new Rectangle(windowWidth,windowHeight);
-        Color gameCol = Color.rgb(38,6,71);
-        bg.setFill(gameCol);
+//        Rectangle bg = new Rectangle(windowWidth,windowHeight);
+//        Color gameCol = Color.rgb(38,6,71);
+//        bg.setFill(gameCol);
 
         // Add background to root
-        root.getChildren().add(bg);
+        try{
+            FileInputStream input = new FileInputStream("res/bg_image.jpg");
+
+            // create a image
+            Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+
+            // create a background image
+            BackgroundImage backgroundimage = new BackgroundImage(image,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            Background background = new Background(backgroundimage);
+            root.setBackground(background);
+        }
+        catch(Exception e){
+
+        }
+
+//        root.getChildren().add(bg);
 
         // Main Headline
         Text text = new Text("DEFENDER");
