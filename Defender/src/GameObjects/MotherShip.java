@@ -42,7 +42,7 @@ public class MotherShip extends GameObject{
     }
 
     public void move(moveDirection d){
-        switch(direction){
+        switch(d){
             case UP:
                 setY(getY() - this.getSpeed());
                 break;
@@ -50,10 +50,12 @@ public class MotherShip extends GameObject{
                 setY(getY() + this.getSpeed());
                 break;
             case LEFT:
-                setX(getX() + this.getSpeed());
+                setX(getX() - this.getSpeed());
+                direction = moveDirection.LEFT;
                 break;
             case RIGHT:
-                setX(getX() - this.getSpeed());
+                setX(getX() + this.getSpeed());
+                direction = moveDirection.RIGHT;
                 break;
         }
 
@@ -65,6 +67,10 @@ public class MotherShip extends GameObject{
     }
 
     public Projectile fire(){
-        return new ShipProjectile(this.getCoordinates(), this.getDirection());
+        int x = this.getCoordinates().getX();
+        int y = this.getCoordinates().getY();
+        Coordinate ship_Coordinate = new Coordinate(x,y);
+        moveDirection newDirection = this.getDirection();
+        return new ShipProjectile(ship_Coordinate, newDirection);
     }
 }

@@ -5,7 +5,7 @@ import UserInterface.MyApplication;
 import java.util.Random;
 
 public class Alien extends GameObject {
-    protected double moveConstTime = 200;
+    protected double moveConstTime = 20;
 
 
     int points;
@@ -29,8 +29,8 @@ public class Alien extends GameObject {
         Random direction = new Random();
         int ans = direction.nextInt(4) + 1;
         double currentTime = System.currentTimeMillis();
-        double movedTime = currentTime;
-        if((currentTime - movedTime) >= moveConstTime){
+        double movedTime = System.currentTimeMillis();
+        if((movedTime - currentTime) >= moveConstTime){
             if(ans == 1 && getX()< MyApplication.WIDTH )
                 move(moveDirection.RIGHT);
             else if (ans == 1 && getX() == MyApplication.WIDTH)

@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 //import javafx.scene.shape.Rectangle;
 
 class GameObject {
-    public enum moveDirection {LEFT, RIGHT, UP, DOWN}
+    public static enum moveDirection {LEFT, RIGHT, UP, DOWN}
     private Coordinate coordinates;
     private int width, height, speed;
     private boolean alive;
@@ -54,6 +54,7 @@ class GameObject {
     }
 
     public Rectangle getHitbox() {
+        hitbox = new Rectangle(coordinates.getX(), coordinates.getY(), width, height);
         return hitbox;
     }
 

@@ -7,7 +7,7 @@ public class Projectile extends GameObject {
 
     public Projectile(int x, int y){
         super(x, y);
-        setSpeed(15);
+        setSpeed(2);
     }
 
     public int getDamage() {
@@ -21,10 +21,10 @@ public class Projectile extends GameObject {
     public void move(moveDirection direction){
         switch(direction){
             case LEFT:
-                setY(getX() + this.getSpeed());
+                setX(getX() - this.getSpeed());
                 break;
             case RIGHT:
-                setY(getX() - this.getSpeed());
+                setX(getX() + this.getSpeed());
                 break;
         }
 
