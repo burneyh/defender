@@ -167,6 +167,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     private void gameOver(){
+        // high score
         MyApplication.setScene(GameOver.getInstance());
     }
 
