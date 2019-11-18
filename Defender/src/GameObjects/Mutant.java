@@ -8,9 +8,9 @@ public class Mutant extends Alien {
         super(x, y);
         points = 200;
 
-        loadImage("res/Icons/006-mutant.png");
-
-        getImageDimensions();
+//        loadImage(null);
+//
+//        getImageDimensions();
     }
 
     public int getScore() {return points;}

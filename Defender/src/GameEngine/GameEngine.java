@@ -107,8 +107,9 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (Alien alien : aliens) {
             if (alien.isAlive())
                 tempAliens.add(alien);
-            else
+            else {
                 score += alien.getScore();
+            }
         }
 
         //remove projectile
