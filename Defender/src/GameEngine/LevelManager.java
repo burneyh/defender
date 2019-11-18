@@ -2,6 +2,11 @@ package GameEngine;
 
 public class LevelManager {
 
+    private final static int HUMAN_NO_INIT = 5;
+    private final static int LANDER_NO_INIT = 5;
+    private final static int BOMBER_NO_INIT = 1;
+    private final static int BAITER_NO_INIT = 1;
+
     private static LevelManager levelManager = null;
 
     private int currentLevel;
@@ -13,9 +18,14 @@ public class LevelManager {
 
     private LevelManager(){
         currentLevel = 1;
-        numOfHumans = 5;
-        numOfLanders = 8;
-        numOfBombers = 1;
+        numOfHumans = HUMAN_NO_INIT;
+        numOfLanders = LANDER_NO_INIT;
+        numOfBombers = BOMBER_NO_INIT;
+        numOfBaiters = BAITER_NO_INIT;
+    }
+
+    public static void renew(){
+        levelManager = null;
     }
 
     public static LevelManager getInstance(){
@@ -24,10 +34,11 @@ public class LevelManager {
         return levelManager;
     }
 
-    public void increaseAliens(){
-        numOfHumans += (int)(currentLevel * 0.3);
-        numOfBombers += (int)(currentLevel * 0.3);
-        numOfLanders += (int)(currentLevel * 1.27);
+    private void increaseAliens(){
+        numOfHumans = HUMAN_NO_INIT + (int)(currentLevel * 0.8);
+        numOfBombers = BOMBER_NO_INIT + (int)(currentLevel * 1.3);
+        numOfLanders = LANDER_NO_INIT + (int)(currentLevel * 0.8);
+        numOfBaiters = BAITER_NO_INIT + (int)(currentLevel * 0.8);
     }
 
     public int getNumOfHumans() {
@@ -48,5 +59,6 @@ public class LevelManager {
 
     public void incrementLevel() {
         currentLevel++;
+        increaseAliens();
     }
 }

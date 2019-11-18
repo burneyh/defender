@@ -41,6 +41,10 @@ public class MotherShip extends GameObject{
         return motherShip;
     }
 
+    public static void renew() {
+        motherShip = null;
+    }
+
     public void move(moveDirection d){
         switch(d){
             case UP:
