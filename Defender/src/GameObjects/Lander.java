@@ -18,9 +18,8 @@ public class Lander extends Alien {
         points = 150;
         loadImage("Icons/002-lander.png");
         getImageDimensions();
+        this.move();
     }
     public int getScore() {return points;}
-    public void move() {
 
-    }
 }

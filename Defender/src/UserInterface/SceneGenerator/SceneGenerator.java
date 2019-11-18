@@ -49,8 +49,6 @@ public class SceneGenerator extends Scene {
         bgImage = new Image("bg_image.jpg");
 
         root.getChildren().add(canvas);
-
-        createMap(null, null, null);
     }
 
     public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
@@ -61,5 +59,17 @@ public class SceneGenerator extends Scene {
                           ArrayList<Projectile> projectiles, int score) {
         graphics.drawImage(bgImage, 0, 0, width, height);
         graphics.fillText("Score: " + score, 15, 35);
+
+        graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
+
+        for(Alien alien : aliens)
+            graphics.drawImage(alien.getImage(), alien.getX() - 15, alien.getY() - 15);
+
+        for(Human human : humans)
+            graphics.drawImage(human.getImage(), human.getX() - 15, human.getY() - 15);
+
+        if(projectiles != null)
+            for(Projectile projectile : projectiles)
+                graphics.drawImage(projectile.getImage(), projectile.getX() - 15, projectile.getY() - 15);
     }
 }

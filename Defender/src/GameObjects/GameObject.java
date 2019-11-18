@@ -60,6 +60,7 @@ class GameObject {
     public Coordinate getCoordinates(){
         return coordinates;
     }
+
     public Image getImage() {
         return image;
     }
@@ -67,9 +68,11 @@ class GameObject {
     public void kill() {
         alive = false;
     }
+
     public boolean isAlive(){
         return alive;
     }
+
     public void setSpeed(int speed) {
         this.speed = speed;
     }

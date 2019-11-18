@@ -7,6 +7,7 @@ public class Baiter extends Alien{
         points = 50;
         loadImage("Icons/monster.png");
         getImageDimensions();
+        this.move();
     }
     public int getScore() {return points;}
 
