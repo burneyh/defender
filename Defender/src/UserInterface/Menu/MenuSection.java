@@ -1,15 +1,27 @@
 package UserInterface.Menu;
 
+import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.FadeTransition;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 public class MenuSection extends Parent {
-    public MenuSection(){
+    public MenuSection(boolean isPause){
         VBox menu1 = new VBox(10);
         menu1.setTranslateX(210);
         menu1.setTranslateY(150);
+
+        MenuButton resume = new MenuButton("Resume");
+        resume.setOnMouseClicked(event -> {
+            FadeTransition ft = new FadeTransition(Duration.seconds(0.5), this);
+            ft.setFromValue(1);
+            ft.setToValue(0);
+            ft.setOnFinished(e -> setVisible(false));
+            MyApplication.setScene(SceneGenerator.getInstance());
+            MyApplication.ge.refresh();
+        });
 
         MenuButton play = new MenuButton("Play");
         play.setOnMouseClicked(event -> {
@@ -17,7 +29,8 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play(); // TODO Connect ot game engine
+            MyApplication.setScene(SceneGenerator.getInstance());
+            MyApplication.ge.createUniverse();
         });
 
         MenuButton highScore = new MenuButton("High Score");
@@ -26,7 +39,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            MyApplication.setScene(HighScore.getInstance());
         });
 
         MenuButton help = new MenuButton("Help");
@@ -35,7 +48,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            MyApplication.setScene(Help.getInstance());
         });
 
         MenuButton about = new MenuButton("About");
@@ -44,7 +57,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play();
+            MyApplication.setScene(About.getInstance());
         });
 
         MenuButton exit = new MenuButton("Exit");
@@ -57,17 +70,11 @@ public class MenuSection extends Parent {
             System.exit(0);
         });
 
+        if (isPause == false)
+            menu1.getChildren().addAll(play, highScore, help, about, exit);
+        else
+            menu1.getChildren().addAll(resume, play, highScore, help, about, exit);
 
-        MenuButton btnResume = new MenuButton("RESUME");
-        btnResume.setOnMouseClicked(event -> {
-            FadeTransition ft = new FadeTransition(Duration.seconds(0.5), this);
-            ft.setFromValue(1);
-            ft.setToValue(0);
-            ft.setOnFinished(e -> setVisible(false));
-            ft.play();
-        });
-
-        menu1.getChildren().addAll(play, highScore, help, about, exit);
         getChildren().addAll(menu1);
     }
 }

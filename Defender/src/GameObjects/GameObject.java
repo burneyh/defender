@@ -1,23 +1,27 @@
 package GameObjects;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.*;
+import javafx.scene.shape.Rectangle;
 
-import java.awt.*;
+import java.io.FileInputStream;
+//import javafx.scene.shape.Rectangle;
 
 class GameObject {
+    public final static  int RIGHT = 0;
+    public final static int LEFT = 1;
+
     private Coordinate coordinates;
     private int width, height, speed;
-    private Boolean alive;
+    private boolean alive;
     private Image image;
     private Rectangle hitbox;
 
-    public GameObject(){
-    }
 
     public GameObject(int x, int y) {
-        coordinates.setX(0);
-        coordinates.setY(0);
+        coordinates = new Coordinate(x, y);
         setSpeed(10);
         alive = true;
-        hitbox = new Rectangle(x, y, width, height);
+
     }
 
     public GameObject(int x, int y, int speed) {
@@ -25,23 +29,38 @@ class GameObject {
         coordinates.setY(y);
         setSpeed(speed);
         alive = true;
-        hitbox = new Rectangle(x, y, width, height);
+    }
+
+    public GameObject() {
+        coordinates = new Coordinate((int)(Math.random()) * 500, 470);
+        setSpeed(10);
+        alive = true;
     }
 
     protected void getImageDimensions() {
-//        width = image.getWidth();
-//        height = image.getHeight();
+        width = (int)image.getWidth();
+        height = (int)image.getHeight();
+        hitbox = new Rectangle(coordinates.getX(), coordinates.getY(), width, height);
     }
 
     protected void loadImage(String imageName) {
-//        ImageIcon icon = new ImageIcon(imageName);
-//        image = icon.getImage();
+        try{
+            FileInputStream inputStream = new FileInputStream(imageName);
+            image = new Image(inputStream, 30, 30, false, false);
+        }
+        catch (Exception e){
+            System.out.println("File Not Found!");
+        }
+
     }
 
     public Rectangle getHitbox() {
         return hitbox;
     }
 
+    public Coordinate getCoordinates(){
+        return coordinates;
+    }
     public Image getImage() {
         return image;
     }
@@ -49,7 +68,9 @@ class GameObject {
     public void kill() {
         alive = false;
     }
-
+    public boolean isAlive(){
+        return alive;
+    }
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -62,11 +83,15 @@ class GameObject {
         coordinates.setY(y);
     }
 
-    // to be implemented
-    public boolean isAlive(){
-        return true;
+    public int getX() {
+        return coordinates.getX();
     }
 
+    public int getY() {
+        return coordinates.getY();
+    }
+
+    // to be implemented
     public void move() {
 
     }
@@ -92,4 +117,7 @@ class Coordinate {
     public void setY(int y) {
         this.y = y;
     }
+    public int getX(){return x;}
+    public int getY(){return y;}
 }
+
