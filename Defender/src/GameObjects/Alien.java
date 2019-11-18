@@ -74,7 +74,7 @@ public class Alien extends GameObject {
 
     private int fireCounter = 0;
     public Projectile fire(){
-        if (fireCounter >= 100){
+        if (fireCounter >= 30){
             fireCounter = 0;
             Coordinate shipCo = MotherShip.getInstance().getCoordinates();
             if (this.getX() < shipCo.getX()){

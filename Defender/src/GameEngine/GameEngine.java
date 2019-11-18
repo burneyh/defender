@@ -1,6 +1,7 @@
 package GameEngine;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import CollisionDetector.CollisionDetector;
 import GameObjects.*;
@@ -109,14 +110,18 @@ public class GameEngine implements EventHandler<KeyEvent> {
             if (alien.isAlive()) {
                 tempAliens.add(alien);
                 alien.move();
-                Projectile projectile = alien.fire();
-                if (projectile != null)
-                    tempProjectiles.add(projectile);
-
             }
             else {
                 score += alien.getScore();
             }
+        }
+
+        Random rand = new Random();
+        if(tempAliens.size() > 0) {
+            int i = rand.nextInt(tempAliens.size());
+            Projectile projectile2 = tempAliens.get(i).fire();
+            if (projectile2 != null)
+                tempProjectiles.add(projectile2);
         }
 
         //remove projectile

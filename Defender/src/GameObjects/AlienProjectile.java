@@ -5,7 +5,7 @@ public class AlienProjectile extends Projectile {
 
     public AlienProjectile(Coordinate coordinates, moveDirection direction){
         super( coordinates.getX(), coordinates.getY());
-        loadImage("Icons/004-rocket-1.png");
+        loadImage("Icons/AlienProjectile.png");
         getImageDimensions();
         this.setCoordinates(coordinates);
         this.setDirection(direction);
