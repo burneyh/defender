@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.FadeTransition;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
@@ -18,7 +19,8 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            ft.play(); // TODO Connect to the game engine
+            MyApplication.setScene(SceneGenerator.getInstance());
+//            MyApplication.ge.createUniverse();
         });
 
         MenuButton highScore = new MenuButton("High Score");
