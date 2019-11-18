@@ -137,7 +137,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     private void nextLevel() {
-        System.out.println("level Man");
         levelManager.incrementLevel();
         levelManager.increaseAliens();
 

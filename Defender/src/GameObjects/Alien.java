@@ -14,8 +14,4 @@ public class Alien extends GameObject {
     public int getScore() {
         return points;
     }
-
-
-
-
 }
