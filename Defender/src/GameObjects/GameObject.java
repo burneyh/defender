@@ -47,14 +47,12 @@ class GameObject {
     }
 
     protected void loadImage(String imageName) {
-        try{
-            FileInputStream inputStream = new FileInputStream(imageName);
-            image = new Image(inputStream, 30, 30, false, false);
+        try {
+            image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
+                    30, 30, false, false);
+        } catch (NullPointerException e){
+            System.out.println("Resource not found on " + imageName);
         }
-        catch (Exception e){
-            System.out.println("File Not Found!");
-        }
-
     }
 
     public Rectangle getHitbox() {
