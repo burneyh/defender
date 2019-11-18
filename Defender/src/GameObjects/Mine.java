@@ -6,5 +6,7 @@ public class Mine extends Projectile{
     public Mine(Coordinate coordinates){
         super(coordinates.getX(), coordinates.getY());
         damage = 50;
+        loadImage("Icons/mine.png");
+        getImageDimensions();
     }
 }
