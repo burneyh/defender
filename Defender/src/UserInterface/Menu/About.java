@@ -22,7 +22,7 @@ import java.io.FileReader;
 
 public class About extends Scene {
     private static About aboutInstance;
-    private About(Pane root) {
+    private About(Pane root, boolean isPause) {
         super(root);
 
         // Initialize window width and height
@@ -77,7 +77,12 @@ public class About extends Scene {
             back.setStyle("-fx-background-color:transparent");
             back.setTranslateY(10);
             back.setOnAction(e -> {
-                MyApplication.setScene(MainMenu.getInstance());
+                if (isPause){
+                    MyApplication.setScene(PauseMenu.getInstance());
+                }
+                else{
+                    MyApplication.setScene(MainMenu.getInstance());
+                }
             });
             root.getChildren().add(back);
         }
@@ -111,10 +116,10 @@ public class About extends Scene {
         root.getChildren().add(ta);
     }
 
-    public static About getInstance(){
+    public static About getInstance(boolean isPause){
         if (aboutInstance == null) {
             Pane root = new Pane();
-            aboutInstance = new About(root);
+            aboutInstance = new About(root, isPause);
         }
         return aboutInstance;
     }

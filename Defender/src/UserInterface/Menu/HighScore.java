@@ -20,7 +20,7 @@ import java.io.FileReader;
 
 public class HighScore extends Scene {
     private static HighScore highScoreInstance;
-    private HighScore(Pane root) {
+    private HighScore(Pane root, boolean isPause) {
         super(root);
 
         // Initialize window width and height
@@ -74,7 +74,12 @@ public class HighScore extends Scene {
             back.setStyle("-fx-background-color:transparent");
             back.setTranslateY(10);
             back.setOnAction(e -> {
-                MyApplication.setScene(MainMenu.getInstance());
+                if (isPause){
+                    MyApplication.setScene(PauseMenu.getInstance());
+                }
+                else{
+                    MyApplication.setScene(MainMenu.getInstance());
+                }
             });
             root.getChildren().add(back);
         }
@@ -110,10 +115,10 @@ public class HighScore extends Scene {
         root.getChildren().add(ta);
     }
 
-    public static HighScore getInstance(){
+    public static HighScore getInstance(boolean isPause){
         if (highScoreInstance == null) {
             Pane root = new Pane();
-            highScoreInstance = new HighScore(root);
+            highScoreInstance = new HighScore(root, isPause);
         }
         return highScoreInstance;
     }

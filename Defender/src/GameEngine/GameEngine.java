@@ -1,5 +1,6 @@
 package GameEngine;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -88,7 +89,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         if(levelRefresher == null) {
             levelRefresher = new Timeline( new KeyFrame(
-                    Duration.millis(60000), e -> {
+                    Duration.millis(10000), e -> {
                         System.out.println("HERE");
                         nextLevel();
             }
@@ -144,7 +145,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (Projectile projectile : projectiles)
             if (projectile.isAlive()) {
                 tempProjectiles.add(projectile);
-                projectile.move(projectile.getDirection());
+                if (!(projectile instanceof Mine))
+                    projectile.move(projectile.getDirection());
             }
 
         //remove mutated humans and add mutants
@@ -203,6 +205,33 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private void gameOver(){
         // high score
+        try {
+            File input = new File(getClass().getClassLoader().getResource("TextFiles/highScores.txt").getFile());
+            FileReader fr = new FileReader(input);
+            BufferedReader br = new BufferedReader(fr);
+
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            String st;
+            while ((st = br.readLine()) != null) {
+                String sub = st.substring(19,st.length());
+                arrayList.add(Integer.parseInt(sub));
+            }
+            for (int i = 0; i < 10; i++){
+                if (score > arrayList.get(i)){
+                    arrayList.remove(i);
+                    arrayList.add(i, score);
+                }
+            }
+
+            FileWriter fw = new FileWriter(input);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int i = 1; i <= 10; i++){
+                bw.write("user"+ i + " ---------- " + arrayList.get(i-1) + "/");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
         MotherShip.renew();
         LevelManager.renew();
         gameEngine = new GameEngine();      //renewing gameEngine as well
@@ -229,6 +258,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 motherShip.move(MotherShip.moveDirection.RIGHT);
                 break;
             case ESCAPE:
+                sceneRefresher.pause();
+                levelRefresher.pause();
                 MyApplication.setScene(PauseMenu.getInstance());
                 break;
         }

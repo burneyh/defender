@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameEngine/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="167" column="128" selection-start-line="167" selection-start-column="128" selection-end-line="167" selection-end-column="128" />
+            <state relative-caret-position="311">
+              <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="226" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -24,42 +24,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInterface/SceneGenerator/SceneGenerator.java">
+      <file leaf-file-name="highScores.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/TextFiles/highScores.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="51" column="61" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
+            <state>
+              <caret column="17" selection-start-column="6" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlienProjectile.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GameObjects/AlienProjectile.java">
+      <file leaf-file-name="HighScore.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameEngine/LevelManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
-              <folding>
-                <element signature="e#1608#1609#0" expanded="true" />
-                <element signature="e#1643#1644#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="107">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
@@ -93,16 +71,12 @@
         <option value="$PROJECT_DIR$/src/UserInterface/TextFiles/about.txt" />
         <option value="$PROJECT_DIR$/src/UserInterface/TextFiles/help.txt" />
         <option value="$PROJECT_DIR$/src/UserInterface/TextFiles/highScores.txt" />
-        <option value="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" />
-        <option value="$PROJECT_DIR$/src/UserInterface/Menu/Help.java" />
-        <option value="$PROJECT_DIR$/src/UserInterface/Menu/About.java" />
         <option value="$PROJECT_DIR$/src/GameObjects/Baiter.java" />
         <option value="$PROJECT_DIR$/src/Game/GameState.java" />
         <option value="$PROJECT_DIR$/src/Game/Game.java" />
         <option value="$PROJECT_DIR$/src/UserInterface/Menu/GameOver.java" />
         <option value="$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/UserInterface/Menu/PauseMenu.java" />
-        <option value="$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java" />
         <option value="$PROJECT_DIR$/src/UserInterface/MyApplication.java" />
         <option value="$PROJECT_DIR$/src/GameObjects/Mutant.java" />
         <option value="$PROJECT_DIR$/src/GameObjects/Lander.java" />
@@ -114,9 +88,13 @@
         <option value="$PROJECT_DIR$/src/GameObjects/MotherShip.java" />
         <option value="$PROJECT_DIR$/src/GameObjects/Human.java" />
         <option value="$PROJECT_DIR$/src/GameEngine/LevelManager.java" />
-        <option value="$PROJECT_DIR$/src/GameEngine/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/UserInterface/SceneGenerator/SceneGenerator.java" />
         <option value="$PROJECT_DIR$/src/GameObjects/AlienProjectile.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/Help.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/About.java" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" />
+        <option value="$PROJECT_DIR$/src/GameEngine/GameEngine.java" />
       </list>
     </option>
   </component>
@@ -144,6 +122,12 @@
               <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
               <item name="Defender" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Defender" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="TextFiles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Defender" type="b2602c69:ProjectViewProjectNode" />
@@ -421,7 +405,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GameObjects/Aliens.java" />
     <entry file="file://$PROJECT_DIR$/src/UserInterface/UI.java" />
     <entry file="file://$PROJECT_DIR$/src/UserInterface/MenuUIGenerator.java" />
     <entry file="file://$PROJECT_DIR$/src/UserInterface/Scene.java" />
@@ -438,22 +421,8 @@
     <entry file="file://$PROJECT_DIR$/src/UserInterface/TextFiles/about.txt" />
     <entry file="file://$PROJECT_DIR$/src/UserInterface/TextFiles/help.txt" />
     <entry file="file://$PROJECT_DIR$/src/UserInterface/TextFiles/highScores.txt" />
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="41" column="76" selection-start-line="41" selection-start-column="76" selection-end-line="41" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/Game.java" />
     <entry file="file://$PROJECT_DIR$/src/Game/GameState.java" />
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="42" column="76" selection-start-line="42" selection-start-column="76" selection-end-line="42" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/PauseMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -465,23 +434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/About.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="91" column="15" selection-start-line="91" selection-start-column="15" selection-end-line="91" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -695,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameEngine/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -713,13 +658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameEngine/GameEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/GameObjects/AlienProjectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="167" column="128" selection-start-line="167" selection-start-column="128" selection-end-line="167" selection-end-column="128" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -730,10 +672,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameObjects/AlienProjectile.java">
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="-454">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/Help.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="83" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/About.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/TextFiles/highScores.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameEngine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="226" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

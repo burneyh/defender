@@ -8,6 +8,17 @@ public class Bomber extends Alien{
         getImageDimensions();
         this.move();
     }
+    private int mineCounter = 0;
+    public Projectile fire(){
+        if (mineCounter >= 30){
+            mineCounter = 0;
+            return new Mine(this.getX(), this.getY());
+        }
+        else {
+            mineCounter++;
+            return null;
+        }
+    }
     public int getScore() {return points;}
 
 }
