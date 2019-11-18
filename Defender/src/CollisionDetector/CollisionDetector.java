@@ -2,7 +2,7 @@ package CollisionDetector;
 
 
 import GameObjects.*;
-import java.awt.*;
+import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
 
@@ -17,7 +17,7 @@ public class CollisionDetector {
         Rectangle motherBox = motherShip.getHitbox();
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
-            if (motherShip.isAlive() && alien.isAlive() && motherBox.intersects(alienBox)){
+            if (motherShip.isAlive() && alien.isAlive() && motherBox.getBoundsInParent().intersects(alienBox.getBoundsInParent())){
                 motherShip.kill();
                 alien.kill();
                 break;
@@ -30,7 +30,7 @@ public class CollisionDetector {
 
         for(Projectile projectile: projectiles){
             Rectangle projectileBox = projectile.getHitbox();
-            if(motherShip.isAlive() && projectile.isAlive() && projectileBox.intersects(motherBox)){
+            if(motherShip.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(motherBox.getBoundsInParent())){
                 int damage = projectile.getDamage();
                 motherShip.updateHealth(damage);
 
@@ -49,7 +49,7 @@ public class CollisionDetector {
             Rectangle alienBox = alien.getHitbox();
             for(Projectile projectile: projectiles){
                 Rectangle projectileBox = projectile.getHitbox();
-                if(alien.isAlive() && projectile.isAlive() && projectileBox.intersects(alienBox) && (projectile instanceof  ShipProjectile)){
+                if(alien.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(alienBox.getBoundsInParent()) && (projectile instanceof  ShipProjectile)){
                     alien.kill();
                     projectile.kill();
                     break;
@@ -64,7 +64,7 @@ public class CollisionDetector {
             for(Alien alien: aliens){
                 Rectangle alienBox = alien.getHitbox();
 
-                if(alien.isAlive() && human.isAlive() && alienBox.intersects(humanBox)){
+                if(alien.isAlive() && human.isAlive() && alienBox.getBoundsInParent().intersects(humanBox.getBoundsInParent())){
                     alien.kill();
                     human.kill();
                     // over for this alien;

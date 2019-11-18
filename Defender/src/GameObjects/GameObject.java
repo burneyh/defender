@@ -1,11 +1,10 @@
 package GameObjects;
-import java.awt.*;
-//import javafx.scene.image.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.*;
+import javafx.scene.shape.Rectangle;
+
+import java.io.FileInputStream;
 //import javafx.scene.shape.Rectangle;
-import javax.swing.ImageIcon;
-
-
-
 
 class GameObject {
     public final static  int RIGHT = 0;
@@ -19,8 +18,7 @@ class GameObject {
 
 
     public GameObject(int x, int y) {
-        coordinates.setX(x);
-        coordinates.setY(y);
+        coordinates = new Coordinate(x, y);
         setSpeed(10);
         alive = true;
 
@@ -34,21 +32,25 @@ class GameObject {
     }
 
     public GameObject() {
-        coordinates.setX((int)(Math.random()) * 500);
-        coordinates.setY(470);
+        coordinates = new Coordinate((int)(Math.random()) * 500, 470);
         setSpeed(10);
         alive = true;
     }
 
     protected void getImageDimensions() {
-        width = image.getWidth(null);
-        height = image.getHeight(null);
+        width = (int)image.getWidth();
+        height = (int)image.getHeight();
         hitbox = new Rectangle(coordinates.getX(), coordinates.getY(), width, height);
     }
 
     protected void loadImage(String imageName) {
-        ImageIcon icon = new ImageIcon(imageName);
-        image = icon.getImage();
+        try{
+            FileInputStream inputStream = new FileInputStream(imageName);
+            image = new Image(inputStream, 30, 30, false, false);
+        }
+        catch (Exception e){
+            System.out.println("File Not Found!");
+        }
 
     }
 

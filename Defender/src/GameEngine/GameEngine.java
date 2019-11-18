@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import CollisionDetector.CollisionDetector;
 import GameObjects.*;
+import UserInterface.Menu.GameOver;
+import UserInterface.Menu.PauseMenu;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
 
@@ -45,11 +47,7 @@ public class GameEngine {
             aliens.add(new Bomber());
         }
 
-        for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
-            humans.add(new Human());
-        }
-
-
+        for (int i = 0; i < levelManager.getNumOfHumans(); i++) { }
 
     }
 
@@ -60,7 +58,7 @@ public class GameEngine {
     }
 
     public void createUniverse(){
-        sceneGenerator.createMap(motherShip, aliens, humans);
+//        sceneGenerator.createMap(motherShip, aliens, humans);
         gameEngine.refreshFrame();
     }
 
@@ -71,12 +69,7 @@ public class GameEngine {
         //if timer runs out.
         levelManager.incrementLevel();
         levelManager.increaseAliens();
-        levelManager.
-
-
-
-
-
+//        levelManager.
 
 
         if (isPaused) {
@@ -85,8 +78,9 @@ public class GameEngine {
 
         collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles);
 
-        if (!motherShip.isAlive())
+        if (!motherShip.isAlive()) {
             gameOver();
+        }
 
         ArrayList<Alien> tempAliens = new ArrayList<>();
         ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
@@ -120,7 +114,7 @@ public class GameEngine {
         projectiles = tempProjectiles;
 
 
-        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
+//        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
     }
 
     private void gameOver(){
