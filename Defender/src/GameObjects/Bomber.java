@@ -4,7 +4,7 @@ public class Bomber extends Alien{
     public Bomber() {
         super();
         points = 100;
-        loadImage("Icons/005-airplane.png");
+        loadImage("Icons/bomber.png");
         getImageDimensions();
         this.move();
     }
