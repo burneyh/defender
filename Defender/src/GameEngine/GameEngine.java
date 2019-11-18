@@ -89,7 +89,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         if(levelRefresher == null) {
             levelRefresher = new Timeline( new KeyFrame(
-                    Duration.millis(60000), e -> {
+                    Duration.millis(10000), e -> {
                         System.out.println("HERE");
                         nextLevel();
             }
@@ -257,6 +257,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 motherShip.move(MotherShip.moveDirection.RIGHT);
                 break;
             case ESCAPE:
+                sceneRefresher.pause();
+                levelRefresher.pause();
                 MyApplication.setScene(PauseMenu.getInstance());
                 break;
         }
