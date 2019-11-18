@@ -116,7 +116,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-174" />
     <option name="y" value="30" />
     <option name="width" value="1401" />
@@ -379,7 +379,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/CollisionDetector/CollisionDetector.java</url>
+          <url />
           <line>15</line>
           <properties class="CollisionDetector.CollisionDetector" method="checkShipCollisionsWithAlien">
             <option name="EMULATED" value="true" />
