@@ -39,7 +39,12 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            MyApplication.setScene(HighScore.getInstance());
+            if(isPause){
+                MyApplication.setScene(HighScore.getInstance(true));
+            }
+            else{
+                MyApplication.setScene(HighScore.getInstance(false));
+            }
         });
 
         MenuButton help = new MenuButton("Help");
@@ -48,7 +53,12 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            MyApplication.setScene(Help.getInstance());
+            if(isPause){
+                MyApplication.setScene(Help.getInstance(true));
+            }
+            else {
+                MyApplication.setScene(Help.getInstance(false));
+            }
         });
 
         MenuButton about = new MenuButton("About");
@@ -57,7 +67,12 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            MyApplication.setScene(About.getInstance());
+            if(isPause){
+                MyApplication.setScene(About.getInstance(true));
+            }
+            else{
+                MyApplication.setScene(About.getInstance(false));
+            }
         });
 
         MenuButton exit = new MenuButton("Exit");

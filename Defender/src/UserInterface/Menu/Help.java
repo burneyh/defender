@@ -21,7 +21,7 @@ import java.io.FileReader;
 
 public class Help extends Scene {
     private static Help helpInstance;
-    private Help(Pane root) {
+    private Help(Pane root, boolean isPause) {
         super(root);
 
         // Initialize window width and height
@@ -76,7 +76,12 @@ public class Help extends Scene {
             back.setStyle("-fx-background-color:transparent");
             back.setTranslateY(10);
             back.setOnAction(e -> {
-                MyApplication.setScene(MainMenu.getInstance());
+                if (isPause){
+                    MyApplication.setScene(PauseMenu.getInstance());
+                }
+                else{
+                    MyApplication.setScene(MainMenu.getInstance());
+                }
             });
             root.getChildren().add(back);
         }
@@ -110,10 +115,10 @@ public class Help extends Scene {
         root.getChildren().add(ta);
     }
 
-    public static Help getInstance(){
+    public static Help getInstance(boolean isPause){
         if (helpInstance == null) {
             Pane root = new Pane();
-            helpInstance = new Help(root);
+            helpInstance = new Help(root, isPause);
         }
         return helpInstance;
     }
