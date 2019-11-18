@@ -16,6 +16,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 
 public class GameOver extends Scene {
@@ -61,7 +62,7 @@ public class GameOver extends Scene {
             Button back = new Button("", imageView);
             back.setStyle("-fx-background-color:transparent");
             back.setTranslateY(10);
-            back.setOnAction(e -> {
+            back.setOnMouseClicked(e -> {
                 MyApplication.setScene(MainMenu.getInstance());
             });
             root.getChildren().add(back);
