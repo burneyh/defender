@@ -107,7 +107,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (Alien alien : aliens) {
             if (alien.isAlive())
                 tempAliens.add(alien);
-            score += alien.getScore();
+            else
+                score += alien.getScore();
         }
 
         //remove projectile
@@ -173,24 +174,22 @@ public class GameEngine implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
         switch(event.getCode()){
             case SPACE:
-                System.out.println("Fire");
                 motherShip.fire();
                 break;
             case UP:
-                System.out.println("UP");
                 motherShip.move(MotherShip.moveDirection.UP);
                 break;
             case DOWN:
-                System.out.println("DOWN");
                 motherShip.move(MotherShip.moveDirection.DOWN);
                 break;
             case LEFT:
-                System.out.println("LEFT");
                 motherShip.move(MotherShip.moveDirection.LEFT);
                 break;
             case RIGHT:
-                System.out.println("RIGHT");
                 motherShip.move(MotherShip.moveDirection.RIGHT);
+                break;
+            case ESCAPE:
+                MyApplication.setScene(PauseMenu.getInstance());
                 break;
         }
     }
