@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -61,7 +60,7 @@ public class MainMenu extends Scene {
         root.getChildren().add(text);
 
 
-        MenuSection menuSection = new MenuSection();
+        MenuSection menuSection = new MenuSection(false);
         root.getChildren().add(menuSection);
     }
 
