@@ -22,8 +22,8 @@ class GameObject {
     }
 
     public GameObject(int x, int y) {
-        coordinates.setX(0);
-        coordinates.setY(0);
+        coordinates.setX(x);
+        coordinates.setY(y);
         setSpeed(10);
         alive = true;
 

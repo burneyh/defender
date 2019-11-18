@@ -1,7 +1,7 @@
 package GameObjects;
 
 public class Mutant extends Alien {
-    public static final int SCORE = 200;
+
 
     public Mutant(int x, int y) {
 

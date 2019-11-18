@@ -10,7 +10,7 @@ public class LevelManager {
     private int numOfBombers;
     private int numOfLanders;
     private int numOfMutants;
-    private int time;
+
 
     private LevelManager(){
         currentLevel = 1;
@@ -33,4 +33,27 @@ public class LevelManager {
         numOfMutants += (int)(currentLevel * 0.3);
     }
 
+    public int getNumOfHumans() {
+        return numOfHumans;
+    }
+
+    public int getNumOfBaiters() {
+        return numOfBaiters;
+    }
+
+    public int getNumOfBombers() {
+        return numOfBombers;
+    }
+
+    public int getNumOfLanders() {
+        return numOfLanders;
+    }
+
+    public int getNumOfMutants() {
+        return numOfMutants;
+    }
+
+    public void incrementLevel() {
+        currentLevel++;
+    }
 }

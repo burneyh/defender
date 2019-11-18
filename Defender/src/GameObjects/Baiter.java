@@ -2,8 +2,8 @@ package GameObjects;
 
 public class Baiter extends Alien{
 
-    public Baiter(int x, int y) {
-        super(x, y);
+    public Baiter() {
+        super();
         points = 50;
         loadImage("res/Icons/monster.png");
         getImageDimensions();
