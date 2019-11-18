@@ -6,21 +6,14 @@ public class MotherShip extends GameObject{
 
     private int health;
     private int score;
-    private int direction;
-    private int left;
-    private int right;
-    private int up;
-    private int down;
+    public static enum moveDirection {LEFT, RIGHT, UP, DOWN};
+    private moveDirection direction;
 
     private MotherShip(){
         super(300, 250);
         health = 100;
         score = 0;
-        direction = 1;
-        left = 0;
-        right =0;
-        up = 0;
-        down = 0;
+        direction = moveDirection.RIGHT;
 
         loadImage("res/Icons/001-rocket.png");
         getImageDimensions();
@@ -33,7 +26,7 @@ public class MotherShip extends GameObject{
         health  = health - damage;
     }
 
-    public int getDirection() {
+    public moveDirection getDirection() {
         return direction;
     }
 
@@ -45,5 +38,13 @@ public class MotherShip extends GameObject{
         if (motherShip == null)
             motherShip = new MotherShip();
         return motherShip;
+    }
+
+    public void move(moveDirection d){
+        // TODO
+    }
+
+    public void fire(){
+        // TODO
     }
 }

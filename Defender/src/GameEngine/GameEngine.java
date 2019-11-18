@@ -11,9 +11,11 @@ import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-public class GameEngine {
+public class GameEngine implements EventHandler<KeyEvent> {
 
     private static GameEngine gameEngine = null;
 
@@ -54,6 +56,8 @@ public class GameEngine {
         for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
             humans.add(new Human());
         }
+
+        sceneGenerator.setOnKeyPressed(this);
 
     }
 
@@ -163,5 +167,31 @@ public class GameEngine {
 
     private void gameOver(){
         MyApplication.setScene(GameOver.getInstance());
+    }
+
+    @Override
+    public void handle(KeyEvent event) {
+        switch(event.getCode()){
+            case SPACE:
+                System.out.println("Fire");
+                motherShip.fire();
+                break;
+            case UP:
+                System.out.println("UP");
+                motherShip.move(MotherShip.moveDirection.UP);
+                break;
+            case DOWN:
+                System.out.println("DOWN");
+                motherShip.move(MotherShip.moveDirection.DOWN);
+                break;
+            case LEFT:
+                System.out.println("LEFT");
+                motherShip.move(MotherShip.moveDirection.LEFT);
+                break;
+            case RIGHT:
+                System.out.println("RIGHT");
+                motherShip.move(MotherShip.moveDirection.RIGHT);
+                break;
+        }
     }
 }
