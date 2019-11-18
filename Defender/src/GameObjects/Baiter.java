@@ -11,6 +11,5 @@ public class Baiter extends Alien{
     public int getScore() {return points;}
 
     public void move(){
-
     }
 }

@@ -5,7 +5,6 @@ import GameObjects.*;
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
-
 public class CollisionDetector {
     private static CollisionDetector collisionDetector = null;
 
@@ -39,6 +38,7 @@ public class CollisionDetector {
                     break;
                 }
                 projectile.kill();
+                break;
             }
         }
     }
@@ -63,11 +63,9 @@ public class CollisionDetector {
             Rectangle humanBox = human.getHitbox();
             for(Alien alien: aliens){
                 Rectangle alienBox = alien.getHitbox();
-
                 if(alien.isAlive() && human.isAlive() && alienBox.getBoundsInParent().intersects(humanBox.getBoundsInParent())){
                     alien.kill();
                     human.kill();
-                    // over for this alien;
                     break;
                 }
             }

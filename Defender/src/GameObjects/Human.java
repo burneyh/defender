@@ -9,7 +9,4 @@ public class Human extends GameObject{
         getImageDimensions();
     }
 
-    public boolean isAlive(){
-        return true;
-    }
 }
