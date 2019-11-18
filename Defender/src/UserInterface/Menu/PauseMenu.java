@@ -18,10 +18,8 @@ public class PauseMenu extends Scene {
         super(root,MyApplication.WIDTH, MyApplication.HEIGHT );
 
         try{
-            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/bg_image.jpg");
-
-            // create a image
-            Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+            Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
+                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -32,8 +30,8 @@ public class PauseMenu extends Scene {
             Background background = new Background(backgroundimage);
             root.setBackground(background);
         }
-        catch(Exception e){
-
+        catch (NullPointerException e){
+            System.out.println("Resource not found on " + "bg_image_jpg");
         }
 
 

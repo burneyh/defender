@@ -40,10 +40,8 @@ public class Help extends Scene {
 //        root.getChildren().add(bg);
 
         try{
-            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/bg_image.jpg");
-
-            // create a image
-            Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+            Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
+                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -54,8 +52,8 @@ public class Help extends Scene {
             Background background = new Background(backgroundimage);
             root.setBackground(background);
         }
-        catch(Exception e){
-
+        catch (NullPointerException e){
+            System.out.println("Resource not found on " + "bg_image_jpg");
         }
 
 
@@ -71,8 +69,8 @@ public class Help extends Scene {
 
         // Back Button
         try{
-            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/back-button.png");
-            Image image = new Image(input, 20,20, false,false);
+            Image image = new Image(getClass().getClassLoader().getResource("back-button.png").toString(),
+                    20,20, false,false);
             ImageView imageView = new ImageView(image);
             Button back = new Button("", imageView);
             back.setStyle("-fx-background-color:transparent");
@@ -88,7 +86,7 @@ public class Help extends Scene {
 
         Text ta = new Text();
         try{
-            File input = new File("CS319-1C-DE/Defender/src/UserInterface/TextFiles/help.txt");
+            File input = new File(getClass().getClassLoader().getResource("TextFiles/help.txt").getFile());
             FileReader fr = new FileReader(input);
             BufferedReader br = new BufferedReader(fr);
 

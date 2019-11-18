@@ -24,9 +24,8 @@ public class GameOver extends Scene {
     private GameOver(Pane root){
         super(root, MyApplication.WIDTH, MyApplication.HEIGHT);
         try{
-            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/bg_image.jpg");
-            // create a image
-            Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+            Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
+                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -37,8 +36,8 @@ public class GameOver extends Scene {
             Background background = new Background(backgroundimage);
             root.setBackground(background);
         }
-        catch(Exception e){
-            System.out.print("File not Found");
+        catch (NullPointerException e){
+            System.out.println("Resource not found on " + "bg_image_jpg");
         }
 
         // Main Headline
@@ -56,8 +55,8 @@ public class GameOver extends Scene {
 
         // Back Button
         try{
-            FileInputStream input = new FileInputStream("res/back-button.png");
-            Image image = new Image(input, 20,20, false,false);
+            Image image = new Image(getClass().getClassLoader().getResource("back-button.png").toString(),
+                    20,20, false,false);
             ImageView imageView = new ImageView(image);
             Button back = new Button("", imageView);
             back.setStyle("-fx-background-color:transparent");
