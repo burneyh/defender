@@ -46,7 +46,7 @@ public class SceneGenerator extends Scene {
         graphics.setFont(Font.font("Times New Roman", FontWeight.BOLD, 28));
         graphics.setFill(Color.WHITE);
 
-        bgImage = new Image("UserInterface/Icons/Space.jpg");
+        bgImage = new Image("res/Icons/bg_.jpg");
 
         root.getChildren().add(canvas);
 
