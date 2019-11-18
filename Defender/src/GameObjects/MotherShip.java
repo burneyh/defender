@@ -50,17 +50,17 @@ public class MotherShip extends GameObject{
                 setY(getY() + this.getSpeed());
                 break;
             case LEFT:
-                setY(getX() + this.getSpeed());
+                setX(getX() + this.getSpeed());
                 break;
             case RIGHT:
-                setY(getX() - this.getSpeed());
+                setX(getX() - this.getSpeed());
                 break;
         }
 
         if (this.getX() > 600) setX(20);
         if (this.getX() < 0)   setX(580);
-        if (this.getY() > 500) setX(10);
-        if (this.getY() < 0)   setX(480);
+        if (this.getY() > 500) setY(10);
+        if (this.getY() < 0)   setY(480);
 
     }
 

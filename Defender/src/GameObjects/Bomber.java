@@ -6,9 +6,8 @@ public class Bomber extends Alien{
         points = 100;
         loadImage("Icons/005-airplane.png");
         getImageDimensions();
+        this.move();
     }
     public int getScore() {return points;}
-    public void move() {
 
-    }
 }
