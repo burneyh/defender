@@ -9,7 +9,7 @@ public class AlienProjectile extends Projectile {
         getImageDimensions();
         this.setCoordinates(coordinates);
         this.setDirection(direction);
-        damage = 50;
+        damage = 25;
         this.move(direction);
     }
 
