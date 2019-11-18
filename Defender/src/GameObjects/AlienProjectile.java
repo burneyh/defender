@@ -1,7 +1,7 @@
 package GameObjects;
 
 public class AlienProjectile extends Projectile {
-    public AlienProjectile(){}
+
 
     public AlienProjectile(Coordinate coordinates, moveDirection direction){
         super( coordinates.getX(), coordinates.getY());

@@ -4,11 +4,9 @@ public class Projectile extends GameObject {
     protected int damage;
     private moveDirection direction;
 
-    public Projectile(){}
 
     public Projectile(int x, int y){
         super(x, y);
-
         setSpeed(15);
     }
 
@@ -35,4 +33,7 @@ public class Projectile extends GameObject {
 
     }
 
+    public moveDirection getDirection() {
+        return direction;
+    }
 }

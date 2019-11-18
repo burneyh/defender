@@ -105,8 +105,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         //remove dead aliens
         for (Alien alien : aliens) {
-            if (alien.isAlive())
+            if (alien.isAlive()) {
                 tempAliens.add(alien);
+                alien.move();
+            }
             else {
                 score += alien.getScore();
             }
@@ -114,13 +116,17 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         //remove projectile
         for (Projectile projectile : projectiles)
-            if (projectile.isAlive())
+            if (projectile.isAlive()) {
                 tempProjectiles.add(projectile);
+                projectile.move(projectile.getDirection());
+            }
 
         //remove mutated humans and add mutants
         for (Human human : humans) {
-            if (human.isAlive())
+            if (human.isAlive()) {
                 tempHumans.add(human);
+
+            }
             else {
                 tempAliens.add(new Mutant(human.getX(), human.getY()));
                 score -= Lander.SCORE;
@@ -175,7 +181,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
         switch(event.getCode()){
             case SPACE:
-                motherShip.fire();
+                projectiles.add(motherShip.fire());
                 break;
             case UP:
                 motherShip.move(MotherShip.moveDirection.UP);
