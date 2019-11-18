@@ -1,5 +1,6 @@
 package UserInterface;
 
+import GameEngine.GameEngine;
 import UserInterface.Menu.MainMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,6 +10,8 @@ public class MyApplication extends Application {
     private static Stage primaryStage;
     public final static int WIDTH = 600;
     public final static int HEIGHT = 500;
+    public static GameEngine ge = GameEngine.getInstance();
+
     public static void main(String[] args){
         launch(args);
     }
