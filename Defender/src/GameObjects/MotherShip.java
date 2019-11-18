@@ -61,8 +61,8 @@ public class MotherShip extends GameObject{
 
         if (this.getX() > 600) setX(20);
         if (this.getX() < 0)   setX(580);
-        if (this.getY() > 500) setY(10);
-        if (this.getY() < 0)   setY(480);
+        if (this.getY() > 500) setY(490);
+        if (this.getY() < 0)   setY(10);
 
     }
 
