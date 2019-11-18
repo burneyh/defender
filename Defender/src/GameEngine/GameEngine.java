@@ -47,7 +47,9 @@ public class GameEngine {
             aliens.add(new Bomber());
         }
 
-        for (int i = 0; i < levelManager.getNumOfHumans(); i++) { }
+        for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
+            humans.add(new Human());
+        }
 
     }
 
@@ -58,7 +60,7 @@ public class GameEngine {
     }
 
     public void createUniverse(){
-//        sceneGenerator.createMap(motherShip, aliens, humans);
+        sceneGenerator.createMap(motherShip, aliens, humans);
         gameEngine.refreshFrame();
     }
 
@@ -113,7 +115,7 @@ public class GameEngine {
         projectiles = tempProjectiles;
 
 
-//        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
+        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
     }
 
     private void nextLevel() {
