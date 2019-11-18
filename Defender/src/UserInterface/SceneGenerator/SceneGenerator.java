@@ -49,16 +49,17 @@ public class SceneGenerator extends Scene {
     }
 
     public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
-        updateMap(motherShip, aliens, humans, null, 0, 1);
+        updateMap(motherShip, aliens, humans, null, 0, 1, 100);
     }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, int score, int level) {
+                          ArrayList<Projectile> projectiles, int score, int level, int health) {
         graphics.drawImage(bgImage, 0, 0, width, height);
         graphics.fillText("Score: " + score, 80, 35);
         graphics.setTextAlign(TextAlignment.CENTER);
         graphics.setTextBaseline(VPos.CENTER);
         graphics.fillText("Level: " + level, MyApplication.WIDTH/2, 35);
+        graphics.fillText("Health: " + health, 500, 35);
 
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
