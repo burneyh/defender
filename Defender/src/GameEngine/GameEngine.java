@@ -1,7 +1,7 @@
 package GameEngine;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Calendar;
 
 import CollisionDetector.CollisionDetector;
 import GameObjects.*;
@@ -19,6 +19,9 @@ import javafx.util.Duration;
 public class GameEngine implements EventHandler<KeyEvent> {
 
     private static GameEngine gameEngine = null;
+
+    private Timeline sceneRefresher = null;
+    private Timeline levelRefresher = null;
 
     private ArrayList<Alien> aliens;
     private ArrayList<Projectile>  projectiles;
@@ -59,7 +62,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
 
         sceneGenerator.setOnKeyPressed(this);
-
     }
 
     public static GameEngine getInstance(){
@@ -69,34 +71,48 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     public void createUniverse(){
+
         sceneGenerator.createMap(motherShip, aliens, humans);
         gameEngine.refresh();
     }
 
     public void refresh(){
         //start timer
-        Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(16),
-                e -> refreshFrame()
-        ));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+        if(sceneRefresher == null) {
+            sceneRefresher = new Timeline(new KeyFrame(
+                    Duration.millis(16), e ->
+                    refreshFrame()
+            ));
+            sceneRefresher.setCycleCount(Animation.INDEFINITE);
+        }
+
+        if(levelRefresher == null) {
+            levelRefresher = new Timeline( new KeyFrame(
+                    Duration.millis(60000), e -> {
+                        System.out.println("HERE");
+                        nextLevel();
+            }
+            ));
+            levelRefresher.setCycleCount(Animation.INDEFINITE);
+        }
+
+        levelRefresher.play();
+        sceneRefresher.play();
     }
 
-    private void refreshFrame(){
-        Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(60000),
-                e -> nextLevel()
-        ));
-        timeline.play();
-
+    private synchronized void refreshFrame(){
         if (isPaused) {
             MyApplication.setScene(PauseMenu.getInstance());
+            sceneRefresher.stop();
+            levelRefresher.stop();
+            return;
         };
 
         collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles);
 
         if (!motherShip.isAlive()) {
+            sceneRefresher.stop();
+            levelRefresher.stop();
             gameOver();
             return;
         }
@@ -114,14 +130,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
             else {
                 score += alien.getScore();
             }
-        }
-
-        Random rand = new Random();
-        if(tempAliens.size() > 0) {
-            int i = rand.nextInt(tempAliens.size());
-            Projectile projectile2 = tempAliens.get(i).fire();
-            if (projectile2 != null)
-                tempProjectiles.add(projectile2);
         }
 
         //remove projectile
@@ -152,38 +160,44 @@ public class GameEngine implements EventHandler<KeyEvent> {
         sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
     }
 
-    private void nextLevel() {
+    private synchronized void nextLevel() {
         levelManager.incrementLevel();
-        levelManager.increaseAliens();
 
         ArrayList<Alien> tempAliens = new ArrayList<>();
         ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
         ArrayList<Human> tempHumans = new ArrayList<>();
 
         for (int i = 0; i < levelManager.getNumOfLanders(); i++) {
-            aliens.add(new Lander());
+            tempAliens.add(new Lander());
         }
+        System.out.println("Lander done");
 
         for (int i = 0; i < levelManager.getNumOfBaiters(); i++) {
-            aliens.add(new Baiter());
+            tempAliens.add(new Baiter());
         }
 
+        System.out.println("Baiter done");
         for (int i = 0; i < levelManager.getNumOfBombers(); i++) {
-            aliens.add(new Bomber());
+            tempAliens.add(new Bomber());
         }
 
+        System.out.println("Human done");
         for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
-            humans.add(new Human());
+            tempHumans.add(new Human());
         }
 
         aliens = tempAliens;
         humans = tempHumans;
         projectiles = tempProjectiles;
 
+        System.out.println("Next Level Done");
     }
 
     private void gameOver(){
-
+        // high score
+        MotherShip.renew();
+        LevelManager.renew();
+        gameEngine = new GameEngine();      //renewing gameEngine as well
         MyApplication.setScene(GameOver.getInstance());
     }
 
