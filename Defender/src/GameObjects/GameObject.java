@@ -17,9 +17,6 @@ class GameObject {
     private Image image;
     private Rectangle hitbox;
 
-    public GameObject(){
-
-    }
 
     public GameObject(int x, int y) {
         coordinates.setX(x);
@@ -33,6 +30,13 @@ class GameObject {
         coordinates.setX(x);
         coordinates.setY(y);
         setSpeed(speed);
+        alive = true;
+    }
+
+    public GameObject() {
+        coordinates.setX((int)(Math.random()) * 500);
+        coordinates.setY(470);
+        setSpeed(10);
         alive = true;
     }
 

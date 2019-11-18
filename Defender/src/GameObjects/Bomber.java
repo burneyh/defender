@@ -1,8 +1,8 @@
 package GameObjects;
 
 public class Bomber extends Alien{
-    public Bomber(int x, int y) {
-        super(x, y);
+    public Bomber() {
+        super();
         points = 100;
         loadImage("res/Icons/005-airplane.png");
         getImageDimensions();

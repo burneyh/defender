@@ -9,7 +9,6 @@ public class LevelManager {
     private int numOfBaiters;
     private int numOfBombers;
     private int numOfLanders;
-    private int numOfMutants;
 
 
     private LevelManager(){
@@ -17,7 +16,6 @@ public class LevelManager {
         numOfHumans = 5;
         numOfLanders = 8;
         numOfBombers = 1;
-        numOfMutants = 1;
     }
 
     public static LevelManager getInstance(){
@@ -28,9 +26,8 @@ public class LevelManager {
 
     public void increaseAliens(){
         numOfHumans += (int)(currentLevel * 0.3);
-        numOfLanders += (int)(currentLevel * 1.27);
         numOfBombers += (int)(currentLevel * 0.3);
-        numOfMutants += (int)(currentLevel * 0.3);
+        numOfLanders += (int)(currentLevel * 1.27);
     }
 
     public int getNumOfHumans() {
@@ -47,10 +44,6 @@ public class LevelManager {
 
     public int getNumOfLanders() {
         return numOfLanders;
-    }
-
-    public int getNumOfMutants() {
-        return numOfMutants;
     }
 
     public void incrementLevel() {

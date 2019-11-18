@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import CollisionDetector.CollisionDetector;
 import GameObjects.*;
+import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
 
 public class GameEngine {
@@ -31,6 +32,25 @@ public class GameEngine {
         collisionDetector = CollisionDetector.getInstance();
         sceneGenerator = SceneGenerator.getInstance();
         isPaused = false;
+
+        for (int i = 0; i < levelManager.getNumOfLanders(); i++) {
+            aliens.add(new Lander());
+        }
+
+        for (int i = 0; i < levelManager.getNumOfBaiters(); i++) {
+            aliens.add(new Baiter());
+        }
+
+        for (int i = 0; i < levelManager.getNumOfBombers(); i++) {
+            aliens.add(new Bomber());
+        }
+
+        for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
+            humans.add(new Human());
+        }
+
+
+
     }
 
     public static GameEngine getInstance(){
@@ -45,7 +65,23 @@ public class GameEngine {
     }
 
     public void refreshFrame(){
-        if (isPaused) return;
+
+        //start timer
+
+        //if timer runs out.
+        levelManager.incrementLevel();
+        levelManager.increaseAliens();
+        levelManager.
+
+
+
+
+
+
+
+        if (isPaused) {
+            MyApplication.setScene(PauseMenu.getInstance());
+        };
 
         collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles);
 
@@ -74,7 +110,7 @@ public class GameEngine {
                 tempHumans.add(human);
             else {
                 tempAliens.add(new Mutant(human.getX(), human.getY()));
-                score -= Mutant.SCORE;
+                score -= Lander.SCORE;
             }
         }
 
@@ -88,6 +124,6 @@ public class GameEngine {
     }
 
     private void gameOver(){
-
+        MyApplication.setScene(GameOver.getInstance());
     }
 }
