@@ -165,7 +165,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         projectiles = tempProjectiles;
 
 
-        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel());
+        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel(), motherShip.getHealth());
     }
 
     private synchronized void nextLevel() {
