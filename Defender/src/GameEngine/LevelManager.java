@@ -61,4 +61,8 @@ public class LevelManager {
         currentLevel++;
         increaseAliens();
     }
+
+    public int getLevel(){
+        return currentLevel;
+    }
 }
