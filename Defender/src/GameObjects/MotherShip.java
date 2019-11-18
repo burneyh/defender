@@ -6,7 +6,8 @@ public class MotherShip extends GameObject{
 
     private int health;
     private int score;
-    public static enum moveDirection {LEFT, RIGHT, UP, DOWN};
+
+
     private moveDirection direction;
 
     private MotherShip(){
@@ -41,10 +42,29 @@ public class MotherShip extends GameObject{
     }
 
     public void move(moveDirection d){
-        // TODO
+        switch(direction){
+            case UP:
+                setY(getY() - this.getSpeed());
+                break;
+            case DOWN:
+                setY(getY() + this.getSpeed());
+                break;
+            case LEFT:
+                setY(getX() + this.getSpeed());
+                break;
+            case RIGHT:
+                setY(getX() - this.getSpeed());
+                break;
+        }
+
+        if (this.getX() > 600) setX(20);
+        if (this.getX() < 0)   setX(580);
+        if (this.getY() > 500) setX(10);
+        if (this.getY() < 0)   setX(480);
+
     }
 
-    public void fire(){
-        // TODO
+    public Projectile fire(){
+        return new ShipProjectile(this.getCoordinates(), this.getDirection());
     }
 }

@@ -7,9 +7,8 @@ import java.io.FileInputStream;
 //import javafx.scene.shape.Rectangle;
 
 class GameObject {
-    public final static  int RIGHT = 0;
-    public final static int LEFT = 1;
 
+    public static enum moveDirection {LEFT, RIGHT, UP, DOWN}
     private Coordinate coordinates;
     private int width, height, speed;
     private boolean alive;
@@ -35,6 +34,10 @@ class GameObject {
         coordinates = new Coordinate((int)(Math.random()) * 500, 470);
         setSpeed(10);
         alive = true;
+    }
+
+    public void setCoordinates(Coordinate coordinates) {
+        this.coordinates = coordinates;
     }
 
     protected void getImageDimensions() {
@@ -91,9 +94,25 @@ class GameObject {
         return coordinates.getY();
     }
 
-    // to be implemented
-    public void move() {
+    public int getSpeed() {
+        return speed;
+    }
 
+    public void move(moveDirection direction) {
+        switch(direction){
+            case UP:
+                setY(getY() - speed);
+                break;
+            case DOWN:
+                setY(getY() + speed);
+                break;
+            case LEFT:
+                setY(getX() + speed);
+                break;
+            case RIGHT:
+                setY(getX() - speed);
+                break;
+        }
     }
 
     public void draw() {
