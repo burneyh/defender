@@ -8,6 +8,10 @@ import UserInterface.Menu.GameOver;
 import UserInterface.Menu.PauseMenu;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 public class GameEngine {
 
@@ -61,17 +65,25 @@ public class GameEngine {
 
     public void createUniverse(){
         sceneGenerator.createMap(motherShip, aliens, humans);
-        gameEngine.refreshFrame();
+        gameEngine.refresh();
     }
 
-    public void refreshFrame(){
-
+    public void refresh(){
         //start timer
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(16),
+                e -> refreshFrame()
+        ));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
 
-        //if timer runs out.
-        nextLevel();
-
-
+    private void refreshFrame(){
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(60000),
+                e -> nextLevel()
+        ));
+        timeline.play();
 
         if (isPaused) {
             MyApplication.setScene(PauseMenu.getInstance());
@@ -119,6 +131,7 @@ public class GameEngine {
     }
 
     private void nextLevel() {
+        System.out.println("level Man");
         levelManager.incrementLevel();
         levelManager.increaseAliens();
 

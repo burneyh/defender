@@ -20,7 +20,7 @@ public class MenuSection extends Parent {
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
             MyApplication.setScene(SceneGenerator.getInstance());
-            MyApplication.ge.refreshFrame();
+            MyApplication.ge.refresh();
         });
 
         MenuButton play = new MenuButton("Play");
