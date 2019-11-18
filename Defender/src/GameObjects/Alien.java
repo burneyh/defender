@@ -12,8 +12,9 @@ public class Alien extends GameObject {
         setSpeed(5);
     }
     public int getScore() {
-        return 0;
+        return points;
     }
+
 
 
 

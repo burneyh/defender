@@ -113,6 +113,12 @@ class GameObject {
                 setY(getX() - speed);
                 break;
         }
+
+        if (this.getX() > 600) setX(20);
+        if (this.getX() < 0)   setX(580);
+        if (this.getY() > 500) setX(10);
+        if (this.getY() < 0)   setX(480);
+
     }
 
     public void draw() {

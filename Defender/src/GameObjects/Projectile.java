@@ -28,6 +28,10 @@ public class Projectile extends GameObject {
                 setY(getX() - this.getSpeed());
                 break;
         }
+
+        if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
+            this.kill();
+
     }
 
 }
