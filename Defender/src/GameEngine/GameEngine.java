@@ -145,7 +145,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (Projectile projectile : projectiles)
             if (projectile.isAlive()) {
                 tempProjectiles.add(projectile);
-                projectile.move(projectile.getDirection());
+                if (!(projectile instanceof Mine))
+                    projectile.move(projectile.getDirection());
             }
 
         //remove mutated humans and add mutants

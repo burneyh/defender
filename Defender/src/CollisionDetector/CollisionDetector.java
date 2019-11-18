@@ -29,7 +29,7 @@ public class CollisionDetector {
         Rectangle motherBox = motherShip.getHitbox();
 
         for(Projectile projectile: projectiles){
-                if ( (projectile instanceof AlienProjectile) ) {
+                if ( (projectile instanceof AlienProjectile) || (projectile instanceof Mine)) {
                 Rectangle projectileBox = projectile.getHitbox();
                 if (motherShip.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(motherBox.getBoundsInParent())) {
                     int damage = projectile.getDamage();

@@ -37,7 +37,7 @@ class GameObject {
     public void setCoordinates(Coordinate coordinates) {
         this.coordinates = coordinates;
     }
-
+    public void setCoordinates(int x, int y ){ this.setX(x); this.setY(y);}
     protected void getImageDimensions() {
         width = (int)image.getWidth();
         height = (int)image.getHeight();
