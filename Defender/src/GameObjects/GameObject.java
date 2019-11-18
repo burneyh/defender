@@ -46,8 +46,14 @@ class GameObject {
 
     protected void loadImage(String imageName) {
         try {
+            int width = 30;
+            int height = 30;
+            if (this instanceof Projectile){
+                width = 10;
+                height = 10;
+            }
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
-                    30, 30, false, false);
+                    width, height, false, false);
         } catch (NullPointerException e){
             System.out.println("Resource not found on " + imageName);
         }

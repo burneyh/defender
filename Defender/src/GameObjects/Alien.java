@@ -12,7 +12,7 @@ public class Alien extends GameObject {
     int points;
 
     public Alien(){
-        super(((int)(Math.random() * 500)), (int)(Math.random() * 400));
+        super((450 - (int)(Math.random() * 200)), (int)(Math.random() * 400));
         setSpeed(2);
         move();
     }

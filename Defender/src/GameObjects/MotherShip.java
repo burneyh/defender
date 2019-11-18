@@ -11,7 +11,7 @@ public class MotherShip extends GameObject{
     private moveDirection direction;
 
     private MotherShip(){
-        super(300, 250);
+        super(100, 250);
         health = 100;
         score = 0;
         direction = moveDirection.RIGHT;
