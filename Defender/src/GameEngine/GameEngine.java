@@ -97,6 +97,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         if (!motherShip.isAlive()) {
             gameOver();
+            return;
         }
 
         ArrayList<Alien> tempAliens = new ArrayList<>();
@@ -108,6 +109,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
             if (alien.isAlive()) {
                 tempAliens.add(alien);
                 alien.move();
+                Projectile projectile = alien.fire();
+                if (projectile != null)
+                    tempProjectiles.add(projectile);
+
             }
             else {
                 score += alien.getScore();
@@ -173,7 +178,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     private void gameOver(){
-        // high score
+
         MyApplication.setScene(GameOver.getInstance());
     }
 

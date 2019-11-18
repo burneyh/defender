@@ -71,4 +71,30 @@ public class Alien extends GameObject {
             if (this.getY() < 0)   setY(10);
         }
     }
+
+    private int fireCounter = 0;
+    public Projectile fire(){
+        if (fireCounter >= 100){
+            fireCounter = 0;
+            Coordinate shipCo = MotherShip.getInstance().getCoordinates();
+            if (this.getX() < shipCo.getX()){
+                int x = this.getX();
+                int y = this.getY();
+                Coordinate ship_Coordinate = new Coordinate(x,y);
+                moveDirection newDirection = moveDirection.RIGHT;
+                return new AlienProjectile(ship_Coordinate, newDirection);
+            }
+            else{
+                int x = this.getX();
+                int y = this.getY();
+                Coordinate ship_Coordinate = new Coordinate(x,y);
+                moveDirection newDirection = moveDirection.LEFT;
+                return new AlienProjectile(ship_Coordinate, newDirection);
+            }
+        }
+        else {
+            fireCounter++;
+            return null;
+        }
+    }
 }
