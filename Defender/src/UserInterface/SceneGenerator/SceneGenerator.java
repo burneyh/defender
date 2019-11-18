@@ -71,9 +71,9 @@ public class SceneGenerator extends Scene {
         if(projectiles != null)
             for(Projectile projectile : projectiles) {
                 if(projectile.getDirection() == Projectile.moveDirection.RIGHT)
-                    graphics.drawImage(projectile.getImage(), projectile.getX() - 15, projectile.getY() - 15);
+                    graphics.drawImage(projectile.getImage(), projectile.getX() - 5, projectile.getY() - 5);
                 else
-                    graphics.drawImage(projectile.getImage(), projectile.getX() + 15, projectile.getY() + 15, -30, -30);
+                    graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY() + 5, -10, -10);
             }
     }
 }
