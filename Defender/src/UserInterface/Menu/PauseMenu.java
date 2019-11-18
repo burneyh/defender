@@ -18,7 +18,7 @@ public class PauseMenu extends Scene {
         super(root,MyApplication.WIDTH, MyApplication.HEIGHT );
 
         try{
-            FileInputStream input = new FileInputStream("res/bg_image.jpg");
+            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/bg_image.jpg");
 
             // create a image
             Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);

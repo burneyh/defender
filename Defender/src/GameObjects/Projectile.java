@@ -6,7 +6,7 @@ public class Projectile extends GameObject {
 
 
     public Projectile(){
-        loadImage("res/Icons/004-rocket-1.png");
+        loadImage("CS319-1C-DE/Defender/res/Icons/001-rocket.png");
         getImageDimensions();
         setSpeed(15);
     }

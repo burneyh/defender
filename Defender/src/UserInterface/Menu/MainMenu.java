@@ -30,7 +30,7 @@ public class MainMenu extends Scene {
 
         // Add background to root
         try{
-            FileInputStream input = new FileInputStream("res/bg_image.jpg");
+            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/bg_image.jpg");
 
             // create a image
             Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);

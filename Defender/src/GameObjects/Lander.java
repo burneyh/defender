@@ -16,7 +16,7 @@ public class Lander extends Alien {
     public Lander() {
         super();
         points = 150;
-        loadImage("res/Icons/002-lander.png");
+        loadImage("CS319-1C-DE/Defender/res/Icons/002-lander.png");
         getImageDimensions();
     }
     public int getScore() {return points;}

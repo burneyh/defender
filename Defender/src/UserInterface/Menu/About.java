@@ -41,7 +41,7 @@ public class About extends Scene {
 //        root.getChildren().add(bg);
 
         try{
-            FileInputStream input = new FileInputStream("res/bg_image.jpg");
+            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/bg_image.jpg");
             // create a image
             Image image = new Image(input, MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
 
@@ -70,7 +70,7 @@ public class About extends Scene {
 
         // Back Button
         try{
-            FileInputStream input = new FileInputStream("res/back-button.png");
+            FileInputStream input = new FileInputStream("CS319-1C-DE/Defender/res/back-button.png");
             Image image = new Image(input, 20,20, false,false);
             ImageView imageView = new ImageView(image);
             Button back = new Button("", imageView);
@@ -87,7 +87,7 @@ public class About extends Scene {
 
         Text ta = new Text();
         try{
-            File input = new File("src/UserInterface/TextFiles/about.txt");
+            File input = new File("CS319-1C-DE/Defender/src/UserInterface/TextFiles/about.txt");
             FileReader fr = new FileReader(input);
             BufferedReader br = new BufferedReader(fr);
 
