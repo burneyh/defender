@@ -1,0 +1,17 @@
+Defender is based on the classic 1981 arcade game of the same name developed by
+Williams Electronics. It was the company’s most popular game selling over 55,000
+units and praised for its gameplay and audio-visuals at the time [1]. This desktop
+based version tasks a single player to control a spacecraft and prevent aliens
+from turning humans living on a planet into mutants. The player must try to save
+as many souls as possible from each wave of aliens.
+
+Developers:
+    1 - Hanzallah Azim Burney
+    2 - Abdul Hamid Dabboussi
+    3 - Perman Atayev
+    4 - Endri Suknaj
+    5 - Gledis Zeneli
+
+[1] “Defender (1981 video game),” Wikipedia, 18-Sep-2019. [Online].
+     Available: https://en.wikipedia.org/wiki/Defender_(1981_video_game).
+     [Accessed: 10-Oct-2019].
