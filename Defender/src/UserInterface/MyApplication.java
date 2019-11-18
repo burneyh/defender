@@ -2,6 +2,7 @@ package UserInterface;
 
 import GameEngine.GameEngine;
 import UserInterface.Menu.MainMenu;
+import UserInterface.Menu.PauseMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -20,7 +21,7 @@ public class MyApplication extends Application {
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
         stage.setTitle("DEFENDER");
-        setScene( MainMenu.getInstance());
+        setScene( PauseMenu.getInstance());
         primaryStage.show();
     }
 
