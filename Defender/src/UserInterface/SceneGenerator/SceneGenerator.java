@@ -1,9 +1,15 @@
 package UserInterface.SceneGenerator;
 
+import GameObjects.Alien;
+import GameObjects.Human;
+import GameObjects.MotherShip;
+import GameObjects.Projectile;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class SceneGenerator extends Scene {
     static private SceneGenerator sceneGenerator = null;
@@ -20,4 +26,9 @@ public class SceneGenerator extends Scene {
         super(root);
     }
 
+    public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
+    }
+
+    public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans, ArrayList<Projectile> projectiles, int score) {
+    }
 }

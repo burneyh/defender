@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import CollisionDetector.CollisionDetector;
 import GameObjects.*;
+import UserInterface.Menu.GameOver;
+import UserInterface.Menu.PauseMenu;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
 
@@ -69,13 +71,7 @@ public class GameEngine {
         //start timer
 
         //if timer runs out.
-        levelManager.incrementLevel();
-        levelManager.increaseAliens();
-        levelManager.
-
-
-
-
+        nextLevel();
 
 
 
@@ -121,6 +117,36 @@ public class GameEngine {
 
 
         sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score);
+    }
+
+    private void nextLevel() {
+        levelManager.incrementLevel();
+        levelManager.increaseAliens();
+
+        ArrayList<Alien> tempAliens = new ArrayList<>();
+        ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
+        ArrayList<Human> tempHumans = new ArrayList<>();
+
+        for (int i = 0; i < levelManager.getNumOfLanders(); i++) {
+            aliens.add(new Lander());
+        }
+
+        for (int i = 0; i < levelManager.getNumOfBaiters(); i++) {
+            aliens.add(new Baiter());
+        }
+
+        for (int i = 0; i < levelManager.getNumOfBombers(); i++) {
+            aliens.add(new Bomber());
+        }
+
+        for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
+            humans.add(new Human());
+        }
+
+        aliens = tempAliens;
+        humans = tempHumans;
+        projectiles = tempProjectiles;
+
     }
 
     private void gameOver(){
