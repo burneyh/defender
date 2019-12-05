@@ -13,7 +13,8 @@
 3 - [Final Report - Iteration 01](https://docs.google.com/document/d/1LDLDHUUW_Qx0TnTUm6L8uVyKL0OVoENBk4FN5e7npno/edit?usp=sharing)
 
 ### Reports - Iteration 2
-1 - [Analysis Report - Iteration 02](https://docs.google.com/document/d/1rG8NfIlvNNeQ38nZAe8gJsaKnWclPmfHnPp0lcYnIMA/edit?usp=sharing)
+1 - [Analysis Report - Iteration 02](https://docs.google.com/document/d/1rG8NfIlvNNeQ38nZAe8gJsaKnWclPmfHnPp0lcYnIMA/edit?usp=sharing)\
+2 - [Design Report - Iteration 02](https://docs.google.com/document/d/1qXtkUd1nK1TcSaZ-rajwizC2SDbLXUNZFegDUkTVWic/edit?usp=sharing)
 
 ## Project Description
 In the project we are going to implement classic arcade game "Defender".\
