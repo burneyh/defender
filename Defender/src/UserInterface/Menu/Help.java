@@ -12,9 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 
 public class Help extends Scene {
     private static Help helpInstance;
@@ -88,9 +86,8 @@ public class Help extends Scene {
 
         Text ta = new Text();
         try{
-            File input = new File(getClass().getClassLoader().getResource("TextFiles/help.txt").getFile());
-            FileReader fr = new FileReader(input);
-            BufferedReader br = new BufferedReader(fr);
+            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/help.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
             StringBuilder sb = new StringBuilder();
             String st;
