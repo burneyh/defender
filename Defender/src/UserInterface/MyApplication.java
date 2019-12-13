@@ -1,6 +1,6 @@
 package UserInterface;
 
-import GameEngine.GameEngine;
+import Controllers.GameEngine;
 import UserInterface.Menu.MainMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;

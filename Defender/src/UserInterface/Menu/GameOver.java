@@ -16,9 +16,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.awt.event.MouseEvent;
-import java.io.FileInputStream;
-
 public class GameOver extends Scene {
     private static GameOver gameOverInstance;
 

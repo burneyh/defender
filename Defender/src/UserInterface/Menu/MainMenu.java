@@ -10,8 +10,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-import java.io.FileInputStream;
-
 public class MainMenu extends Scene {
     private static MainMenu menuInstance;
     private MainMenu(Pane root){

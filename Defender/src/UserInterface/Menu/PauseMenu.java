@@ -10,8 +10,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-import java.io.FileInputStream;
-
 public class PauseMenu extends Scene {
     private static PauseMenu pauseMenuInstance;
     private PauseMenu(Pane root){

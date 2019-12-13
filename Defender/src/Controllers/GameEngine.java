@@ -1,10 +1,8 @@
-package GameEngine;
+package Controllers;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-import CollisionDetector.CollisionDetector;
 import GameObjects.*;
 import UserInterface.Menu.GameOver;
 import UserInterface.Menu.PauseMenu;

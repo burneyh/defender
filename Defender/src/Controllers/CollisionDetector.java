@@ -1,4 +1,4 @@
-package CollisionDetector;
+package Controllers;
 
 
 import GameObjects.*;

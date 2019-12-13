@@ -1,5 +1,4 @@
 package GameObjects;
-import UserInterface.MyApplication;
 //import com.sun.javafx.scene.traversal.Direction;
 
 
