@@ -29,8 +29,12 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
-            MyApplication.setScene(SceneGenerator.getInstance());
-            MyApplication.ge.createUniverse();
+            if(isPause){
+                MyApplication.setScene(Username.getInstance(true));
+            }
+            else{
+                MyApplication.setScene(Username.getInstance(false));
+            }
         });
 
         MenuButton highScore = new MenuButton("High Score");

@@ -1,10 +1,12 @@
 package Controllers;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 import GameObjects.*;
 import UserInterface.Menu.GameOver;
+import UserInterface.Menu.HighScore;
 import UserInterface.Menu.PauseMenu;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
@@ -13,6 +15,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 public class GameEngine implements EventHandler<KeyEvent> {
@@ -203,6 +207,58 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private void gameOver(){
         // high score
+        try{
+            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/highScores.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+
+            ArrayList<Integer> scores = new ArrayList<>();
+            ArrayList<String> names = new ArrayList<>();
+            String st;
+            while ((st = br.readLine()) != null) {
+                Integer i = Integer.parseInt(st.substring(17, st.length()));
+                scores.add(i);
+                String string = st.substring(0,st.indexOf("-"));
+                names.add(string.replace(" ",""));
+            }
+            inputStream.close();
+            br.close();
+
+            if (scores.size() == 0){
+                scores.add(score);
+                names.add(HighScore.getInstance(false).getUsername());
+            }
+            if (scores.get(scores.size()-1) > score){
+                scores.add(scores.size(), score);
+                names.add(names.size(), HighScore.getInstance(false).getUsername());
+            }
+            for (int i = 0; i < scores.size() && i <= 10; i++){
+                if (score > scores.get(i)){
+                    scores.add(i, score);
+                    names.add(i, HighScore.getInstance(false).getUsername());
+                    break;
+                }
+            }
+
+            FileWriter fr = new FileWriter("res/TextFiles/highScores.txt");
+            for(int i = 0; i < scores.size() && i <= 10; i++){
+                String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
+                fr.write(str);
+            }
+            fr.flush();
+            fr.close();
+
+            FileWriter fr1 = new FileWriter("out/production/Defender/TextFiles/highScores.txt");
+            for(int i = 0; i < scores.size(); i++){
+                String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
+                fr1.write(str);
+            }
+            fr1.flush();
+            fr1.close();
+        }
+        catch (Exception e){
+            System.out.println("File Not Found in GameEngine");
+        }
+
 
         MotherShip.renew();
         LevelManager.renew();

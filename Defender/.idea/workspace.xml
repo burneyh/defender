@@ -3,25 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Defender.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Defender.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/TextFiles/help.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/Help.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/001-rocket.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/001-rocket.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/002-lander.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/002-lander.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/003-workers.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/003-workers.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/004-rocket-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/004-rocket-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/005-airplane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/005-airplane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/AlienProjectile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/AlienProjectile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/bomber.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/bomber.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/mine.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/mine.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/monster.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/monster.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Icons/mutantShip.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Icons/mutantShip.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/TextFiles/about.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/TextFiles/about.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/TextFiles/help.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/help.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/TextFiles/highScores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/back-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/back-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bg_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/bg_image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/HighScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/HighScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/MenuSection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/MenuSection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/TextFiles/highScores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +107,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hanzallah Burney\Desktop\Projects\Dev_Java\CS319-1C-DE\Defender" />
+      <recent name="C:\Users\Hanzallah Burney\Desktop\Projects\Dev_Java\CS319-1C-DE\Defender\src\res\TextFiles" />
       <recent name="C:\Users\Hanzallah Burney\Desktop\Projects\Dev_Java\CS319-1C-DE\Defender\src" />
       <recent name="C:\Users\Hanzallah Burney\Desktop\Projects\Dev_Java\CS319-1C-DE\Defender\res" />
     </key>
@@ -263,39 +256,41 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="166" key="GridCell.Tab.0.bottom" timestamp="1576263073819">
+    <state width="1237" height="160" key="GridCell.Tab.0.bottom" timestamp="1576330072887">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576263073819" />
-    <state width="1237" height="166" key="GridCell.Tab.0.center" timestamp="1576263073819">
+    <state width="1237" height="160" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
+    <state width="1237" height="160" key="GridCell.Tab.0.center" timestamp="1576330072887">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576263073819" />
-    <state width="1237" height="166" key="GridCell.Tab.0.left" timestamp="1576263073819">
+    <state width="1237" height="160" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
+    <state width="1237" height="160" key="GridCell.Tab.0.left" timestamp="1576330072887">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576263073819" />
-    <state width="1237" height="166" key="GridCell.Tab.0.right" timestamp="1576263073819">
+    <state width="1237" height="160" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
+    <state width="1237" height="160" key="GridCell.Tab.0.right" timestamp="1576330072887">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576263073819" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1576262666942">
+    <state width="1237" height="160" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
+    <state width="1237" height="208" key="GridCell.Tab.1.bottom" timestamp="1576329660233">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1576262666942" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/UserInterface/MyApplication.java</url>
-          <line>14</line>
-          <properties class="UserInterface.MyApplication" method="main">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1237" height="208" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
+    <state width="1237" height="208" key="GridCell.Tab.1.center" timestamp="1576329660233">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="208" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
+    <state width="1237" height="208" key="GridCell.Tab.1.left" timestamp="1576329660233">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="208" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
+    <state width="1237" height="208" key="GridCell.Tab.1.right" timestamp="1576329660233">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="208" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1576264769894">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1576264769894" />
   </component>
 </project>

@@ -1,9 +1,12 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.SceneGenerator;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -11,13 +14,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.io.*;
 
-public class Help extends Scene {
-    private static Help helpInstance;
-    private Help(Pane root, boolean isPause) {
+public class Username extends Scene {
+    private static Username UsernameInstance;
+    private Username(Pane root, boolean isPause) {
         super(root);
+        VBox menu1 = new VBox(10);
+        menu1.setTranslateX(210);
+        menu1.setTranslateY(150);
 
         // Initialize window width and height
         int windowWidth = MyApplication.WIDTH;
@@ -25,14 +32,6 @@ public class Help extends Scene {
 
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
-
-//        // Main Menu Background
-//        Rectangle bg = new Rectangle(windowWidth,windowHeight);
-//        Color gameCol = Color.rgb(38,6,71);
-//        bg.setFill(gameCol);
-//
-//        // Add background to root
-//        root.getChildren().add(bg);
 
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
@@ -53,10 +52,10 @@ public class Help extends Scene {
 
 
         // Main Headline
-        Text text = new Text("Help");
+        Text text = new Text("Select Username");
         text.setTextOrigin(VPos.TOP);
         text.setY(10);
-        text.setX(200);
+        text.setX(100);
         text.setY(this.getHeight()/6);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
         text.setFill(Color.WHITE);
@@ -84,36 +83,29 @@ public class Help extends Scene {
             System.out.println("File Not Found");
         }
 
-        Text ta = new Text();
-        try{
-            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/help.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+        TextField usernameField = new TextField("Enter Username");
+        // set alignment of text
+        usernameField.setAlignment(Pos.CENTER);
 
-            StringBuilder sb = new StringBuilder();
-            String st;
-            while ((st = br.readLine()) != null){
-                sb.append(st);
-                sb.append('\n');
-            }
-            ta.setTranslateX(15);
-            ta.setY(75);
-            ta.setFont(Font.font("Times New Roman",16));
-            ta.setFill(Color.WHITE);
-            ta.setText(sb.toString());
 
-        }
-        catch (Exception e){
-            System.out.println("File Not Found");
-        }
 
-        root.getChildren().add(ta);
+        MenuButton aContinue = new MenuButton("Continue");
+        aContinue.setOnMouseClicked(event -> {
+            // Set username here
+            HighScore.getInstance(false).setUsername(usernameField.getText());
+            MyApplication.setScene(SceneGenerator.getInstance());
+            MyApplication.ge.createUniverse();
+        });
+
+        menu1.getChildren().addAll(usernameField, aContinue);
+        root.getChildren().add(menu1);
     }
 
-    public static Help getInstance(boolean isPause){
-        if (helpInstance == null) {
+    public static Username getInstance(boolean isPause){
+        if (UsernameInstance == null) {
             Pane root = new Pane();
-            helpInstance = new Help(root, isPause);
+            UsernameInstance = new Username(root, isPause);
         }
-        return helpInstance;
+        return UsernameInstance;
     }
 }

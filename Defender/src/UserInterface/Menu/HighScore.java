@@ -16,9 +16,10 @@ import java.io.*;
 
 public class HighScore extends Scene {
     private static HighScore highScoreInstance;
+    private String username;
     private HighScore(Pane root, boolean isPause) {
         super(root);
-
+        username = "";
         // Initialize window width and height
         int windowWidth = MyApplication.WIDTH;
         int windowHeight = MyApplication.HEIGHT;
@@ -85,7 +86,7 @@ public class HighScore extends Scene {
 
         Text ta = new Text();
         try{
-            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/highScores.txt");
+            InputStream inputStream = getClass().getResourceAsStream("TextFiles/highScores.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
             StringBuilder sb = new StringBuilder();
@@ -96,6 +97,9 @@ public class HighScore extends Scene {
                 sb.append(st);
                 sb.append('\n');
             }
+            inputStream.close();
+            br.close();
+
             ta.setTranslateX(150);
             ta.setY(100);
             ta.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
@@ -104,7 +108,7 @@ public class HighScore extends Scene {
 
         }
         catch (Exception e){
-            System.out.println("File Not Found");
+            System.out.println("File Not Found in HighScore");
         }
 
         root.getChildren().add(ta);
@@ -116,5 +120,13 @@ public class HighScore extends Scene {
             highScoreInstance = new HighScore(root, isPause);
         }
         return highScoreInstance;
+    }
+
+    public void setUsername(String userName){
+        this.username = userName;
+    }
+
+    public String getUsername(){
+        return username;
     }
 }
