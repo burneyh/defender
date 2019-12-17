@@ -45,6 +45,15 @@ public class CollisionDetector {
         }
     }
 
+    private void checkShipCollisionWithPowerUps(MotherShip motherShip, ArrayList<PowerUp> powerUps) {
+        Rectangle motherBox = motherShip.getHitbox();
+        for(PowerUp powerUp: powerUps){
+            Rectangle powerBox = powerUp.getHitbox();
+            if (motherShip.isAlive() && powerUp.isAlive() && motherBox.getBoundsInParent().intersects(powerBox.getBoundsInParent())){
+                motherShip.setPowerUp(powerUp);
+            }
+        }
+    }
 
     private void checkProjectileCollisionWithAlien(ArrayList<Alien> aliens, ArrayList<Projectile>  projectiles){
         for(Alien alien: aliens){
@@ -84,11 +93,12 @@ public class CollisionDetector {
         return collisionDetector;
     }
 
-    public void checkAllCollisions(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans, ArrayList<Projectile>  projectiles){
+    public void checkAllCollisions(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans, ArrayList<Projectile>  projectiles, ArrayList<PowerUp> powerUps){
         checkShipCollisionsWithAlien(motherShip, aliens);
         checkProjectileCollisionsWithShip(motherShip, projectiles);
         checkMutation(aliens, humans);
         checkProjectileCollisionWithAlien(aliens, projectiles);
+        checkShipCollisionWithPowerUps(motherShip, powerUps);
     }
 
 }

@@ -114,7 +114,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             return;
         };
 
-        collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles);
+        collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles, powerUps);
 
         if (!motherShip.isAlive()) {
             sceneRefresher.stop();
@@ -149,7 +149,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (Alien alien : aliens) {
             if (alien.isAlive()) {
                 tempAliens.add(alien);
-                if ((motherShip.getPowerUp() != null) && (motherShip.getPowerUp().getType() != PowerUp.Type.FROST))
+                if ((motherShip.getPowerUp() == null) || (motherShip.getPowerUp().getType() != PowerUp.Type.FROST))
                     alien.move();
             }
             else {

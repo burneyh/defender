@@ -3,11 +3,13 @@ package GameObjects;
 public class Projectile extends GameObject {
     protected int damage;
     private moveDirection direction;
+    public int oblique;
 
 
     public Projectile(int x, int y){
         super(x, y);
         setSpeed(5);
+        oblique = 2;
     }
 
     public int getDamage() {
@@ -28,32 +30,23 @@ public class Projectile extends GameObject {
                 break;
         }
 
+        switch (oblique) {
+            case 0:
+                setY(getY() - this.getSpeed());
+                break;
+            case 1:
+                setY(getY() + this.getSpeed());
+                break;
+            default:
+                break;
+        }
+
+
         if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
             this.kill();
 
     }
 
-    public void move(moveDirection direction, boolean oblique){
-        switch(direction){
-            case LEFT:
-                setX(getX() - this.getSpeed());
-                break;
-            case RIGHT:
-                setX(getX() + this.getSpeed());
-                break;
-        }
-
-        if(oblique) {
-            setY(getY() - this.getSpeed());
-        }
-        else {
-            setY(getY() + this.getSpeed());
-        }
-
-        if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
-            this.kill();
-
-    }
 
     public moveDirection getDirection() {
         return direction;

@@ -91,11 +91,11 @@ public class MotherShip extends GameObject{
         int y = this.getCoordinates().getY();
         Coordinate ship_Coordinate = new Coordinate(x,y);
         moveDirection newDirection = this.getDirection();
-        newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection));
-        if (powerUp.getType() == PowerUp.Type.TRIPLE_SHOP){
-            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, false));
-            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, true));
-        }
+        newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, 2));
+        //if (powerUp.getType() == PowerUp.Type.TRIPLE_SHOP){
+            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, 0));
+            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, 1));
+        //}
         return newProjectiles;
     }
 }
