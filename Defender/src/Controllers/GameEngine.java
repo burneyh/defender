@@ -26,6 +26,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private Timeline sceneRefresher = null;
     private Timeline levelRefresher = null;
 
+    private ArrayList<PowerUp> powerUps;
     private ArrayList<Alien> aliens;
     private ArrayList<Projectile>  projectiles;
     private ArrayList<Human> humans;
@@ -36,7 +37,9 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private boolean isPaused;
     private int score = 0;
 
+
     private GameEngine(){
+        powerUps = new ArrayList<>();
         aliens = new ArrayList<>();
         projectiles = new ArrayList<>();
         humans = new ArrayList<>();
@@ -120,6 +123,24 @@ public class GameEngine implements EventHandler<KeyEvent> {
             return;
         }
 
+        if (motherShip.getPowerUp() != null) {
+            switch (motherShip.getPowerUp().getType()) {
+                case REFILL_HEALTH:
+                    motherShip.refillHealth();
+                    break;
+                case SHIELD:
+                    break;
+                case TRIPLE_SHOP:
+                    break;
+                case EMPOWERED_SHOT:
+                    break;
+                case EXPLOSIVE_SHOT:
+                    break;
+                case FROST: //Implemented. Remove in production
+                    break;
+            }
+        }
+
         ArrayList<Alien> tempAliens = new ArrayList<>();
         ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
         ArrayList<Human> tempHumans = new ArrayList<>();
@@ -128,7 +149,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (Alien alien : aliens) {
             if (alien.isAlive()) {
                 tempAliens.add(alien);
-                alien.move();
+                if ((motherShip.getPowerUp() != null) && (motherShip.getPowerUp().getType() != PowerUp.Type.FROST))
+                    alien.move();
             }
             else {
                 score += alien.getScore();

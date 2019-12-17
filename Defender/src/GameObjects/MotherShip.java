@@ -6,6 +6,7 @@ public class MotherShip extends GameObject{
 
     private int health;
     private int score;
+    private PowerUp powerUp = null;
 
 
     private moveDirection direction;
@@ -27,12 +28,24 @@ public class MotherShip extends GameObject{
         health  = health - damage;
     }
 
+    public void refillHealth() {
+        health = 100;
+    }
+
     public moveDirection getDirection() {
         return direction;
     }
 
     public int getHealth(){
         return health;
+    }
+
+    public PowerUp getPowerUp() {
+        return powerUp;
+    }
+
+    public void setPowerUp(PowerUp powerUp) {
+        this.powerUp = powerUp;
     }
 
     public static MotherShip getInstance() {
