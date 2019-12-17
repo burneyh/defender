@@ -12,4 +12,14 @@ public class ShipProjectile extends Projectile{
         this.move(direction);
     }
 
+    public ShipProjectile(Coordinate coordinates, moveDirection direction, boolean oblique){
+        super(coordinates.getX(), coordinates.getY());
+
+        loadImage("Icons/004-rocket-1.png");
+        this.getImageDimensions();
+        this.setCoordinates(coordinates);
+        this.setDirection(direction);
+        this.move(direction, oblique);
+    }
+
 }

@@ -33,6 +33,21 @@ public class Projectile extends GameObject {
 
     }
 
+    public void move(moveDirection direction, boolean oblique){
+        switch(direction){
+            case LEFT:
+                setX(getX() - this.getSpeed());
+                break;
+            case RIGHT:
+                setX(getX() + this.getSpeed());
+                break;
+        }
+
+        if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
+            this.kill();
+
+    }
+
     public moveDirection getDirection() {
         return direction;
     }

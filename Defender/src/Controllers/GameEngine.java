@@ -293,7 +293,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
         switch(event.getCode()){
             case SPACE:
-                projectiles.add(motherShip.fire());
+                projectiles.addAll(motherShip.fire());
                 break;
             case UP:
                 motherShip.move(MotherShip.moveDirection.UP);

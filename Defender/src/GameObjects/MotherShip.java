@@ -1,5 +1,7 @@
 package GameObjects;
 
+import java.util.ArrayList;
+
 public class MotherShip extends GameObject{
 
     private static MotherShip motherShip = null;
@@ -83,11 +85,17 @@ public class MotherShip extends GameObject{
 
     }
 
-    public Projectile fire(){
+    public ArrayList<Projectile> fire(){
+        ArrayList<Projectile> newProjectiles = new ArrayList<>();
         int x = this.getCoordinates().getX();
         int y = this.getCoordinates().getY();
         Coordinate ship_Coordinate = new Coordinate(x,y);
         moveDirection newDirection = this.getDirection();
-        return new ShipProjectile(ship_Coordinate, newDirection);
+        newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection));
+        if (powerUp.getType() == PowerUp.Type.TRIPLE_SHOP){
+            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, false));
+            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, true));
+        }
+
     }
 }
