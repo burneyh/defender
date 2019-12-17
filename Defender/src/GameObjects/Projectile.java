@@ -43,6 +43,13 @@ public class Projectile extends GameObject {
                 break;
         }
 
+        if(oblique) {
+            setY(getY() - this.getSpeed());
+        }
+        else {
+            setY(getY() + this.getSpeed());
+        }
+
         if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
             this.kill();
 

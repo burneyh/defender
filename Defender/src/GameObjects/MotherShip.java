@@ -96,6 +96,6 @@ public class MotherShip extends GameObject{
             newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, false));
             newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, true));
         }
-
+        return newProjectiles;
     }
 }
