@@ -85,9 +85,9 @@ public class HighScore extends Scene {
         }
 
         Text ta = new Text();
+
         try{
-            InputStream inputStream = getClass().getResourceAsStream("TextFiles/highScores.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader br = new BufferedReader(new FileReader(new File("res/TextFiles/highScores.txt")));
 
             StringBuilder sb = new StringBuilder();
             String st;
@@ -97,7 +97,6 @@ public class HighScore extends Scene {
                 sb.append(st);
                 sb.append('\n');
             }
-            inputStream.close();
             br.close();
 
             ta.setTranslateX(150);
@@ -120,6 +119,10 @@ public class HighScore extends Scene {
             highScoreInstance = new HighScore(root, isPause);
         }
         return highScoreInstance;
+    }
+
+    public static void setInstance(){
+        highScoreInstance = null;
     }
 
     public void setUsername(String userName){

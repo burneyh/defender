@@ -8,11 +8,12 @@
       <change beforePath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/HighScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/HighScore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/MenuSection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/MenuSection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/Username.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/TextFiles/highScores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/Help.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/MenuSection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/Username.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,38 +257,38 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="160" key="GridCell.Tab.0.bottom" timestamp="1576330072887">
+    <state width="1237" height="160" key="GridCell.Tab.0.bottom" timestamp="1576609067369">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="160" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
-    <state width="1237" height="160" key="GridCell.Tab.0.center" timestamp="1576330072887">
+    <state width="1237" height="160" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576609067369" />
+    <state width="1237" height="160" key="GridCell.Tab.0.center" timestamp="1576609067369">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="160" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
-    <state width="1237" height="160" key="GridCell.Tab.0.left" timestamp="1576330072887">
+    <state width="1237" height="160" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576609067369" />
+    <state width="1237" height="160" key="GridCell.Tab.0.left" timestamp="1576609067369">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="160" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
-    <state width="1237" height="160" key="GridCell.Tab.0.right" timestamp="1576330072887">
+    <state width="1237" height="160" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576609067369" />
+    <state width="1237" height="160" key="GridCell.Tab.0.right" timestamp="1576609067369">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="160" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576330072887" />
-    <state width="1237" height="208" key="GridCell.Tab.1.bottom" timestamp="1576329660233">
+    <state width="1237" height="160" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576609067369" />
+    <state width="1237" height="208" key="GridCell.Tab.1.bottom" timestamp="1576608298570">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
-    <state width="1237" height="208" key="GridCell.Tab.1.center" timestamp="1576329660233">
+    <state width="1237" height="208" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576608298570" />
+    <state width="1237" height="208" key="GridCell.Tab.1.center" timestamp="1576608298570">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
-    <state width="1237" height="208" key="GridCell.Tab.1.left" timestamp="1576329660233">
+    <state width="1237" height="208" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1576608298570" />
+    <state width="1237" height="208" key="GridCell.Tab.1.left" timestamp="1576608298570">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
-    <state width="1237" height="208" key="GridCell.Tab.1.right" timestamp="1576329660233">
+    <state width="1237" height="208" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1576608298570" />
+    <state width="1237" height="208" key="GridCell.Tab.1.right" timestamp="1576608298570">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1576329660233" />
+    <state width="1237" height="208" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1576608298570" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1576264769894">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

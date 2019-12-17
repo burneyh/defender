@@ -87,14 +87,12 @@ public class Username extends Scene {
         // set alignment of text
         usernameField.setAlignment(Pos.CENTER);
 
-
-
         MenuButton aContinue = new MenuButton("Continue");
         aContinue.setOnMouseClicked(event -> {
             // Set username here
-            HighScore.getInstance(false).setUsername(usernameField.getText());
             MyApplication.setScene(SceneGenerator.getInstance());
             MyApplication.ge.createUniverse();
+            HighScore.getInstance(false).setUsername(usernameField.getText());
         });
 
         menu1.getChildren().addAll(usernameField, aContinue);
@@ -108,4 +106,8 @@ public class Username extends Scene {
         }
         return UsernameInstance;
     }
+    public static void setInstance(){
+        UsernameInstance = null;
+    }
+
 }

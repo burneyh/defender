@@ -8,6 +8,7 @@ import GameObjects.*;
 import UserInterface.Menu.GameOver;
 import UserInterface.Menu.HighScore;
 import UserInterface.Menu.PauseMenu;
+import UserInterface.Menu.Username;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.Animation;
@@ -75,6 +76,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     public void createUniverse(){
+        gameEngine.setInstance();
+        gameEngine = gameEngine.getInstance();
         sceneGenerator.createMap(motherShip, aliens, humans);
         gameEngine.refresh();
     }
@@ -215,7 +218,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             ArrayList<String> names = new ArrayList<>();
             String st;
             while ((st = br.readLine()) != null) {
-                Integer i = Integer.parseInt(st.substring(17, st.length()));
+                Integer i = Integer.parseInt(st.substring(st.lastIndexOf("-")+2));
                 scores.add(i);
                 String string = st.substring(0,st.indexOf("-"));
                 names.add(string.replace(" ",""));
@@ -254,6 +257,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
             }
             fr1.flush();
             fr1.close();
+
+            HighScore.setInstance();
         }
         catch (Exception e){
             System.out.println("File Not Found in GameEngine");
@@ -266,6 +271,11 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         MyApplication.setScene(GameOver.getInstance());
     }
+
+    public static void setInstance(){
+        gameEngine = null;
+    }
+
 
     @Override
     public void handle(KeyEvent event) {
