@@ -86,16 +86,20 @@ public class MotherShip extends GameObject{
     }
 
     public ArrayList<Projectile> fire(){
+        Projectile p1, p2, p3;
         ArrayList<Projectile> newProjectiles = new ArrayList<>();
         int x = this.getCoordinates().getX();
         int y = this.getCoordinates().getY();
         Coordinate ship_Coordinate = new Coordinate(x,y);
         moveDirection newDirection = this.getDirection();
-        newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, 2));
+        p1 = new ShipProjectile(ship_Coordinate, newDirection, 2);
         //if (powerUp.getType() == PowerUp.Type.TRIPLE_SHOP){
-            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, 0));
-            newProjectiles.add(new ShipProjectile(ship_Coordinate, newDirection, 1));
+            p2 = new ShipProjectile(ship_Coordinate, newDirection, 0);
+            p3 = new ShipProjectile(ship_Coordinate, newDirection, 1);
         //}
+        newProjectiles.add(p1);
+        newProjectiles.add(p2);
+        newProjectiles.add(p3);
         return newProjectiles;
     }
 }

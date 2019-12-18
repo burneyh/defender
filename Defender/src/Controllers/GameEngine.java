@@ -130,7 +130,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                     break;
                 case SHIELD:
                     break;
-                case TRIPLE_SHOP:
+                case TRIPLE_SHOP: //Needs fixing or changing
                     break;
                 case EMPOWERED_SHOT:
                     break;
@@ -160,9 +160,9 @@ public class GameEngine implements EventHandler<KeyEvent> {
         Random rand = new Random();
         if(tempAliens.size() > 0) {
             int i = rand.nextInt(tempAliens.size());
-            Projectile projectile2 = tempAliens.get(i).fire();
-            if (projectile2 != null)
-                tempProjectiles.add(projectile2);
+//            Projectile projectile2 = tempAliens.get(i).fire();
+//            if (projectile2 != null)
+//                tempProjectiles.add(projectile2);
         }
 
         //remove projectile

@@ -24,4 +24,31 @@ public class ShipProjectile extends Projectile{
         this.oblique = oblique;
     }
 
+    public void move(moveDirection direction){
+            switch(direction){
+                case LEFT:
+                    this.setX(this.getX() - this.getSpeed());
+                    break;
+                case RIGHT:
+                    this.setX(this.getX() + this.getSpeed());
+                    break;
+            }
+
+            switch (oblique) {
+                case 0:
+                    this.setY(this.getY() - this.getSpeed());
+                    break;
+                case 1:
+                    this.setY(this.getY() + this.getSpeed());
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
+                this.kill();
+
+        }
+
 }

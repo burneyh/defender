@@ -16,6 +16,9 @@ class GameObject {
 
 
     public GameObject(int x, int y) {
+//        width = (int)image.getWidth();
+//        height = (int)image.getHeight();
+//        hitbox = new Rectangle(x, y, width, height);
         coordinates = new Coordinate(x, y);
         setSpeed(10);
         alive = true;
@@ -35,7 +38,8 @@ class GameObject {
     }
 
     public void setCoordinates(Coordinate coordinates) {
-        this.coordinates = coordinates;
+        this.coordinates.setX(coordinates.getX());
+        this.coordinates.setY(coordinates.getY());
     }
     public void setCoordinates(int x, int y ){ this.setX(x); this.setY(y);}
     protected void getImageDimensions() {
@@ -85,18 +89,26 @@ class GameObject {
     }
 
     public void setX(int x) {
+        if (hitbox != null)
+            hitbox = new Rectangle(x, hitbox.getY(), width, height);
         coordinates.setX(x);
     }
 
     public void setY(int y) {
+        if (hitbox != null)
+            hitbox = new Rectangle(hitbox.getX(), y, width, height);
         coordinates.setY(y);
     }
 
     public int getX() {
+        if (hitbox != null)
+            return (int)hitbox.getX();
         return coordinates.getX();
     }
 
     public int getY() {
+        if (hitbox != null)
+            return (int)hitbox.getY();
         return coordinates.getY();
     }
 
@@ -113,10 +125,10 @@ class GameObject {
                 setY(getY() + speed);
                 break;
             case LEFT:
-                setY(getX() + speed);
+                setX(getX() + speed);
                 break;
             case RIGHT:
-                setY(getX() - speed);
+                setX(getX() - speed);
                 break;
         }
 
