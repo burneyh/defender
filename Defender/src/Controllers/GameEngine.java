@@ -255,7 +255,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             fr.close();
 
             FileWriter fr1 = new FileWriter("out/production/Defender/TextFiles/highScores.txt");
-            for(int i = 0; i < scores.size(); i++){
+            for(int i = 0; i < scores.size() && i <= 10; i++){
                 String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
                 fr1.write(str);
             }
@@ -271,7 +271,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         MotherShip.renew();
         LevelManager.renew();
-        gameEngine = new GameEngine();      //renewing gameEngine as well
+        setInstance();
+        gameEngine = getInstance();
 
         MyApplication.setScene(GameOver.getInstance());
     }

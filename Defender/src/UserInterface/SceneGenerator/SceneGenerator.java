@@ -51,7 +51,6 @@ public class SceneGenerator extends Scene {
 
         bgImage = new Image("bg_image.jpg");
         HBox hbox = new HBox();
-        hbox.setSpacing(10);
         hbox.setStyle("-fx-background-color: #000080;");
         hbox.getChildren().addAll(Map.getInstance(), canvas2);
 
@@ -66,6 +65,7 @@ public class SceneGenerator extends Scene {
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
                           ArrayList<Projectile> projectiles, int score, int level, int health) {
         graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
+        graphics2.drawImage(bgImage, 0, 0,Map.WIDTH, Map.HEIGHT);;
         graphics2.fillText("Score: " + score, 10, 25);
         graphics2.fillText("Level: " + level, Map.WIDTH/2, 25);
         graphics2.fillText("Health: " + health, 10, 85);

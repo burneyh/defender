@@ -1,12 +1,4 @@
-EnterUsername ---------- 1800
-EnterUsername ---------- 750
-EnterUsername ---------- 750
-EnterUsername ---------- 700
-Enter Username ---------- 700
 Steve ---------- 500
-EnterUsername ---------- 500
 Joe ---------- 450
-EnterUsername ---------- 450
-EnterUsername ---------- 400
-EnterUsername ---------- 400
-EnterUsername ---------- 300
+ ---------- 150
+EnterUsername ---------- 0

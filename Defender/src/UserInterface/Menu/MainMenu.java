@@ -21,11 +21,6 @@ public class MainMenu extends Scene {
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
 
-        // Main Menu Background
-//        Rectangle bg = new Rectangle(windowWidth,windowHeight);
-//        Color gameCol = Color.rgb(38,6,71);
-//        bg.setFill(gameCol);
-
         // Add background to root
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
