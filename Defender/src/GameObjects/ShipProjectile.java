@@ -36,10 +36,10 @@ public class ShipProjectile extends Projectile{
 
             switch (oblique) {
                 case 0:
-                    this.setY(this.getY() - this.getSpeed());
+                    this.setY(this.getY() - this.getSpeed()/2);
                     break;
                 case 1:
-                    this.setY(this.getY() + this.getSpeed());
+                    this.setY(this.getY() + this.getSpeed()/2);
                     break;
                 default:
                     break;
