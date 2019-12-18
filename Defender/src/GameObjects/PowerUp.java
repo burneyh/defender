@@ -1,7 +1,7 @@
 package GameObjects;
 
 public class PowerUp extends GameObject {
-    public static enum Type {REFILL_HEALTH, SHIELD, TRIPLE_SHOP, EMPOWERED_SHOT, EXPLOSIVE_SHOT, FROST}
+    public static enum Type {REFILL_HEALTH, SHIELD, TRIPLE_SHOT, EMPOWERED_SHOT, EXPLOSIVE_SHOT, FROST}
 
     private Type type;
 

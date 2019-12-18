@@ -18,7 +18,8 @@ public class CollisionDetector {
         for(Alien alien: aliens){
             Rectangle alienBox = alien.getHitbox();
             if (motherShip.isAlive() && alien.isAlive() && motherBox.getBoundsInParent().intersects(alienBox.getBoundsInParent())){
-                motherShip.kill();
+                if(!motherShip.getInvincible())
+                    motherShip.kill();
                 alien.kill();
                 break;
             }
@@ -31,7 +32,7 @@ public class CollisionDetector {
         for(Projectile projectile: projectiles){
                 if ( (projectile instanceof AlienProjectile) || (projectile instanceof Mine)) {
                 Rectangle projectileBox = projectile.getHitbox();
-                if (motherShip.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(motherBox.getBoundsInParent())) {
+                if (motherShip.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(motherBox.getBoundsInParent()) && !motherShip.getInvincible()) {
                     int damage = projectile.getDamage();
                     motherShip.updateHealth(damage);
 
@@ -63,7 +64,9 @@ public class CollisionDetector {
                     Rectangle projectileBox = projectile.getHitbox();
                     if (alien.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(alienBox.getBoundsInParent()) && (projectile instanceof ShipProjectile)) {
                         alien.kill();
-                        projectile.kill();
+
+                        if(!projectile.getInvincible())
+                            projectile.kill();
                         break;
                     }
                 }

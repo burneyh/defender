@@ -1,9 +1,6 @@
 package GameObjects;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
-
-import java.io.FileInputStream;
 //import javafx.scene.shape.Rectangle;
 
 class GameObject {
@@ -13,7 +10,15 @@ class GameObject {
     private boolean alive;
     private Image image;
     private Rectangle hitbox;
+    private boolean invincible;
 
+    public void setInvincible(boolean flag){
+        invincible = flag;
+    }
+
+    public boolean getInvincible(){
+        return invincible;
+    }
 
     public GameObject(int x, int y) {
 //        width = (int)image.getWidth();
@@ -22,7 +27,9 @@ class GameObject {
         coordinates = new Coordinate(x, y);
         setSpeed(10);
         alive = true;
+        invincible = false;
     }
+
 
     public GameObject(int x, int y, int speed) {
         coordinates.setX(x);

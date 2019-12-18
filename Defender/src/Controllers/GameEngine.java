@@ -1,9 +1,5 @@
 package Controllers;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Random;
-
 import GameObjects.*;
 import UserInterface.Menu.GameOver;
 import UserInterface.Menu.HighScore;
@@ -15,9 +11,14 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.util.Duration;
+
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GameEngine implements EventHandler<KeyEvent> {
 
@@ -66,6 +67,13 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
             humans.add(new Human());
         }
+
+//        PowerUp shieldPowerUp = new PowerUp(0,0,PowerUp.Type.SHIELD);
+//        motherShip.setPowerUp(shieldPowerUp);
+
+//        PowerUp empoweredShort = new PowerUp(0,0,PowerUp.Type.EMPOWERED_SHOT);
+//        motherShip.setPowerUp(empoweredShort);
+
 
         sceneGenerator.setOnKeyPressed(this);
 
@@ -129,8 +137,9 @@ public class GameEngine implements EventHandler<KeyEvent> {
                     motherShip.refillHealth();
                     break;
                 case SHIELD:
+                    motherShip.setInvincible(true);
                     break;
-                case TRIPLE_SHOP: //Needs fixing or changing
+                case TRIPLE_SHOT: //Needs fixing or changing
                     break;
                 case EMPOWERED_SHOT:
                     break;
