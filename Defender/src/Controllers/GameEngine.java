@@ -102,7 +102,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         if(levelRefresher == null) {
             levelRefresher = new Timeline( new KeyFrame(
-                    Duration.millis(40000), e -> {
+                    Duration.millis(10000), e -> {
                         System.out.println("HERE");
                         nextLevel();
             }
@@ -112,6 +112,18 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         levelRefresher.play();
         sceneRefresher.play();
+    }
+
+
+    private void dropPowerUp() {
+        Random random = new Random();
+        //powerUps.clear();
+        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.REFILL_HEALTH));
+        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.SHIELD));
+        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.TRIPLE_SHOP));
+        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.EMPOWERED_SHOT));
+        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.EXPLOSIVE_SHOT));
+        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.FROST));
     }
 
     private synchronized void refreshFrame(){
@@ -153,6 +165,15 @@ public class GameEngine implements EventHandler<KeyEvent> {
         ArrayList<Alien> tempAliens = new ArrayList<>();
         ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
         ArrayList<Human> tempHumans = new ArrayList<>();
+        ArrayList<PowerUp> tempPowerUps = new ArrayList<>();
+
+        //remove dead power-ups and move live ones
+        for (PowerUp powerUp : powerUps) {
+            if (powerUp.isAlive()) {
+                tempPowerUps.add(powerUp);
+                powerUp.move();
+            }
+        }
 
         //remove dead aliens
         for (Alien alien : aliens) {
@@ -169,9 +190,9 @@ public class GameEngine implements EventHandler<KeyEvent> {
         Random rand = new Random();
         if(tempAliens.size() > 0) {
             int i = rand.nextInt(tempAliens.size());
-//            Projectile projectile2 = tempAliens.get(i).fire();
-//            if (projectile2 != null)
-//                tempProjectiles.add(projectile2);
+            Projectile projectile2 = tempAliens.get(i).fire();
+            if (projectile2 != null)
+                tempProjectiles.add(projectile2);
         }
 
         //remove projectile
@@ -198,9 +219,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
         aliens = tempAliens;
         humans = tempHumans;
         projectiles = tempProjectiles;
+        powerUps = tempPowerUps;
 
 
-        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel(), motherShip.getHealth());
+        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel(), motherShip.getHealth(), powerUps);
     }
 
     private synchronized void nextLevel() {
@@ -228,6 +250,9 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
             tempHumans.add(new Human());
         }
+
+        System.out.println("PowerUps");
+        dropPowerUp();
 
         aliens = tempAliens;
         humans = tempHumans;

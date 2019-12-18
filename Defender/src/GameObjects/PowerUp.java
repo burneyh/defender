@@ -8,6 +8,15 @@ public class PowerUp extends GameObject {
     public PowerUp(int x, int y, Type type) {
         super(x, y);
         this.type = type;
+        this.loadImage("Icons/003-workers.png");
+        this.getImageDimensions();
+        this.move();
+    }
+
+    public void move() {
+        this.setY(this.getY() + 5);
+        if (this.getY() > 500)
+            this.kill();
     }
 
     public Type getType() {
