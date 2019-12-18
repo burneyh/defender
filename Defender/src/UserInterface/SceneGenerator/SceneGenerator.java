@@ -48,11 +48,11 @@ public class SceneGenerator extends Scene {
     }
 
     public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
-        updateMap(motherShip, aliens, humans, null, 0, 1, 100);
+        updateMap(motherShip, aliens, humans, null, 0, 1, 100, null);
     }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, int score, int level, int health) {
+                          ArrayList<Projectile> projectiles, int score, int level, int health, ArrayList<PowerUp> powerUps) {
         graphics.drawImage(bgImage, 0, 0, width, height);
         graphics.fillText("Score: " + score, 80, 35);
         graphics.setTextAlign(TextAlignment.CENTER);
@@ -70,6 +70,11 @@ public class SceneGenerator extends Scene {
 
         for(Human human : humans)
             graphics.drawImage(human.getImage(), human.getX() - 15, human.getY() - 15);
+
+        if(powerUps != null) {
+            for (PowerUp powerUp : powerUps)
+                graphics.drawImage(powerUp.getImage(), powerUp.getX() - 15, powerUp.getY() + 15);
+        }
 
         if(projectiles != null)
             for(Projectile projectile : projectiles) {
