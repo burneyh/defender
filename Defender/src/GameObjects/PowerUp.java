@@ -14,7 +14,7 @@ public class PowerUp extends GameObject {
     }
 
     public void move() {
-        this.setY(this.getY() + 5);
+        this.setY(this.getY() + 1);
         if (this.getY() > 500)
             this.kill();
     }

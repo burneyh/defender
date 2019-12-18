@@ -96,16 +96,17 @@ public class MotherShip extends GameObject{
 
         p1 = new ShipProjectile(ship_Coordinate, newDirection, 2);
 
-        if(powerUp.getType() == PowerUp.Type.EMPOWERED_SHOT)
+        if(powerUp != null && powerUp.getType() == PowerUp.Type.EMPOWERED_SHOT)
             p1.setInvincible(true);
 
-        //if (powerUp.getType() == PowerUp.Type.TRIPLE_SHOT){
-//            p2 = new ShipProjectile(ship_Coordinate, newDirection, 0);
-//            p3 = new ShipProjectile(ship_Coordinate, newDirection, 1);
-        //}
+        if (powerUp != null && powerUp.getType() == PowerUp.Type.TRIPLE_SHOT){
+            p2 = new ShipProjectile(ship_Coordinate, newDirection, 0);
+            p3 = new ShipProjectile(ship_Coordinate, newDirection, 1);
+            newProjectiles.add(p2);
+            newProjectiles.add(p3);
+        }
+
         newProjectiles.add(p1);
-//        newProjectiles.add(p2);
-//        newProjectiles.add(p3);
 
 
 

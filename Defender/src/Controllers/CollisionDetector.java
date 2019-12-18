@@ -52,7 +52,10 @@ public class CollisionDetector {
             Rectangle powerBox = powerUp.getHitbox();
             if (motherShip.isAlive() && powerUp.isAlive() && motherBox.getBoundsInParent().intersects(powerBox.getBoundsInParent())){
                 motherShip.setPowerUp(powerUp);
-                //powerUps.clear();
+
+                // should they be killed?
+                powerUp.kill();
+
                 break;
             }
         }

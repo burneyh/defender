@@ -68,13 +68,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
             humans.add(new Human());
         }
 
-//        PowerUp shieldPowerUp = new PowerUp(0,0,PowerUp.Type.SHIELD);
-//        motherShip.setPowerUp(shieldPowerUp);
-
-//        PowerUp empoweredShort = new PowerUp(0,0,PowerUp.Type.EMPOWERED_SHOT);
-//        motherShip.setPowerUp(empoweredShort);
-
-
         sceneGenerator.setOnKeyPressed(this);
 
     }
@@ -118,12 +111,29 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private void dropPowerUp() {
         Random random = new Random();
         //powerUps.clear();
-        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.REFILL_HEALTH));
-        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.SHIELD));
-        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.TRIPLE_SHOP));
-        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.EMPOWERED_SHOT));
-        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.EXPLOSIVE_SHOT));
-        powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.FROST));
+
+        int option = random.nextInt(6);
+
+        switch (option) {
+            case 0:
+                powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.REFILL_HEALTH));
+                break;
+            case 1:
+                powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.SHIELD));
+                break;
+            case 2:
+                powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.TRIPLE_SHOT));
+                break;
+            case 3:
+                powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.EMPOWERED_SHOT));
+                break;
+            case 4:
+                powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.EXPLOSIVE_SHOT));
+                break;
+            case 5:
+                powerUps.add(new PowerUp(random.nextInt(600), 10, PowerUp.Type.FROST));
+                break;
+        }
     }
 
     private synchronized void refreshFrame(){
@@ -347,5 +357,30 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 MyApplication.setScene(PauseMenu.getInstance());
                 break;
         }
+        // to be able to do multiple things at a time
+        switch(event.getCode()){
+            case SPACE:
+                projectiles.addAll(motherShip.fire());
+                break;
+            case UP:
+                motherShip.move(MotherShip.moveDirection.UP);
+                break;
+            case DOWN:
+                motherShip.move(MotherShip.moveDirection.DOWN);
+                break;
+            case LEFT:
+                motherShip.move(MotherShip.moveDirection.LEFT);
+                break;
+            case RIGHT:
+                motherShip.move(MotherShip.moveDirection.RIGHT);
+                break;
+            case ESCAPE:
+                sceneRefresher.pause();
+                levelRefresher.pause();
+                MyApplication.setScene(PauseMenu.getInstance());
+                break;
+        }
+
+
     }
 }
