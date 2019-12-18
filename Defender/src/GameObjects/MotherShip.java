@@ -27,6 +27,10 @@ public class MotherShip extends GameObject{
         health  = health - damage;
     }
 
+    public void refillHealth() {
+        health = 100;
+    }
+
     public moveDirection getDirection() {
         return direction;
     }

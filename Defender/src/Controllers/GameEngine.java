@@ -81,6 +81,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     public void createUniverse(){
         gameEngine.setInstance();
         gameEngine = gameEngine.getInstance();
+        motherShip.refillHealth();
         map.createMap(motherShip, aliens, humans);
         sceneGenerator.createMap(motherShip, aliens, humans);
         gameEngine.refresh();
