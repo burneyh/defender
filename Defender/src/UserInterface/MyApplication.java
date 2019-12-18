@@ -2,6 +2,7 @@ package UserInterface;
 
 import Controllers.GameEngine;
 import UserInterface.Menu.MainMenu;
+import UserInterface.SceneGenerator.Map;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

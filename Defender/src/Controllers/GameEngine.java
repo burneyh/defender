@@ -10,6 +10,7 @@ import UserInterface.Menu.HighScore;
 import UserInterface.Menu.PauseMenu;
 import UserInterface.Menu.Username;
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -34,6 +35,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private LevelManager levelManager;
     private CollisionDetector collisionDetector;
     private SceneGenerator sceneGenerator;
+    private Map map;
     private boolean isPaused;
     private int score = 0;
 
@@ -47,6 +49,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         levelManager = LevelManager.getInstance();
         collisionDetector = CollisionDetector.getInstance();
         sceneGenerator = SceneGenerator.getInstance();
+        map = Map.getInstance();
         isPaused = false;
 
         for (int i = 0; i < levelManager.getNumOfLanders(); i++) {
@@ -78,6 +81,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     public void createUniverse(){
         gameEngine.setInstance();
         gameEngine = gameEngine.getInstance();
+        map.createMap(motherShip, aliens, humans);
         sceneGenerator.createMap(motherShip, aliens, humans);
         gameEngine.refresh();
     }
@@ -171,7 +175,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         humans = tempHumans;
         projectiles = tempProjectiles;
 
-
+        map.updateMap(motherShip, aliens, humans, projectiles);
         sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel(), motherShip.getHealth());
     }
 
