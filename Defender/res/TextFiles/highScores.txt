@@ -1,4 +1,5 @@
 Steve ---------- 500
+Enter Username ---------- 500
 Joe ---------- 450
  ---------- 150
 EnterUsername ---------- 0

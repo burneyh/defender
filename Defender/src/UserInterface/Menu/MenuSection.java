@@ -10,8 +10,8 @@ import javafx.util.Duration;
 public class MenuSection extends Parent {
     public MenuSection(boolean isPause){
         VBox menu1 = new VBox(10);
-        menu1.setTranslateX(210);
-        menu1.setTranslateY(150);
+        menu1.setTranslateX(260);
+        menu1.setTranslateY(250);
 
         MenuButton resume = new MenuButton("Resume");
         resume.setOnMouseClicked(event -> {
