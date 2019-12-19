@@ -65,15 +65,21 @@ public class SceneGenerator extends Scene {
         root.setCenter(canvas);
     }
 
-    public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
-        updateMap(motherShip, aliens, humans, null, 0, 1, 100);
+//    public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
+//        updateMap(motherShip, aliens, humans, null, 0, 1, 100);
+//    }
+
+    public void showGame(){
+        MyApplication.setScene(this);
     }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, int score, int level, int health) {
+                          ArrayList<Projectile> projectiles, int score, int levelTarget, int level, int health) {
+        map.updateMap(motherShip, aliens, humans, projectiles);
+
         graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
         graphics2.drawImage(bgImage, 0, 0,Map.WIDTH, Map.HEIGHT);;
-        graphics2.fillText("Score: " + score, 10, 25);
+        graphics2.fillText("Score: " + score + " / " + levelTarget, 10, 25);
         graphics2.fillText("Level: " + level, Map.WIDTH/2, 25);
         graphics2.fillText("Health: " + health, 10, 85);
 

@@ -11,7 +11,6 @@ public class MyApplication extends Application {
     private static Stage primaryStage;
     public final static int WIDTH = 700;
     public final static int HEIGHT = 500;
-    public static GameEngine ge = GameEngine.getInstance();
 
     public static void main(String[] args){
         launch(args);

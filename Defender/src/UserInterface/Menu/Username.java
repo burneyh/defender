@@ -1,5 +1,6 @@
 package UserInterface.Menu;
 
+import Controllers.GameEngine;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.Map;
 import UserInterface.SceneGenerator.SceneGenerator;
@@ -92,7 +93,7 @@ public class Username extends Scene {
         aContinue.setOnMouseClicked(event -> {
             // Set username here
             MyApplication.setScene(SceneGenerator.getInstance());
-            MyApplication.ge.createUniverse();
+            GameEngine.getInstance().createUniverse();
             HighScore.getInstance(false).setUsername(usernameField.getText());
         });
         menu1.setTranslateX(windowHeight/2-50);

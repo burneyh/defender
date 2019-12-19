@@ -1,5 +1,6 @@
 package UserInterface.Menu;
 
+import Controllers.GameEngine;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.FadeTransition;
@@ -20,7 +21,7 @@ public class MenuSection extends Parent {
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
             MyApplication.setScene(SceneGenerator.getInstance());
-            MyApplication.ge.refresh();
+            GameEngine.getInstance().refresh();
         });
 
         MenuButton play = new MenuButton("Play");

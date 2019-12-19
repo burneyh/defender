@@ -127,6 +127,10 @@ class GameObject {
 
     }
 
+    public void applyBias( int bias){
+        this.coordinates.setX( this.coordinates.getX() + bias);
+    }
+
     public void draw() {
 
     }
