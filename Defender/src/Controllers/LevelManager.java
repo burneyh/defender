@@ -31,6 +31,7 @@ public class LevelManager {
     public static LevelManager getInstance(){
         if (levelManager == null)
             levelManager = new LevelManager();
+
         return levelManager;
     }
 

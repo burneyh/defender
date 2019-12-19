@@ -3,6 +3,8 @@ package GameObjects;
 public class MotherShip extends GameObject{
 
     private static MotherShip motherShip = null;
+    private static final int startX = 100;
+    private static final int startY = 250;
 
     private int health;
     private int score;
@@ -30,6 +32,11 @@ public class MotherShip extends GameObject{
     public void refillHealth() {
         health = 100;
     }
+
+    public void resetPos(){
+        setX(startX);
+        setY(startY);
+    };
 
     public moveDirection getDirection() {
         return direction;

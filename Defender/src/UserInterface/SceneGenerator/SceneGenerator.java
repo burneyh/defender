@@ -1,6 +1,8 @@
 package UserInterface.SceneGenerator;
 
+import Controllers.GameEngine;
 import GameObjects.*;
+import UserInterface.Menu.MainMenu;
 import UserInterface.MyApplication;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
@@ -27,6 +29,9 @@ public class SceneGenerator extends Scene {
     private Image bgImage;
     private GraphicsContext graphics;
     private GraphicsContext graphics2;
+    private Map map;
+
+    private boolean transitionScreen = false;
 
     synchronized static public SceneGenerator getInstance() {
         if (sceneGenerator == null) {
@@ -38,6 +43,8 @@ public class SceneGenerator extends Scene {
 
     private SceneGenerator (BorderPane root) {
         super(root);
+        map = Map.getInstance();
+
         width = MyApplication.WIDTH;
         height = MyApplication.HEIGHT;
 
@@ -69,6 +76,7 @@ public class SceneGenerator extends Scene {
         graphics2.fillText("Score: " + score, 10, 25);
         graphics2.fillText("Level: " + level, Map.WIDTH/2, 25);
         graphics2.fillText("Health: " + health, 10, 85);
+
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
         else
@@ -88,4 +96,40 @@ public class SceneGenerator extends Scene {
                     graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY() + 5, -10, -10);
             }
     }
+
+    // TODO check if level transition works faster with using labels insted of graphics
+    public void showLevelTransition(int level, int levelTarget) {
+        class LevelTransition extends Scene{
+            private int width = MyApplication.WIDTH;
+            private int height = MyApplication.HEIGHT + Map.HEIGHT;
+            private String message = "Level " + level + "\n" +
+                    "Target Score: " + levelTarget + "\n" +
+                    "Press Enter to continue...";
+
+            private LevelTransition(Group root){
+                super(root);
+
+                GraphicsContext graphics;
+
+                Canvas canvas = new Canvas(width, height);
+                graphics = canvas.getGraphicsContext2D();
+
+                graphics.setFill(Color.BLACK);
+                graphics.fillRect(0, 0, width, height);
+
+                graphics.setFont(Font.font("Times New Roman", FontWeight.BOLD, 16));
+                graphics.setFill(Color.WHITE);
+                graphics.setTextAlign(TextAlignment.CENTER);
+                graphics.setTextBaseline(VPos.CENTER);
+                graphics.fillText(message, width/2.0, height/2.0);
+
+                root.getChildren().add(canvas);
+            }
+        }
+
+        LevelTransition transition = new LevelTransition(new Group());
+        transition.setOnKeyPressed(GameEngine.getInstance());
+        MyApplication.setScene(transition);
+    }
 }
+

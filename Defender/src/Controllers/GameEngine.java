@@ -35,8 +35,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private LevelManager levelManager;
     private CollisionDetector collisionDetector;
     private SceneGenerator sceneGenerator;
-    private Map map;
-    private boolean isPaused;
+    private boolean levelTransitionState;
     private int score = 0;
 
     private GameEngine(){
@@ -69,7 +68,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
 
         sceneGenerator.setOnKeyPressed(this);
-
     }
 
     public static GameEngine getInstance(){
@@ -176,8 +174,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
         humans = tempHumans;
         projectiles = tempProjectiles;
 
-        map.updateMap(motherShip, aliens, humans, projectiles);
-        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel(), motherShip.getHealth());
+        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevelTarget(),
+                levelManager.getLevel(), motherShip.getHealth());
     }
 
     private synchronized void nextLevel() {
@@ -213,7 +211,21 @@ public class GameEngine implements EventHandler<KeyEvent> {
         System.out.println("Next Level Done");
     }
 
-    private void gameOver(){
+    // gameFinished is false when user presses play from the pause menu
+    private void gameOver( boolean gameFinished){
+        if(gameFinished)
+            recordHighScore();
+
+        MotherShip.renew();
+        LevelManager.renew();
+        setInstance();
+        gameEngine = getInstance();
+
+        if(gameFinished)
+            MyApplication.setScene(GameOver.getInstance());
+    }
+
+    private void recordHighScore(){
         // high score
         try{
             InputStream inputStream = getClass().getResourceAsStream("/TextFiles/highScores.txt");
@@ -268,14 +280,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         catch (Exception e){
             System.out.println("File Not Found in GameEngine");
         }
-
-
-        MotherShip.renew();
-        LevelManager.renew();
-        setInstance();
-        gameEngine = getInstance();
-
-        MyApplication.setScene(GameOver.getInstance());
     }
 
     public static void setInstance(){
