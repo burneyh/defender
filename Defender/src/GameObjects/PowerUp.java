@@ -8,7 +8,28 @@ public class PowerUp extends GameObject {
     public PowerUp(int x, int y, Type type) {
         super(x, y);
         this.type = type;
-        this.loadImage("Icons/003-workers.png");
+        switch(type){
+            case REFILL_HEALTH:
+                this.loadImage("Icons/fillHealthPower.png");
+                break;
+            case SHIELD:
+                this.loadImage("Icons/shieldPower.png");
+                break;
+            case TRIPLE_SHOT:
+                this.loadImage("Icons/tripleShot.png");
+                break;
+            case EMPOWERED_SHOT:
+                this.loadImage("Icons/empoweredShot.png");
+                break;
+            case EXPLOSIVE_SHOT:
+                this.loadImage("Icons/explosiveShot.png");
+                break;
+            case FROST:
+                this.loadImage("Icons/freeze.png");
+                break;
+
+        }
+
         this.getImageDimensions();
         this.move();
     }
