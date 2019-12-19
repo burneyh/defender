@@ -59,9 +59,13 @@ class GameObject {
         try {
             int width = 30;
             int height = 30;
-            if (this instanceof Projectile){
-                width = 10;
-                height = 10;
+            if (this instanceof Mine){
+                width = 20;
+                height = 20;
+            }
+            else if (this instanceof Projectile){
+                width = 50;
+                height = 15;
             }
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
                     width, height, false, false);
