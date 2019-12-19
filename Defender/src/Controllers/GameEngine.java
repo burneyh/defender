@@ -38,6 +38,12 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private boolean isPaused;
     private int score = 0;
 
+    //movement and fire
+    private boolean isFire = false;
+    private boolean isUp = false;
+    private boolean isDown = false;
+    private boolean isLeft = false;
+    private boolean isRight = false;
 
     private GameEngine(){
         powerUps = new ArrayList<>();
@@ -70,6 +76,35 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         sceneGenerator.setOnKeyPressed(this);
 
+        sceneGenerator.setOnKeyReleased(new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent e){
+                switch(e.getCode()){
+                    case SPACE:
+                        isFire = false;
+                        break;
+                    case UP:
+                        isUp = false;
+                        break;
+                    case DOWN:
+                        isDown = false;
+                        break;
+                    case LEFT:
+                        isLeft = false;
+                        break;
+                    case RIGHT:
+                        isRight =false;
+                        break;
+                    case ESCAPE:
+                        sceneRefresher.pause();
+                        levelRefresher.pause();
+                        MyApplication.setScene(PauseMenu.getInstance());
+                        break;
+                }
+            }
+
+        });
+
     }
 
     public static GameEngine getInstance(){
@@ -84,11 +119,14 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     public void refresh(){
+        //counter to limit number of ship projectiles
+        int count[] =new int [1];
+        count[0] = 10;
         //start timer
         if(sceneRefresher == null) {
             sceneRefresher = new Timeline(new KeyFrame(
                     Duration.millis(16), e ->
-                    refreshFrame()
+                    refreshFrame(count)
             ));
             sceneRefresher.setCycleCount(Animation.INDEFINITE);
         }
@@ -136,13 +174,23 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
     }
 
-    private synchronized void refreshFrame(){
+    private synchronized void refreshFrame(int[]count){
         if (isPaused) {
             MyApplication.setScene(PauseMenu.getInstance());
             sceneRefresher.stop();
             levelRefresher.stop();
             return;
         };
+
+        motherShip.move(isUp, isDown, isLeft,isRight);
+        //firing issue
+
+        if(isFire && count[0] > 7){
+            projectiles.addAll(motherShip.fire());
+            count[0] = 0;
+        }
+        else
+            count[0]++;
 
         collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles, powerUps);
 
@@ -334,45 +382,23 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     @Override
-    public void handle(KeyEvent event) {
-        switch(event.getCode()){
+    public void handle(KeyEvent e){
+
+        switch(e.getCode()){
             case SPACE:
-                projectiles.addAll(motherShip.fire());
+                isFire = true;
                 break;
             case UP:
-                motherShip.move(MotherShip.moveDirection.UP);
+                isUp = true;
                 break;
             case DOWN:
-                motherShip.move(MotherShip.moveDirection.DOWN);
+                isDown = true;
                 break;
             case LEFT:
-                motherShip.move(MotherShip.moveDirection.LEFT);
+                isLeft = true;
                 break;
             case RIGHT:
-                motherShip.move(MotherShip.moveDirection.RIGHT);
-                break;
-            case ESCAPE:
-                sceneRefresher.pause();
-                levelRefresher.pause();
-                MyApplication.setScene(PauseMenu.getInstance());
-                break;
-        }
-        // to be able to do multiple things at a time
-        switch(event.getCode()){
-            case SPACE:
-                projectiles.addAll(motherShip.fire());
-                break;
-            case UP:
-                motherShip.move(MotherShip.moveDirection.UP);
-                break;
-            case DOWN:
-                motherShip.move(MotherShip.moveDirection.DOWN);
-                break;
-            case LEFT:
-                motherShip.move(MotherShip.moveDirection.LEFT);
-                break;
-            case RIGHT:
-                motherShip.move(MotherShip.moveDirection.RIGHT);
+                isRight =true;
                 break;
             case ESCAPE:
                 sceneRefresher.pause();

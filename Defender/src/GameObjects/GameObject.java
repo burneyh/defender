@@ -25,7 +25,7 @@ class GameObject {
 //        height = (int)image.getHeight();
 //        hitbox = new Rectangle(x, y, width, height);
         coordinates = new Coordinate(x, y);
-        setSpeed(10);
+        setSpeed(4);
         alive = true;
         invincible = false;
     }

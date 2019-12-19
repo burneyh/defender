@@ -59,22 +59,21 @@ public class MotherShip extends GameObject{
         motherShip = null;
     }
 
-    public void move(moveDirection d){
-        switch(d){
-            case UP:
-                setY(getY() - this.getSpeed());
-                break;
-            case DOWN:
-                setY(getY() + this.getSpeed());
-                break;
-            case LEFT:
-                setX(getX() - this.getSpeed());
-                direction = moveDirection.LEFT;
-                break;
-            case RIGHT:
-                setX(getX() + this.getSpeed());
-                direction = moveDirection.RIGHT;
-                break;
+    public void move(boolean isUp, boolean isDown, boolean isLeft, boolean isRight){
+        if(isUp)
+            setY(getY() - this.getSpeed());
+
+        if(isDown)
+            setY(getY() + this.getSpeed());
+
+        if(isLeft){
+            setX(getX() - this.getSpeed());
+            direction = moveDirection.LEFT;
+        }
+
+        if(isRight){
+            setX(getX() + this.getSpeed());
+            direction = moveDirection.RIGHT;
         }
 
         if (this.getX() > 600) setX(20);
