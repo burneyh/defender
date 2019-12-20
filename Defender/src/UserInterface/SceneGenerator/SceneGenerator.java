@@ -82,9 +82,9 @@ public class SceneGenerator extends Scene {
         graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
         graphics2.drawImage(bg_black, 0, 0,Map.WIDTH, Map.HEIGHT);
         graphics2.fillText("Score: " + score + " / " + levelTarget, 10, 25);
-        graphics2.fillText("Level: " + level, Map.WIDTH/2, 25);
-        graphics2.fillText("Total Score: " + totalScore, Map.WIDTH/2, 85);
-        graphics2.fillText("Health: " + health, 10, 85);
+        graphics2.fillText("Health: " + health,  Map.WIDTH/2, 25);
+        graphics2.fillText("Level: " + level,Map.WIDTH/2, 85);
+        graphics2.fillText("Total Score: " + totalScore,10, 85);
 
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
