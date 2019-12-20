@@ -27,6 +27,7 @@ public class SceneGenerator extends Scene {
     private int width;
     private int height;
     private Image bgImage;
+    private Image  bg_black;
     private GraphicsContext graphics;
     private GraphicsContext graphics2;
     private Map map;
@@ -57,8 +58,9 @@ public class SceneGenerator extends Scene {
         graphics2.setFill(Color.WHITE);
 
         bgImage = new Image("bg_image.jpg");
+        bg_black = new Image("black_bg.jpg");
         HBox hbox = new HBox();
-        hbox.setStyle("-fx-background-color: #000080;");
+        hbox.setStyle("-fx-background-color: #ffffff;");
         hbox.getChildren().addAll(Map.getInstance(), canvas2);
 
         root.setTop(hbox);
@@ -74,13 +76,14 @@ public class SceneGenerator extends Scene {
     }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, int score, int levelTarget, int level, int health) {
+                          ArrayList<Projectile> projectiles, int score, int totalScore, int levelTarget, int level, int health) {
         map.updateMap(motherShip, aliens, humans, projectiles);
 
         graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
-        graphics2.drawImage(bgImage, 0, 0,Map.WIDTH, Map.HEIGHT);;
+        graphics2.drawImage(bg_black, 0, 0,Map.WIDTH, Map.HEIGHT);
         graphics2.fillText("Score: " + score + " / " + levelTarget, 10, 25);
         graphics2.fillText("Level: " + level, Map.WIDTH/2, 25);
+        graphics2.fillText("Total Score: " + totalScore, Map.WIDTH/2, 85);
         graphics2.fillText("Health: " + health, 10, 85);
 
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
@@ -103,7 +106,6 @@ public class SceneGenerator extends Scene {
             }
     }
 
-    // TODO check if level transition works faster with using labels insted of graphics
     public void showLevelTransition(int level, int levelTarget) {
         class LevelTransition extends Scene{
             private int width = MyApplication.WIDTH;

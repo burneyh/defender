@@ -37,7 +37,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private SceneGenerator sceneGenerator;
     private boolean levelTransitionState;
     private int score = 0;
-
+    private int totalScore = 0;
     private GameEngine(){
         levelTransitionState = false;
 
@@ -119,6 +119,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             }
             else {
                 score += alien.getScore();
+                totalScore += alien.getScore();
             }
         }
 
@@ -149,6 +150,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             else {
                 tempAliens.add(new Mutant(human.getX(), human.getY()));
                 score -= Lander.SCORE;
+                totalScore -= Lander.SCORE;
             }
         }
 
@@ -163,17 +165,14 @@ public class GameEngine implements EventHandler<KeyEvent> {
         humans = tempHumans;
         projectiles = tempProjectiles;
 
-        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevelTarget(),
+        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, totalScore, levelManager.getLevelTarget(),
                 levelManager.getLevel(), motherShip.getHealth());
     }
 
     private void nextLevel() {
         motherShip.resetPos();
-
         score = 0;
         levelManager.incrementLevel();
-
-        System.out.println("New level: " + levelManager.getLevel());
 
         levelTransitionState = true;
         sceneGenerator.showLevelTransition(levelManager.getLevel(), levelManager.getLevelTarget());
@@ -185,18 +184,15 @@ public class GameEngine implements EventHandler<KeyEvent> {
         for (int i = 0; i < levelManager.getNumOfLanders(); i++) {
             tempAliens.add(new Lander());
         }
-        System.out.println("Lander done");
 
         for (int i = 0; i < levelManager.getNumOfBaiters(); i++) {
             tempAliens.add(new Baiter());
         }
 
-        System.out.println("Baiter done");
         for (int i = 0; i < levelManager.getNumOfBombers(); i++) {
             tempAliens.add(new Bomber());
         }
 
-        System.out.println("Human done");
         for (int i = 0; i < levelManager.getNumOfHumans(); i++) {
             tempHumans.add(new Human());
         }
@@ -204,8 +200,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         aliens = tempAliens;
         humans = tempHumans;
         projectiles = tempProjectiles;
-
-        System.out.println("Next Level Done");
     }
 
     // gameFinished is false when user presses play from the pause menu
@@ -241,16 +235,16 @@ public class GameEngine implements EventHandler<KeyEvent> {
             br.close();
 
             if (scores.size() == 0){
-                scores.add(score);
+                scores.add(totalScore);
                 names.add(HighScore.getInstance(false).getUsername());
             }
-            if (scores.get(scores.size()-1) > score){
-                scores.add(scores.size(), score);
+            if (scores.get(scores.size()-1) >= totalScore && scores.size() < 10){
+                scores.add(scores.size(), totalScore);
                 names.add(names.size(), HighScore.getInstance(false).getUsername());
             }
             for (int i = 0; i < scores.size() && i <= 10; i++){
-                if (score > scores.get(i)){
-                    scores.add(i, score);
+                if (totalScore > scores.get(i)){
+                    scores.add(i, totalScore);
                     names.add(i, HighScore.getInstance(false).getUsername());
                     break;
                 }

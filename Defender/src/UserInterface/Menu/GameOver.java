@@ -42,8 +42,8 @@ public class GameOver extends Scene {
         // Main Headline
         Text text = new Text("GAME OVER!");
         text.setTextOrigin(VPos.CENTER);
-        text.setX(50);
-        text.setY(200);
+        text.setX(MyApplication.WIDTH /2 - 250);
+        text.setY(260);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 80));
         text.setFill(Color.WHITE);
         root.getChildren().add(text);
