@@ -26,6 +26,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private Timeline sceneRefresher = null;
     private Timeline levelRefresher = null;
+    private Timeline powerUpRefresher = null;
 
     private ArrayList<PowerUp> powerUps;
     private ArrayList<Alien> aliens;
@@ -141,8 +142,20 @@ public class GameEngine implements EventHandler<KeyEvent> {
             levelRefresher.setCycleCount(Animation.INDEFINITE);
         }
 
+        if(powerUpRefresher == null) {
+            powerUpRefresher = new Timeline( new KeyFrame(
+                    Duration.millis(5000), e -> {
+                        System.out.println("End of power up");
+                        motherShip.setPowerUp(null);
+                        motherShip.setInvincible(false);
+            }
+            ));
+            powerUpRefresher.setCycleCount(Animation.INDEFINITE);
+        }
+
         levelRefresher.play();
         sceneRefresher.play();
+        powerUpRefresher.play();
     }
 
 
