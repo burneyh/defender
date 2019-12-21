@@ -328,6 +328,11 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private void nextLevel() {
         motherShip.resetPos();
+        isFire =false;
+        isUp = false;
+        isDown = false;
+        isRight = false;
+        isLeft = false;
         score = 0;
         levelManager.incrementLevel();
 
