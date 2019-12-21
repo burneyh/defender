@@ -159,8 +159,8 @@ class GameObject {
 
     }
 
-    public void draw() {
-
+    public void applyBias( int bias){
+        this.coordinates.setX( this.coordinates.getX() + bias);
     }
     public Image getShield(){
         Image shield;

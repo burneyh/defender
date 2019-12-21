@@ -1,6 +1,8 @@
 package UserInterface.Menu;
 
+import Controllers.GameEngine;
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
@@ -28,14 +30,14 @@ public class Username extends Scene {
 
         // Initialize window width and height
         int windowWidth = MyApplication.WIDTH;
-        int windowHeight = MyApplication.HEIGHT;
+        int windowHeight = MyApplication.HEIGHT + Map.HEIGHT;
 
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
 
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
-                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+                    MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -55,8 +57,8 @@ public class Username extends Scene {
         Text text = new Text("Select Username");
         text.setTextOrigin(VPos.TOP);
         text.setY(10);
-        text.setX(100);
-        text.setY(this.getHeight()/6);
+        text.setX(windowHeight/2 - 155);
+        text.setY(65);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
         text.setFill(Color.WHITE);
         root.getChildren().add(text);
@@ -87,16 +89,14 @@ public class Username extends Scene {
         // set alignment of text
         usernameField.setAlignment(Pos.CENTER);
 
-
-
         MenuButton aContinue = new MenuButton("Continue");
         aContinue.setOnMouseClicked(event -> {
             // Set username here
-            HighScore.getInstance(false).setUsername(usernameField.getText());
             MyApplication.setScene(SceneGenerator.getInstance());
-            MyApplication.ge.createUniverse();
+            GameEngine.getInstance().createUniverse();
+            HighScore.getInstance(false).setUsername(usernameField.getText());
         });
-
+        menu1.setTranslateX(windowHeight/2-50);
         menu1.getChildren().addAll(usernameField, aContinue);
         root.getChildren().add(menu1);
     }
@@ -108,4 +108,8 @@ public class Username extends Scene {
         }
         return UsernameInstance;
     }
+    public static void setInstance(){
+        UsernameInstance = null;
+    }
+
 }

@@ -1,5 +1,6 @@
 package UserInterface.Menu;
 
+import Controllers.GameEngine;
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.FadeTransition;
@@ -10,8 +11,8 @@ import javafx.util.Duration;
 public class MenuSection extends Parent {
     public MenuSection(boolean isPause){
         VBox menu1 = new VBox(10);
-        menu1.setTranslateX(210);
-        menu1.setTranslateY(150);
+        menu1.setTranslateX(260);
+        menu1.setTranslateY(250);
 
         MenuButton resume = new MenuButton("Resume");
         resume.setOnMouseClicked(event -> {
@@ -20,7 +21,7 @@ public class MenuSection extends Parent {
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
             MyApplication.setScene(SceneGenerator.getInstance());
-            MyApplication.ge.refresh();
+            GameEngine.getInstance().refresh();
         });
 
         MenuButton play = new MenuButton("Play");
@@ -29,6 +30,7 @@ public class MenuSection extends Parent {
             ft.setFromValue(1);
             ft.setToValue(0);
             ft.setOnFinished(e -> setVisible(false));
+            Username.setInstance();
             if(isPause){
                 MyApplication.setScene(Username.getInstance(true));
             }

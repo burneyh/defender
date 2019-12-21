@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,7 +23,7 @@ public class HighScore extends Scene {
         username = "";
         // Initialize window width and height
         int windowWidth = MyApplication.WIDTH;
-        int windowHeight = MyApplication.HEIGHT;
+        int windowHeight = MyApplication.HEIGHT + Map.HEIGHT;
 
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
@@ -37,7 +38,7 @@ public class HighScore extends Scene {
 
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
-                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+                    MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -56,7 +57,7 @@ public class HighScore extends Scene {
         Text text = new Text("High Scores");
         text.setTextOrigin(VPos.TOP);
         text.setY(10);
-        text.setX(150);
+        text.setX(windowHeight/2 - 100);
         text.setY(this.getHeight()/6);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
         text.setFill(Color.WHITE);
@@ -85,9 +86,9 @@ public class HighScore extends Scene {
         }
 
         Text ta = new Text();
+
         try{
-            InputStream inputStream = getClass().getResourceAsStream("TextFiles/highScores.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader br = new BufferedReader(new FileReader(new File("res/TextFiles/highScores.txt")));
 
             StringBuilder sb = new StringBuilder();
             String st;
@@ -97,10 +98,9 @@ public class HighScore extends Scene {
                 sb.append(st);
                 sb.append('\n');
             }
-            inputStream.close();
             br.close();
 
-            ta.setTranslateX(150);
+            ta.setTranslateX(windowHeight/2 - 100);
             ta.setY(100);
             ta.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
             ta.setFill(Color.WHITE);
@@ -120,6 +120,10 @@ public class HighScore extends Scene {
             highScoreInstance = new HighScore(root, isPause);
         }
         return highScoreInstance;
+    }
+
+    public static void setInstance(){
+        highScoreInstance = null;
     }
 
     public void setUsername(String userName){

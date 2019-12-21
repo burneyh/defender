@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,11 +14,11 @@ import javafx.scene.text.Text;
 public class PauseMenu extends Scene {
     private static PauseMenu pauseMenuInstance;
     private PauseMenu(Pane root){
-        super(root,MyApplication.WIDTH, MyApplication.HEIGHT );
+        super(root,MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT);
 
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
-                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+                    MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,

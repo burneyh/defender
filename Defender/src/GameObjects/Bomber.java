@@ -1,6 +1,8 @@
 package GameObjects;
 
 public class Bomber extends Alien{
+    public static final int SCORE = 100;
+
     public Bomber() {
         super();
         points = 100;

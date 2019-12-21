@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -20,10 +21,10 @@ public class GameOver extends Scene {
     private static GameOver gameOverInstance;
 
     private GameOver(Pane root){
-        super(root, MyApplication.WIDTH, MyApplication.HEIGHT);
+        super(root, MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT);
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
-                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+                    MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -41,8 +42,8 @@ public class GameOver extends Scene {
         // Main Headline
         Text text = new Text("GAME OVER!");
         text.setTextOrigin(VPos.CENTER);
-        text.setX(50);
-        text.setY(200);
+        text.setX(MyApplication.WIDTH /2 - 250);
+        text.setY(260);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 80));
         text.setFill(Color.WHITE);
         root.getChildren().add(text);

@@ -1,6 +1,7 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,23 +14,18 @@ import javafx.scene.text.Text;
 public class MainMenu extends Scene {
     private static MainMenu menuInstance;
     private MainMenu(Pane root){
-        super(root,MyApplication.WIDTH, MyApplication.HEIGHT );
+        super(root,MyApplication.WIDTH, MyApplication.HEIGHT  + Map.HEIGHT);
         // Initialize window width and height
         int windowWidth = MyApplication.WIDTH;
-        int windowHeight = MyApplication.HEIGHT;
+        int windowHeight = MyApplication.HEIGHT + Map.HEIGHT;
 
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
 
-        // Main Menu Background
-//        Rectangle bg = new Rectangle(windowWidth,windowHeight);
-//        Color gameCol = Color.rgb(38,6,71);
-//        bg.setFill(gameCol);
-
         // Add background to root
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
-                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+                    MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
