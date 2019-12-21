@@ -22,9 +22,6 @@ class GameObject {
     }
 
     public GameObject(int x, int y) {
-//        width = (int)image.getWidth();
-//        height = (int)image.getHeight();
-//        hitbox = new Rectangle(x, y, width, height);
         coordinates = new Coordinate(x, y);
         setSpeed(4);
         alive = true;
