@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27c63536-5e96-4d06-9c81-8906946dd6b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/CollisionDetector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/CollisionDetector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/Alien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/Alien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/Coordinate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject$moveDirection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject$moveDirection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/MotherShip$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/MotherShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/MotherShip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/Projectile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/Projectile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/Projectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/Projectile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/ShipProjectile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/ShipProjectile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/001-rocket.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/001-rocket.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/002-lander.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/002-lander.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/004-rocket-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/004-rocket-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/AlienProjectile.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/AlienProjectile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/bomber.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/bomber.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/mine.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/mine.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/monster.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/monster.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/mutantShip.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/mutantShip.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/MyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/MyApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator$1LevelTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator$1LevelTransition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/TextFiles/highScores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameObjects/MotherShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameObjects/MotherShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface/SceneGenerator/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/SceneGenerator/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface/SceneGenerator/SceneGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/SceneGenerator/SceneGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +17,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../GitHub/BILX" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hanzallah Burney\Desktop\Projects\Dev_Java\CS319-1C-DE\Defender\res" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -98,25 +71,29 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="371" y="128" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.689@0.0.1280.689" timestamp="1576930750772" />
-    <state width="1237" height="166" key="GridCell.Tab.0.bottom" timestamp="1576931522750">
+    <state x="400" y="85" key="FileChooserDialogImpl" timestamp="1576933357098">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576931522750" />
-    <state width="1237" height="166" key="GridCell.Tab.0.center" timestamp="1576931522749">
+    <state x="400" y="85" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1576933357098" />
+    <state width="1237" height="166" key="GridCell.Tab.0.bottom" timestamp="1576935583127">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576931522749" />
-    <state width="1237" height="166" key="GridCell.Tab.0.left" timestamp="1576931522749">
+    <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576935583127" />
+    <state width="1237" height="166" key="GridCell.Tab.0.center" timestamp="1576935583127">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576931522749" />
-    <state width="1237" height="166" key="GridCell.Tab.0.right" timestamp="1576931522749">
+    <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576935583127" />
+    <state width="1237" height="166" key="GridCell.Tab.0.left" timestamp="1576935583127">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576931522749" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1576930608619">
+    <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576935583127" />
+    <state width="1237" height="166" key="GridCell.Tab.0.right" timestamp="1576935583127">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1576930608619" />
+    <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576935583127" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1576933202249">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1576933202249" />
   </component>
 </project>

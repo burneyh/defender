@@ -2,6 +2,7 @@ package Controllers;
 
 import GameObjects.Baiter;
 import GameObjects.Bomber;
+import GameObjects.Lander;
 
 public class LevelManager {
 
@@ -74,7 +75,7 @@ public class LevelManager {
 
         int totalPossibleScore = numOfBaiters * Baiter.SCORE +
                 numOfBombers * Bomber.SCORE +
-                numOfLanders * Bomber.SCORE;
+                numOfLanders * Lander.SCORE;
 
         levelTarget = (int)(PERCENTAGE_OF_TOTAL_SCORE * totalPossibleScore);
 

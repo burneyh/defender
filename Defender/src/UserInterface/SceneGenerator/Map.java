@@ -56,11 +56,11 @@ public class Map extends Pane {
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH  + WIDTH / 40,
                     (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT  + HEIGHT / 34,
-                    -WIDTH /20, -HEIGHT /17);
+                    WIDTH /20, HEIGHT /17);
         else
             graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH - WIDTH / 40,
                     (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT - HEIGHT / 34,
-                    WIDTH /20, HEIGHT /17);
+                    -WIDTH /20, -HEIGHT /17);
 
 
         for(Alien alien : aliens)
@@ -84,5 +84,18 @@ public class Map extends Pane {
                             (projectile.getY()* HEIGHT) / MyApplication.HEIGHT + HEIGHT / 100,
                             -WIDTH /40, -HEIGHT /50);
             }
+
+        if (explosions != null) {
+            for (Explosion explosion : explosions) {
+                graphics.drawImage(explosion.getImage(), (explosion.getX()*WIDTH) / MyApplication.WIDTH - 20,
+                        (explosion.getY() * HEIGHT) / MyApplication.HEIGHT - 10, WIDTH /10, HEIGHT /20);
+            }
+        }
+
+        if (powerUps != null) {
+            for (PowerUp powerUp : powerUps)
+                graphics.drawImage(powerUp.getImage(), (powerUp.getX()*WIDTH)/ MyApplication.WIDTH - 15,
+                        (powerUp.getY()* HEIGHT) / MyApplication.HEIGHT  + 15,WIDTH /30, HEIGHT /10);
+        }
     }
 }
