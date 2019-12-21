@@ -33,8 +33,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private ArrayList<PowerUp> powerUps;
     private ArrayList<Alien> aliens;
-    private ArrayList<Projectile>  projectiles;
-    private ArrayList<Explosion>  explosions;
+    private ArrayList<Projectile> projectiles;
+    private ArrayList<Explosion> explosions;
     private ArrayList<Human> humans;
     private MotherShip motherShip;
     private LevelManager levelManager;
@@ -50,10 +50,11 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private boolean isLeft = false;
     private boolean isRight = false;
     private int totalScore = 0;
-    
-    private GameEngine(){
-        levelTransitionState = false;
 
+    private GameEngine() {
+        levelTransitionState = false;
+        powerUps = new ArrayList<>();
+        explosions = new ArrayList<>();
         //instantiate singletons
         motherShip = MotherShip.getInstance();
         levelManager = LevelManager.getInstance();
@@ -62,10 +63,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         sceneGenerator.setOnKeyPressed(this);
 
-        sceneGenerator.setOnKeyReleased(new EventHandler<KeyEvent>(){
+        sceneGenerator.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
-            public void handle(KeyEvent e){
-                switch(e.getCode()){
+            public void handle(KeyEvent e) {
+                switch (e.getCode()) {
                     case SPACE:
                         isFire = false;
                         break;
@@ -79,7 +80,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                         isLeft = false;
                         break;
                     case RIGHT:
-                        isRight =false;
+                        isRight = false;
                         break;
                     case ESCAPE:
                         sceneRefresher.pause();
@@ -93,15 +94,15 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     }
 
-    public static GameEngine getInstance(){
+    public static GameEngine getInstance() {
         if (gameEngine == null)
             gameEngine = new GameEngine();
         return gameEngine;
     }
 
-    public void createUniverse(){
-        if(levelManager.getLevel() > 0) {
-            gameOver( false);
+    public void createUniverse() {
+        if (levelManager.getLevel() > 0) {
+            gameOver(false);
         }
 
         // the gameEngine part is very important do not remove
@@ -110,12 +111,12 @@ public class GameEngine implements EventHandler<KeyEvent> {
         gameEngine.nextLevel();
     }
 
-    public void refresh(){
+    public void refresh() {
         //counter to limit number of ship projectiles
-        int count[] =new int [1];
+        int count[] = new int[1];
         count[0] = 10;
         //start timer
-        if(sceneRefresher == null) {
+        if (sceneRefresher == null) {
             sceneRefresher = new Timeline(new KeyFrame(
                     Duration.millis(16), e ->
                     refreshFrame(count)
@@ -123,27 +124,25 @@ public class GameEngine implements EventHandler<KeyEvent> {
             sceneRefresher.setCycleCount(Animation.INDEFINITE);
         }
 
-        if(levelRefresher == null) {
-            levelRefresher = new Timeline( new KeyFrame(
+        if (levelRefresher == null) {
+            levelRefresher = new Timeline(new KeyFrame(
                     Duration.millis(10000), e -> {
-                        nextLevel();
+                nextLevel();
             }
             ));
             levelRefresher.setCycleCount(Animation.INDEFINITE);
         }
 
-        if(powerUpRefresher == null) {
-            powerUpRefresher = new Timeline( new KeyFrame(
-                    Duration.millis(5000), e -> {
-                        System.out.println("End of power up");
-                        motherShip.setPowerUp(null);
-                        motherShip.setInvincible(false);
+        if (powerUpRefresher == null) {
+            powerUpRefresher = new Timeline(new KeyFrame(
+                    Duration.millis(10000), e -> {
+                System.out.println("End of power up");
+                motherShip.setPowerUp(null);
+                motherShip.setInvincible(false);
             }
             ));
             powerUpRefresher.setCycleCount(Animation.INDEFINITE);
         }
-
-        levelRefresher.play();
         sceneRefresher.play();
         powerUpRefresher.play();
     }
@@ -177,15 +176,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
     }
 
-    private synchronized void refreshFrame(int[]count) {
-        if (isPaused) {
-            MyApplication.setScene(PauseMenu.getInstance());
-            sceneRefresher.stop();
-            levelRefresher.stop();
-            return;
-        }
-        ;
-
+    private synchronized void refreshFrame(int[] count) {
         motherShip.move(isUp, isDown, isLeft, isRight);
         //firing issue
 
@@ -200,7 +191,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         // Game over condition
         if (!motherShip.isAlive()) {
             sceneRefresher.stop();
-            gameOver( true);
+            gameOver(true);
             return;
         }
 
@@ -240,39 +231,38 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         // remove the explosions that are done and scale the ones that are not
         if (explosions != null) {
-                for (Explosion explosion : explosions) {
-                    if (explosion.isAlive()) {
-                        tempExplosions.add(explosion);
-                    }
+            for (Explosion explosion : explosions) {
+                if (explosion.isAlive()) {
+                    tempExplosions.add(explosion);
                 }
+            }
         }
         //remove dead aliens
         // calculate bias
         int midScreen = MyApplication.WIDTH / 2;
-        int perifScreen = (int)(0.2 * MyApplication.WIDTH);
+        int perifScreen = (int) (0.2 * MyApplication.WIDTH);
         double biasPerc;
-        if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT &&
-            motherShip.getX() >= midScreen)
-            biasPerc = -(double)(motherShip.getX() - midScreen) / (midScreen - perifScreen);
-        else if(motherShip.getDirection() == MotherShip.moveDirection.LEFT &&
-            motherShip.getX() < midScreen)
-            biasPerc = (double)(midScreen - motherShip.getX()) / (midScreen - perifScreen);
+        if (motherShip.getDirection() == MotherShip.moveDirection.RIGHT &&
+                motherShip.getX() >= midScreen)
+            biasPerc = -(double) (motherShip.getX() - midScreen) / (midScreen - perifScreen);
+        else if (motherShip.getDirection() == MotherShip.moveDirection.LEFT &&
+                motherShip.getX() < midScreen)
+            biasPerc = (double) (midScreen - motherShip.getX()) / (midScreen - perifScreen);
         else
             biasPerc = 0;
 
-        int bias = (int)(motherShip.getSpeed() * biasPerc);
+        int bias = (int) (motherShip.getSpeed() * biasPerc);
 
-        motherShip.applyBias( bias);
+        motherShip.applyBias(bias);
 
         //remove dead aliens and apply bias
         for (Alien alien : aliens) {
             if (alien.isAlive()) {
-                alien.applyBias( bias);
+                alien.applyBias(bias);
                 tempAliens.add(alien);
                 if ((motherShip.getPowerUp() == null) || (motherShip.getPowerUp().getType() != PowerUp.Type.FROST))
                     alien.move();
-            }
-            else {
+            } else {
                 countDeadAliens++;
                 score += alien.getScore();
                 totalScore += alien.getScore();
@@ -280,7 +270,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
 
         Random rand = new Random();
-        if(tempAliens.size() > 0) {
+        if (tempAliens.size() > 0) {
             int i = rand.nextInt(tempAliens.size());
             Projectile projectile2 = tempAliens.get(i).fire();
             if (projectile2 != null)
@@ -290,36 +280,35 @@ public class GameEngine implements EventHandler<KeyEvent> {
         //remove projectile
         for (Projectile projectile : projectiles) {
             // create a new explosion
-            if(projectile.getExplosive() && !projectile.isAlive() && (countDeadAliens > 0)){
+            if (projectile.getExplosive() && !projectile.isAlive() && (countDeadAliens > 0)) {
                 countDeadAliens--;
                 tempExplosions.add(new Explosion(projectile.getX(), projectile.getY()));
             }
 
-        //remove projectile and apply bias
-        for (Projectile projectile : projectiles)
-            if (projectile.isAlive()) {
-                projectile.applyBias( bias);
-                tempProjectiles.add(projectile);
-                if (!(projectile instanceof Mine))
-                    projectile.move(projectile.getDirection());
-            }
         }
+        //remove projectile and apply bias
+        for (Projectile projectile2 : projectiles)
+            if (projectile2.isAlive()) {
+                projectile2.applyBias(bias);
+                tempProjectiles.add(projectile2);
+                if (!(projectile2 instanceof Mine))
+                    projectile2.move(projectile2.getDirection());
+            }
 
         //remove mutated humans and add mutants
         for (Human human : humans) {
             if (human.isAlive()) {
-                human.applyBias( bias);
+                human.applyBias(bias);
                 tempHumans.add(human);
 
-            }
-            else {
+            } else {
                 tempAliens.add(new Mutant(human.getX(), human.getY()));
                 score -= Lander.SCORE;
                 totalScore -= Lander.SCORE;
             }
         }
 
-        if(score >= levelManager.getLevelTarget()){
+        if (score >= levelManager.getLevelTarget()) {
             sceneRefresher.stop();
             nextLevel();
             return;
@@ -345,7 +334,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         sceneGenerator.showLevelTransition(levelManager.getLevel(), levelManager.getLevelTarget());
 
         ArrayList<Alien> tempAliens = new ArrayList<>();
-        ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
+        ArrayList<Projectile> tempProjectiles = new ArrayList<>();
         ArrayList<Human> tempHumans = new ArrayList<>();
 
         for (int i = 0; i < levelManager.getNumOfLanders(); i++) {
@@ -374,8 +363,8 @@ public class GameEngine implements EventHandler<KeyEvent> {
     }
 
     // gameFinished is false when user presses play from the pause menu
-    private void gameOver( boolean gameFinished){
-        if(gameFinished)
+    private void gameOver(boolean gameFinished) {
+        if (gameFinished)
             recordHighScore();
 
         MotherShip.renew();
@@ -383,13 +372,13 @@ public class GameEngine implements EventHandler<KeyEvent> {
         setInstance();
         gameEngine = getInstance();
 
-        if(gameFinished)
+        if (gameFinished)
             MyApplication.setScene(GameOver.getInstance());
     }
 
-    private void recordHighScore(){
+    private void recordHighScore() {
         // high score
-        try{
+        try {
             InputStream inputStream = getClass().getResourceAsStream("/TextFiles/highScores.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -397,24 +386,24 @@ public class GameEngine implements EventHandler<KeyEvent> {
             ArrayList<String> names = new ArrayList<>();
             String st;
             while ((st = br.readLine()) != null) {
-                Integer i = Integer.parseInt(st.substring(st.lastIndexOf("-")+2));
+                Integer i = Integer.parseInt(st.substring(st.lastIndexOf("-") + 2));
                 scores.add(i);
-                String string = st.substring(0,st.indexOf("-"));
-                names.add(string.replace(" ",""));
+                String string = st.substring(0, st.indexOf("-"));
+                names.add(string.replace(" ", ""));
             }
             inputStream.close();
             br.close();
 
-            if (scores.size() == 0){
+            if (scores.size() == 0) {
                 scores.add(totalScore);
                 names.add(HighScore.getInstance(false).getUsername());
             }
-            if (scores.get(scores.size()-1) >= totalScore && scores.size() < 10){
+            if (scores.get(scores.size() - 1) >= totalScore && scores.size() < 10) {
                 scores.add(scores.size(), totalScore);
                 names.add(names.size(), HighScore.getInstance(false).getUsername());
             }
-            for (int i = 0; i < scores.size() && i <= 10; i++){
-                if (totalScore > scores.get(i)){
+            for (int i = 0; i < scores.size() && i <= 10; i++) {
+                if (totalScore > scores.get(i)) {
                     scores.add(i, totalScore);
                     names.add(i, HighScore.getInstance(false).getUsername());
                     break;
@@ -422,7 +411,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             }
 
             FileWriter fr = new FileWriter("res/TextFiles/highScores.txt");
-            for(int i = 0; i < scores.size() && i <= 10; i++){
+            for (int i = 0; i < scores.size() && i <= 10; i++) {
                 String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
                 fr.write(str);
             }
@@ -430,7 +419,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             fr.close();
 
             FileWriter fr1 = new FileWriter("out/production/Defender/TextFiles/highScores.txt");
-            for(int i = 0; i < scores.size() && i <= 10; i++){
+            for (int i = 0; i < scores.size() && i <= 10; i++) {
                 String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
                 fr1.write(str);
             }
@@ -438,21 +427,20 @@ public class GameEngine implements EventHandler<KeyEvent> {
             fr1.close();
 
             HighScore.setInstance();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("File Not Found in GameEngine");
         }
     }
 
-    public static void setInstance(){
+    public static void setInstance() {
         gameEngine = null;
     }
 
 
     @Override
     public void handle(KeyEvent event) {
-        if(levelTransitionState){
-            if(event.getCode() == KeyCode.ENTER) {
+        if (levelTransitionState) {
+            if (event.getCode() == KeyCode.ENTER) {
                 levelTransitionState = false;
                 sceneGenerator.showGame();
                 gameEngine.refresh();
@@ -460,7 +448,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             return;
         }
 
-        switch(event.getCode()){
+        switch (event.getCode()) {
             case SPACE:
                 isFire = true;
                 break;
@@ -474,7 +462,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 isLeft = true;
                 break;
             case RIGHT:
-                isRight =true;
+                isRight = true;
                 break;
             case ESCAPE:
                 sceneRefresher.pause();

@@ -1,9 +1,6 @@
 package UserInterface.SceneGenerator;
 
-import GameObjects.Alien;
-import GameObjects.Human;
-import GameObjects.MotherShip;
-import GameObjects.Projectile;
+import GameObjects.*;
 import UserInterface.MyApplication;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -50,7 +47,7 @@ public class Map extends Pane {
 //    }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles) {
+                          ArrayList<Projectile> projectiles, ArrayList<PowerUp> powerUps, ArrayList<Explosion> explosions) {
         graphics.drawImage(bgImage, 0, 0, WIDTH, HEIGHT);
 
         // subtract and add at the x and y coordinates with 1/2 the width and the height of the picture

@@ -83,8 +83,8 @@ public class MotherShip extends GameObject{
             direction = moveDirection.RIGHT;
         }
 
-        if (this.getX() > 600) setX(20);
-        if (this.getX() < 0)   setX(580);
+        if (this.getX() > 600) setX(600);
+        if (this.getX() < 0)   setX(0);
         if (this.getY() > 500) setY(490);
         if (this.getY() < 0)   setY(10);
 

@@ -1,4 +1,10 @@
+Jimmy ---------- 2350
+Perman ---------- 1300
+Ugur ---------- 450
+EnterUsername ---------- 450
 Steve ---------- 150
 Kim ---------- 100
 Pat ---------- 50
 Alice ---------- 0
+EnterUsername ---------- 0
+EnterUsername ---------- 0

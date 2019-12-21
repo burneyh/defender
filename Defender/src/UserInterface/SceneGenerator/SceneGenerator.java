@@ -31,7 +31,7 @@ public class SceneGenerator extends Scene {
     private int width;
     private int height;
     private Image bgImage;
-    private Image  bg_black;
+    private Image bg_black;
     private GraphicsContext graphics;
     private GraphicsContext graphics2;
     private Map map;
@@ -40,13 +40,13 @@ public class SceneGenerator extends Scene {
 
     synchronized static public SceneGenerator getInstance() {
         if (sceneGenerator == null) {
-                BorderPane root = new BorderPane();
-                sceneGenerator = new SceneGenerator( root);
+            BorderPane root = new BorderPane();
+            sceneGenerator = new SceneGenerator(root);
         }
         return sceneGenerator;
     }
 
-    private SceneGenerator (BorderPane root) {
+    private SceneGenerator(BorderPane root) {
         super(root);
         map = Map.getInstance();
 
@@ -56,7 +56,7 @@ public class SceneGenerator extends Scene {
         Canvas canvas = new Canvas(width, height);
         graphics = canvas.getGraphicsContext2D();
 
-        Canvas canvas2 = new Canvas(width/2, Map.HEIGHT);
+        Canvas canvas2 = new Canvas(width / 2, Map.HEIGHT);
         graphics2 = canvas2.getGraphicsContext2D();
         graphics2.setFont(Font.font("Times New Roman", FontWeight.BOLD, 16));
         graphics2.setFill(Color.WHITE);
@@ -75,65 +75,64 @@ public class SceneGenerator extends Scene {
 //        updateMap(motherShip, aliens, humans, null, 0, 1, 100);
 //    }
 
-    public void showGame(){
+    public void showGame() {
         MyApplication.setScene(this);
     }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, int score, int totalScore, int levelTarget, int level, int health) {
-        map.updateMap(motherShip, aliens, humans, projectiles);
+                          ArrayList<Projectile> projectiles, int score, int totalScore, int levelTarget, int level, int health, ArrayList<PowerUp> powerUps, ArrayList<Explosion> explosions) {
+        map.updateMap(motherShip, aliens, humans, projectiles, powerUps, explosions);
 
         graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
-        graphics2.drawImage(bg_black, 0, 0,Map.WIDTH, Map.HEIGHT);
+        graphics2.drawImage(bg_black, 0, 0, Map.WIDTH, Map.HEIGHT);
         graphics2.fillText("Score: " + score + " / " + levelTarget, 10, 25);
-        graphics2.fillText("Health: " + health,  Map.WIDTH/2, 25);
-        graphics2.fillText("Level: " + level,Map.WIDTH/2, 85);
-        graphics2.fillText("Total Score: " + totalScore,10, 85);
+        graphics2.fillText("Health: " + health, Map.WIDTH / 2, 25);
+        graphics2.fillText("Level: " + level, Map.WIDTH / 2, 85);
+        graphics2.fillText("Total Score: " + totalScore, 10, 85);
 
-        if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
+        if (motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
         else
             graphics.drawImage(motherShip.getImage(), motherShip.getX() + 15, motherShip.getY() + 15, -30, -30);
 
 
-            for(Alien alien : aliens)
+        for (Alien alien : aliens)
             graphics.drawImage(alien.getImage(), alien.getX() - 15, alien.getY() - 15);
 
 
-
-        for(Human human : humans)
+        for (Human human : humans)
             graphics.drawImage(human.getImage(), human.getX() - 15, human.getY() - 15);
 
-        if(powerUps != null) {
+        if (powerUps != null) {
             for (PowerUp powerUp : powerUps)
                 graphics.drawImage(powerUp.getImage(), powerUp.getX() - 15, powerUp.getY() + 15);
         }
 
-        if(projectiles != null)
-            for(Projectile projectile : projectiles) {
-                if(projectile.getDirection() == Projectile.moveDirection.RIGHT || projectile instanceof Mine)
+        if (projectiles != null)
+            for (Projectile projectile : projectiles) {
+                if (projectile.getDirection() == Projectile.moveDirection.RIGHT || projectile instanceof Mine)
                     graphics.drawImage(projectile.getImage(), projectile.getX() - 5, projectile.getY() - 5);
                 else
                     graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY() + 5, -50, -15);
             }
 
 
-        if(explosions != null){
-            for(Explosion explosion : explosions){
+        if (explosions != null) {
+            for (Explosion explosion : explosions) {
                 graphics.drawImage(explosion.getImage(), explosion.getX() - 40, explosion.getY() - 40);
             }
         }
     }
 
     public void showLevelTransition(int level, int levelTarget) {
-        class LevelTransition extends Scene{
+        class LevelTransition extends Scene {
             private int width = MyApplication.WIDTH;
             private int height = MyApplication.HEIGHT + Map.HEIGHT;
             private String message = "Level " + level + "\n" +
                     "Target Score: " + levelTarget + "\n" +
                     "Press Enter to continue...";
 
-            private LevelTransition(Group root){
+            private LevelTransition(Group root) {
                 super(root);
 
                 GraphicsContext graphics;
@@ -148,7 +147,7 @@ public class SceneGenerator extends Scene {
                 graphics.setFill(Color.WHITE);
                 graphics.setTextAlign(TextAlignment.CENTER);
                 graphics.setTextBaseline(VPos.CENTER);
-                graphics.fillText(message, width/2.0, height/2.0);
+                graphics.fillText(message, width / 2.0, height / 2.0);
 
                 root.getChildren().add(canvas);
             }
