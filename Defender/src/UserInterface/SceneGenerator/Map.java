@@ -88,7 +88,7 @@ public class Map extends Pane {
         if (explosions != null) {
             for (Explosion explosion : explosions) {
                 graphics.drawImage(explosion.getImage(), (explosion.getX()*WIDTH / MyApplication.WIDTH) - 40,
-                        (explosion.getY() * HEIGHT) / MyApplication.HEIGHT - 40, WIDTH /20, HEIGHT /30);
+                        (explosion.getY() * HEIGHT) / MyApplication.HEIGHT - 40, WIDTH /10, HEIGHT /20);
             }
         }
 

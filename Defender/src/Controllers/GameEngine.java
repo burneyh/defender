@@ -475,7 +475,5 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 MyApplication.setScene(PauseMenu.getInstance());
                 break;
         }
-
-
     }
 }
