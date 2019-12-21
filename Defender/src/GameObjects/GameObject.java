@@ -68,9 +68,13 @@ class GameObject {
                 width = 20;
                 height = 20;
             }
+            else if (this instanceof Projectile && this.getExplosive()){
+                width = 50;
+                height = 15;
+            }
             else if (this instanceof Projectile){
-                width = 35;
-                height = 20;
+                width = 15;
+                height = 15;
             }
 
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
