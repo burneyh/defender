@@ -150,9 +150,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private void dropPowerUp() {
         Random random = new Random();
-        //powerUps.clear();
+        powerUps.clear();
 
         int option = random.nextInt(6);
+        option = 4;
 
         switch (option) {
             case 0:
@@ -327,6 +328,11 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
     private void nextLevel() {
         motherShip.resetPos();
+        isFire =false;
+        isUp = false;
+        isDown = false;
+        isRight = false;
+        isLeft = false;
         score = 0;
         levelManager.incrementLevel();
 
