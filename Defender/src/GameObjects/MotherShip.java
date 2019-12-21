@@ -91,10 +91,13 @@ public class MotherShip extends GameObject{
         Coordinate ship_Coordinate = new Coordinate(x,y);
         moveDirection newDirection = this.getDirection();
 
-        if(powerUp != null && powerUp.getType() == PowerUp.Type.EXPLOSIVE_SHOT)
+        if(powerUp != null && powerUp.getType() == PowerUp.Type.EMPOWERED_SHOT){
+            p1 = new ShipProjectile(ship_Coordinate, newDirection, 2);
+        }
+        else if(powerUp != null && powerUp.getType() == PowerUp.Type.EXPLOSIVE_SHOT)
             p1 = new ShipProjectile(ship_Coordinate, newDirection, 2, true);
         else
-            p1 = new ShipProjectile(ship_Coordinate, newDirection, 2, true);
+            p1 = new ShipProjectile(ship_Coordinate, newDirection, 2);
 
         if(powerUp != null && powerUp.getType() == PowerUp.Type.EMPOWERED_SHOT)
             p1.setInvincible(true);

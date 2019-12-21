@@ -96,7 +96,7 @@ public class SceneGenerator extends Scene {
 
         if(explosions != null){
             for(Explosion explosion : explosions){
-                graphics.drawImage(explosion.getImage(), explosion.getX() - 32, explosion.getY() - 32);
+                graphics.drawImage(explosion.getImage(), explosion.getX() - 40, explosion.getY() - 40);
             }
         }
     }

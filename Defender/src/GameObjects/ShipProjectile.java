@@ -3,7 +3,6 @@ package GameObjects;
 public class ShipProjectile extends Projectile{
     public ShipProjectile(Coordinate coordinates, moveDirection direction){
         super(coordinates.getX(), coordinates.getY());
-
         loadImage("Icons/004-rocket-1.png");
         this.getImageDimensions();
         this.setCoordinates(coordinates);
@@ -17,7 +16,7 @@ public class ShipProjectile extends Projectile{
         super(coordinates.getX(), coordinates.getY());
         super.setExplosive(explosive);
 
-        loadImage("Icons/explosiveShot.png");
+        loadImage("Icons/tesla.png");
         this.getImageDimensions();
         this.setCoordinates(coordinates);
         this.setDirection(direction);

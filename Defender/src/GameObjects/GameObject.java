@@ -29,6 +29,7 @@ class GameObject {
         setSpeed(4);
         alive = true;
         invincible = false;
+        explosive = false;
     }
 
 
@@ -50,6 +51,7 @@ class GameObject {
         this.coordinates.setY(coordinates.getY());
     }
     public void setCoordinates(int x, int y ){ this.setX(x); this.setY(y);}
+
     protected void getImageDimensions() {
         width = (int)image.getWidth();
         height = (int)image.getHeight();
@@ -58,8 +60,8 @@ class GameObject {
 
     protected void loadImage(String imageName) {
         try {
-            int width = 30;
-            int height = 30;
+            width = 30;
+            height = 30;
 
             if(this instanceof Explosion){
                 width = 150;
@@ -73,6 +75,7 @@ class GameObject {
                 width = 35;
                 height = 20;
             }
+
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
                     width, height, false, false);
         } catch (NullPointerException e){

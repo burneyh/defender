@@ -89,14 +89,11 @@ public class CollisionDetector {
         }
 
         for(Explosion explosion: explosions) {
-            System.out.println("Exploding...");
             Rectangle explosionBox = explosion.getHitbox();
             for (Alien alien : aliens) {
-
                 Rectangle alienBox = alien.getHitbox();
                 if (alien.isAlive() && explosionBox.getBoundsInParent().intersects(alienBox.getBoundsInParent())) {
                     alien.kill();
-                    System.out.println("Aliens exploding");
                 }
             }
         }

@@ -165,7 +165,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         //powerUps.clear();
 
         int option = random.nextInt(6);
-        option = 4;
 
         switch (option) {
             case 0:
