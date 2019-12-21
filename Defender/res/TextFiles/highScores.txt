@@ -1,10 +1,11 @@
 Jimmy ---------- 2350
+Enter Username ---------- 1400
 Perman ---------- 1300
+EnterUsername ---------- 800
+EnterUsername ---------- 650
 Ugur ---------- 450
 EnterUsername ---------- 450
+EnterUsername ---------- 300
 Steve ---------- 150
+EnterUsername ---------- 150
 Kim ---------- 100
-Pat ---------- 50
-Alice ---------- 0
-EnterUsername ---------- 0
-EnterUsername ---------- 0

@@ -2,26 +2,19 @@ package UserInterface.SceneGenerator;
 
 import Controllers.GameEngine;
 import GameObjects.*;
-import UserInterface.Menu.MainMenu;
 import UserInterface.MyApplication;
-import javafx.animation.ScaleTransition;
-import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
-import javafx.util.Duration;
 
 import java.util.ArrayList;
 
