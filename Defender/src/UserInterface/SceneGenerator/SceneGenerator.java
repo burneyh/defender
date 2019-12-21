@@ -2,16 +2,20 @@ package UserInterface.SceneGenerator;
 
 import GameObjects.*;
 import UserInterface.MyApplication;
+import javafx.animation.ScaleTransition;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -27,7 +31,7 @@ public class SceneGenerator extends Scene {
     synchronized static public SceneGenerator getInstance() {
         if (sceneGenerator == null) {
                 Group root = new Group();
-                sceneGenerator = new SceneGenerator( root);
+                sceneGenerator = new SceneGenerator(root);
         }
         return sceneGenerator;
     }
@@ -48,11 +52,12 @@ public class SceneGenerator extends Scene {
     }
 
     public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
-        updateMap(motherShip, aliens, humans, null, 0, 1, 100, null);
+        updateMap(motherShip, aliens, humans, null, 0, 1, 100, null, null);
     }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, int score, int level, int health, ArrayList<PowerUp> powerUps) {
+                          ArrayList<Projectile> projectiles, int score, int level, int health, ArrayList<PowerUp> powerUps,
+                          ArrayList<Explosion> explosions) {
         graphics.drawImage(bgImage, 0, 0, width, height);
         graphics.fillText("Score: " + score, 80, 35);
         graphics.setTextAlign(TextAlignment.CENTER);
@@ -83,5 +88,12 @@ public class SceneGenerator extends Scene {
                 else
                     graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY() + 5, -50, -15);
             }
+
+
+        if(explosions != null){
+            for(Explosion explosion : explosions){
+                graphics.drawImage(explosion.getImage(), explosion.getX() - 32, explosion.getY() - 32);
+            }
+        }
     }
 }

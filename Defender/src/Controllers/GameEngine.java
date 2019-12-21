@@ -31,6 +31,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private ArrayList<PowerUp> powerUps;
     private ArrayList<Alien> aliens;
     private ArrayList<Projectile>  projectiles;
+    private ArrayList<Explosion>  explosions;
     private ArrayList<Human> humans;
     private MotherShip motherShip;
     private LevelManager levelManager;
@@ -50,6 +51,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         powerUps = new ArrayList<>();
         aliens = new ArrayList<>();
         projectiles = new ArrayList<>();
+        explosions = new ArrayList<>();
         humans = new ArrayList<>();
 
         //instantiate singletons
@@ -135,7 +137,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         if(levelRefresher == null) {
             levelRefresher = new Timeline( new KeyFrame(
                     Duration.millis(10000), e -> {
-                        System.out.println("HERE");
                         nextLevel();
             }
             ));
@@ -164,6 +165,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         //powerUps.clear();
 
         int option = random.nextInt(6);
+        option = 4;
 
         switch (option) {
             case 0:
@@ -187,26 +189,27 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
     }
 
-    private synchronized void refreshFrame(int[]count){
+    private synchronized void refreshFrame(int[]count) {
         if (isPaused) {
             MyApplication.setScene(PauseMenu.getInstance());
             sceneRefresher.stop();
             levelRefresher.stop();
             return;
-        };
+        }
+        ;
 
-        motherShip.move(isUp, isDown, isLeft,isRight);
+        motherShip.move(isUp, isDown, isLeft, isRight);
         //firing issue
 
-        if(isFire && count[0] > 7){
+        if (isFire && count[0] > 7) {
             projectiles.addAll(motherShip.fire());
             count[0] = 0;
-        }
-        else
+        } else
             count[0]++;
 
         collisionDetector.checkAllCollisions(motherShip, aliens, humans, projectiles, powerUps);
 
+        // Game over condition
         if (!motherShip.isAlive()) {
             sceneRefresher.stop();
             levelRefresher.stop();
@@ -234,9 +237,11 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
 
         ArrayList<Alien> tempAliens = new ArrayList<>();
-        ArrayList<Projectile>  tempProjectiles = new ArrayList<>();
+        ArrayList<Projectile> tempProjectiles = new ArrayList<>();
         ArrayList<Human> tempHumans = new ArrayList<>();
         ArrayList<PowerUp> tempPowerUps = new ArrayList<>();
+        ArrayList<Explosion> tempExplosions = new ArrayList<>();
+        int countDeadAliens = 0;
 
         //remove dead power-ups and move live ones
         for (PowerUp powerUp : powerUps) {
@@ -246,6 +251,14 @@ public class GameEngine implements EventHandler<KeyEvent> {
             }
         }
 
+        // remove the explosions that are done and scale the ones that are not
+        if (explosions != null) {
+                for (Explosion explosion : explosions) {
+                    if (explosion.isAlive()) {
+                        tempExplosions.add(explosion);
+                    }
+                }
+        }
         //remove dead aliens
         for (Alien alien : aliens) {
             if (alien.isAlive()) {
@@ -254,6 +267,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                     alien.move();
             }
             else {
+                countDeadAliens++;
                 score += alien.getScore();
             }
         }
@@ -267,12 +281,19 @@ public class GameEngine implements EventHandler<KeyEvent> {
         }
 
         //remove projectile
-        for (Projectile projectile : projectiles)
+        for (Projectile projectile : projectiles) {
+            // create a new explosion
+            if(projectile.getExplosive() && !projectile.isAlive() && (countDeadAliens > 0)){
+                countDeadAliens--;
+                tempExplosions.add(new Explosion(projectile.getX(), projectile.getY()));
+            }
+
             if (projectile.isAlive()) {
                 tempProjectiles.add(projectile);
                 if (!(projectile instanceof Mine))
                     projectile.move(projectile.getDirection());
             }
+        }
 
         //remove mutated humans and add mutants
         for (Human human : humans) {
@@ -291,9 +312,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
         humans = tempHumans;
         projectiles = tempProjectiles;
         powerUps = tempPowerUps;
+        explosions = tempExplosions;
 
-
-        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, levelManager.getLevel(), motherShip.getHealth(), powerUps);
+        sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score,
+                levelManager.getLevel(), motherShip.getHealth(), powerUps, explosions);
     }
 
     private synchronized void nextLevel() {
@@ -328,6 +350,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         aliens = tempAliens;
         humans = tempHumans;
         projectiles = tempProjectiles;
+        explosions = null;
 
         System.out.println("Next Level Done");
     }

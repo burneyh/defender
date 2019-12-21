@@ -2,8 +2,10 @@ package Controllers;
 
 
 import GameObjects.*;
+import javafx.geometry.Bounds;
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class CollisionDetector {
@@ -62,21 +64,43 @@ public class CollisionDetector {
     }
 
     private void checkProjectileCollisionWithAlien(ArrayList<Alien> aliens, ArrayList<Projectile>  projectiles){
-        for(Alien alien: aliens){
+        ArrayList<Explosion> explosions = new ArrayList<>();
+
+        for(Alien alien: aliens) {
             Rectangle alienBox = alien.getHitbox();
-            for(Projectile projectile: projectiles){
-                if ( (projectile instanceof ShipProjectile) ) {
+            for (Projectile projectile : projectiles) {
+                if ((projectile instanceof ShipProjectile)) {
                     Rectangle projectileBox = projectile.getHitbox();
-                    if (alien.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(alienBox.getBoundsInParent()) && (projectile instanceof ShipProjectile)) {
+
+                    // if the projectile is the explosive, then make it's rectangle bigger so that aliens around will die
+                    if (alien.isAlive() && projectile.isAlive() && projectileBox.getBoundsInParent().intersects(alienBox.getBoundsInParent())) {
                         alien.kill();
 
-                        if(!projectile.getInvincible())
+                        if(projectile.getExplosive())
+                            explosions.add(new Explosion(projectile.getX(), projectile.getY()));
+
+                        if (!projectile.getInvincible())
                             projectile.kill();
+
                         break;
                     }
                 }
             }
         }
+
+        for(Explosion explosion: explosions) {
+            System.out.println("Exploding...");
+            Rectangle explosionBox = explosion.getHitbox();
+            for (Alien alien : aliens) {
+
+                Rectangle alienBox = alien.getHitbox();
+                if (alien.isAlive() && explosionBox.getBoundsInParent().intersects(alienBox.getBoundsInParent())) {
+                    alien.kill();
+                    System.out.println("Aliens exploding");
+                }
+            }
+        }
+        explosions.clear();
     }
 
     private void checkMutation(ArrayList<Alien> aliens, ArrayList<Human> humans){

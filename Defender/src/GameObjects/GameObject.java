@@ -11,6 +11,7 @@ class GameObject {
     private Image image;
     private Rectangle hitbox;
     private boolean invincible;
+    private boolean explosive;
 
     public void setInvincible(boolean flag){
         invincible = flag;
@@ -59,13 +60,18 @@ class GameObject {
         try {
             int width = 30;
             int height = 30;
-            if (this instanceof Mine){
+
+            if(this instanceof Explosion){
+                width = 150;
+                height = 150;
+            }
+            else if (this instanceof Mine){
                 width = 20;
                 height = 20;
             }
             else if (this instanceof Projectile){
-                width = 50;
-                height = 15;
+                width = 35;
+                height = 20;
             }
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
                     width, height, false, false);
@@ -154,6 +160,8 @@ class GameObject {
 
     }
 
+    public void setExplosive(boolean explosive){this.explosive = explosive;}
+    public boolean getExplosive(){return explosive;}
 }
 
 class Coordinate {

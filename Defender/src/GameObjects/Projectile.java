@@ -5,20 +5,12 @@ public class Projectile extends GameObject {
     private moveDirection direction;
     public int oblique;
 
-
     public Projectile(int x, int y){
         super(x, y);
         setSpeed(5);
         oblique = 2;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDirection(moveDirection direction) {
-        this.direction = direction;
-    }
 
     public void move(moveDirection direction){
         switch(direction){
@@ -36,6 +28,12 @@ public class Projectile extends GameObject {
 
     }
 
+    public int getDamage() {
+        return damage;
+    }
+    public void setDirection(moveDirection direction) {
+        this.direction = direction;
+    }
 
     public moveDirection getDirection() {
         return direction;

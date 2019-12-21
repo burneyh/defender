@@ -1,7 +1,6 @@
 package GameObjects;
 
 public class ShipProjectile extends Projectile{
-
     public ShipProjectile(Coordinate coordinates, moveDirection direction){
         super(coordinates.getX(), coordinates.getY());
 
@@ -11,6 +10,19 @@ public class ShipProjectile extends Projectile{
         this.setDirection(direction);
         this.move(direction);
         oblique = 2;
+    }
+
+    // for the explosive shots
+    public ShipProjectile(Coordinate coordinates, moveDirection direction, int oblique, boolean explosive){
+        super(coordinates.getX(), coordinates.getY());
+        super.setExplosive(explosive);
+
+        loadImage("Icons/explosiveShot.png");
+        this.getImageDimensions();
+        this.setCoordinates(coordinates);
+        this.setDirection(direction);
+        this.move(direction);
+        this.oblique = oblique;
     }
 
     public ShipProjectile(Coordinate coordinates, moveDirection direction, int oblique){
