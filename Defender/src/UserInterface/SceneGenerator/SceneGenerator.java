@@ -64,14 +64,18 @@ public class SceneGenerator extends Scene {
         graphics.setTextBaseline(VPos.CENTER);
         graphics.fillText("Level: " + level, MyApplication.WIDTH/2, 35);
         graphics.fillText("Health: " + health, 500, 35);
-
+        if(motherShip.getInvincible())
+            graphics.drawImage(motherShip.getShield(), motherShip.getX()-23 , motherShip.getY()-23);
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
         else
             graphics.drawImage(motherShip.getImage(), motherShip.getX() + 15, motherShip.getY() + 15, -30, -30);
 
-        for(Alien alien : aliens)
+
+            for(Alien alien : aliens)
             graphics.drawImage(alien.getImage(), alien.getX() - 15, alien.getY() - 15);
+
+
 
         for(Human human : humans)
             graphics.drawImage(human.getImage(), human.getX() - 15, human.getY() - 15);

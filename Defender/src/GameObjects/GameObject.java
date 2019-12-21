@@ -159,6 +159,15 @@ class GameObject {
     public void draw() {
 
     }
+    public Image getShield(){
+        Image shield;
+        shield = new Image(getClass().getClassLoader().getResource("Icons/shield.png").toString(),
+                45, 45, false, false);
+
+        return shield;
+
+    }
+
 
     public void setExplosive(boolean explosive){this.explosive = explosive;}
     public boolean getExplosive(){return explosive;}
