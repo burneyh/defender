@@ -222,22 +222,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
         ArrayList<Explosion> tempExplosions = new ArrayList<>();
         int countDeadAliens = 0;
 
-        //remove dead power-ups and move live ones
-        for (PowerUp powerUp : powerUps) {
-            if (powerUp.isAlive()) {
-                tempPowerUps.add(powerUp);
-                powerUp.move();
-            }
-        }
 
-        // remove the explosions that are done and scale the ones that are not
-        if (explosions != null) {
-            for (Explosion explosion : explosions) {
-                if (explosion.isAlive()) {
-                    tempExplosions.add(explosion);
-                }
-            }
-        }
         //remove dead aliens
         // calculate bias
         int midScreen = MyApplication.WIDTH / 2;
@@ -255,6 +240,25 @@ public class GameEngine implements EventHandler<KeyEvent> {
         int bias = (int) (motherShip.getSpeed() * biasPerc);
 
         motherShip.applyBias(bias);
+
+        //remove dead power-ups and move live ones
+        for (PowerUp powerUp : powerUps) {
+            if (powerUp.isAlive()) {
+                powerUp.applyBias(bias);
+                tempPowerUps.add(powerUp);
+                powerUp.move();
+            }
+        }
+
+        // remove the explosions that are done and scale the ones that are not
+        if (explosions != null) {
+            for (Explosion explosion : explosions) {
+                if (explosion.isAlive()) {
+                    explosion.applyBias(bias);
+                    tempExplosions.add(explosion);
+                }
+            }
+        }
 
         //remove dead aliens and apply bias
         for (Alien alien : aliens) {

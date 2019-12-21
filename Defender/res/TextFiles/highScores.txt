@@ -2,7 +2,7 @@ Jimmy ---------- 2350
 EnterUsername ---------- 2100
 EnterUsername ---------- 1400
 Perman ---------- 1300
-Enter Username ---------- 1250
+EnterUsername ---------- 1250
 Sam ---------- 900
 EnterUsername ---------- 800
 EnterUsername ---------- 700
