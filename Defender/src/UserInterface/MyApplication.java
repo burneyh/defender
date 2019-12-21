@@ -27,4 +27,8 @@ public class MyApplication extends Application {
     public static void setScene(Scene scene) {
         primaryStage.setScene(scene);
     }
+
+    public static Scene getScene(){
+        return primaryStage.getScene();
+    }
 }
