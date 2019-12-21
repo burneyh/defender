@@ -104,8 +104,10 @@ public class SceneGenerator extends Scene {
             for (Projectile projectile : projectiles) {
                 if (projectile.getDirection() == Projectile.moveDirection.RIGHT || projectile instanceof Mine)
                     graphics.drawImage(projectile.getImage(), projectile.getX() - 5, projectile.getY() - 5);
+                else if(projectile.getDirection() == Projectile.moveDirection.LEFT && projectile.getExplosive())
+                    graphics.drawImage(projectile.getImage(), projectile.getX() - 5, projectile.getY() - 5, -50, 15);
                 else
-                    graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY() + 5, -50, -15);
+                    graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY(), -15, 15);
             }
 
 
