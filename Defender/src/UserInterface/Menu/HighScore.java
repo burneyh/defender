@@ -91,16 +91,17 @@ public class HighScore extends Scene {
             BufferedReader br = new BufferedReader(new FileReader(new File("res/TextFiles/highScores.txt")));
 
             StringBuilder sb = new StringBuilder();
-            String st;
-            sb.append("NAME ---------- SCORE");
-            sb.append("\n");
+            String st, str;
+            str = "NAME";
+            String padded = String.format("%-30s", str);
+            padded += "SCORE";
+            sb.append(padded + "\n");
             while ((st = br.readLine()) != null){
-                sb.append(st);
-                sb.append('\n');
+                sb.append(st + "\n");
             }
             br.close();
 
-            ta.setTranslateX(windowHeight/2 - 100);
+            ta.setX(windowHeight/2 - 100);
             ta.setY(100);
             ta.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
             ta.setFill(Color.WHITE);

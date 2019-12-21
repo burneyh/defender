@@ -14,6 +14,7 @@ import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.BufferedReader;
@@ -395,10 +396,12 @@ public class GameEngine implements EventHandler<KeyEvent> {
             ArrayList<String> names = new ArrayList<>();
             String st;
             while ((st = br.readLine()) != null) {
-                Integer i = Integer.parseInt(st.substring(st.lastIndexOf("-") + 2));
-                scores.add(i);
-                String string = st.substring(0, st.indexOf("-"));
-                names.add(string.replace(" ", ""));
+                if (st.replace(" ","").length() > 0) {
+                    Integer i = Integer.parseInt(st.substring(st.lastIndexOf(" ") + 1));
+                    scores.add(i);
+                    String string = st.substring(0, st.indexOf(" "));
+                    names.add(string.replace(" ", ""));
+                }
             }
             inputStream.close();
             br.close();
@@ -407,30 +410,40 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 scores.add(totalScore);
                 names.add(HighScore.getInstance(false).getUsername());
             }
-            if (scores.get(scores.size() - 1) >= totalScore && scores.size() < 10) {
+            else if (scores.get(scores.size() - 1) >= totalScore && scores.size() < 10) {
                 scores.add(scores.size(), totalScore);
                 names.add(names.size(), HighScore.getInstance(false).getUsername());
             }
-            for (int i = 0; i < scores.size() && i <= 10; i++) {
-                if (totalScore > scores.get(i)) {
-                    scores.add(i, totalScore);
-                    names.add(i, HighScore.getInstance(false).getUsername());
-                    break;
+            else{
+                for (int i = 0; i < scores.size() && i <= 10; i++) {
+                    if (totalScore > scores.get(i)) {
+                        scores.add(i, totalScore);
+                        names.add(i, HighScore.getInstance(false).getUsername());
+                        break;
+                    }
                 }
             }
-
+            int pad = 30;
             FileWriter fr = new FileWriter("res/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
-                String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
-                fr.write(str);
+                String str = names.get(i);
+                String scoreStr = scores.get(i) + "\n";
+                String padded = String.format("%-" + pad + "s", str);
+                scoreStr = String.format("%10s", scoreStr);
+                padded += scoreStr;
+                fr.write(padded);
             }
             fr.flush();
             fr.close();
 
             FileWriter fr1 = new FileWriter("out/production/Defender/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
-                String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
-                fr1.write(str);
+                String str = names.get(i);
+                String scoreStr = scores.get(i) + "\n";
+                String padded = String.format("%-" + pad + "s", str);
+                scoreStr = String.format("%10s", scoreStr);
+                padded += scoreStr;
+                fr1.write(padded);
             }
             fr1.flush();
             fr1.close();

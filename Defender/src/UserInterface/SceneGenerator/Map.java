@@ -54,13 +54,13 @@ public class Map extends Pane {
         // not an arbitrary number
 
         if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
-            graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH  + WIDTH / 40,
-                    (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT  + HEIGHT / 34,
+            graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH,
+                    (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT,
                     WIDTH /20, HEIGHT /17);
         else
-            graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH - WIDTH / 40,
-                    (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT - HEIGHT / 34,
-                    -WIDTH /20, -HEIGHT /17);
+            graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH,
+                    (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT,
+                    -WIDTH /20, HEIGHT /17);
 
 
         for(Alien alien : aliens)
@@ -76,13 +76,15 @@ public class Map extends Pane {
         if(projectiles != null)
             for(Projectile projectile : projectiles) {
                 if(projectile.getDirection() == Projectile.moveDirection.RIGHT)
-                    graphics.drawImage(projectile.getImage(), (projectile.getX() * WIDTH) / MyApplication.WIDTH - WIDTH / 80,
-                            (projectile.getY()* HEIGHT) / MyApplication.HEIGHT - HEIGHT / 100,
+                    graphics.drawImage(projectile.getImage(),
+                            (projectile.getX() * WIDTH) / MyApplication.WIDTH,
+                            (projectile.getY()* HEIGHT) / MyApplication.HEIGHT ,
                             WIDTH /40, HEIGHT /50);
                 else
-                    graphics.drawImage(projectile.getImage(), (projectile.getX()* WIDTH) / MyApplication.WIDTH + WIDTH / 80,
-                            (projectile.getY()* HEIGHT) / MyApplication.HEIGHT + HEIGHT / 100,
-                            -WIDTH /40, -HEIGHT /50);
+                    graphics.drawImage(projectile.getImage(),
+                            (projectile.getX()* WIDTH) / MyApplication.WIDTH ,
+                            (projectile.getY()* HEIGHT) / MyApplication.HEIGHT,
+                            -WIDTH /40, HEIGHT /50);
             }
 
         if (explosions != null) {
