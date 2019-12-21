@@ -100,6 +100,7 @@ public class MotherShip extends GameObject{
 
         if(powerUp != null && powerUp.getType() == PowerUp.Type.EMPOWERED_SHOT){
             p1 = new ShipProjectile(ship_Coordinate, newDirection, 2);
+            p1.loadImage("Icons/empoweredProjectile.png");
         }
         else if(powerUp != null && powerUp.getType() == PowerUp.Type.EXPLOSIVE_SHOT)
             p1 = new ShipProjectile(ship_Coordinate, newDirection, 2, true);

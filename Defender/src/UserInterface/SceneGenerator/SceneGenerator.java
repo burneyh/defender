@@ -71,10 +71,6 @@ public class SceneGenerator extends Scene {
         root.setCenter(canvas);
     }
 
-//    public void createMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans) {
-//        updateMap(motherShip, aliens, humans, null, 0, 1, 100);
-//    }
-
     public void showGame() {
         MyApplication.setScene(this);
     }
@@ -89,6 +85,9 @@ public class SceneGenerator extends Scene {
         graphics2.fillText("Health: " + health, Map.WIDTH / 2, 25);
         graphics2.fillText("Level: " + level, Map.WIDTH / 2, 85);
         graphics2.fillText("Total Score: " + totalScore, 10, 85);
+
+        if(motherShip.getInvincible())
+            graphics.drawImage(motherShip.getShield(), motherShip.getX()-23 , motherShip.getY()-23);
 
         if (motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
             graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
