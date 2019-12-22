@@ -14,10 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -55,7 +52,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         levelTransitionState = false;
         powerUps = new ArrayList<>();
         explosions = new ArrayList<>();
-        //instantiate singletons
         motherShip = MotherShip.getInstance();
         levelManager = LevelManager.getInstance();
         collisionDetector = CollisionDetector.getInstance();
@@ -136,7 +132,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         if (powerUpRefresher == null) {
             powerUpRefresher = new Timeline(new KeyFrame(
                     Duration.millis(10000), e -> {
-                System.out.println("End of power up");
                 motherShip.setPowerUp(null);
                 motherShip.setInvincible(false);
             }
@@ -202,14 +197,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
                     break;
                 case SHIELD:
                     motherShip.setInvincible(true);
-                    break;
-                case TRIPLE_SHOT: //Needs fixing or changing
-                    break;
-                case EMPOWERED_SHOT:
-                    break;
-                case EXPLOSIVE_SHOT:
-                    break;
-                case FROST: //Implemented. Remove in production
                     break;
             }
         }
@@ -401,8 +388,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private void recordHighScore() {
         // high score
         try {
-            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/highScores.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+//            InputStream inputStream = getClass().getResourceAsStream("CS319-1C-DE/Defender/res/TextFiles/highScores.txt");
+//            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+
+            BufferedReader br = new BufferedReader(new FileReader(new File("CS319-1C-DE/Defender/res/TextFiles/highScores.txt")));
 
             ArrayList<Integer> scores = new ArrayList<>();
             ArrayList<String> names = new ArrayList<>();
@@ -415,7 +404,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                     names.add(string.replace(" ", ""));
                 }
             }
-            inputStream.close();
+            //inputStream.close();
             br.close();
 
             if (scores.size() == 0) {
@@ -436,7 +425,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 }
             }
             int pad = 30;
-            FileWriter fr = new FileWriter("res/TextFiles/highScores.txt");
+            FileWriter fr = new FileWriter("CS319-1C-DE/Defender/res/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
                 String str = names.get(i);
                 String scoreStr = scores.get(i) + "\n";
@@ -448,7 +437,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             fr.flush();
             fr.close();
 
-            FileWriter fr1 = new FileWriter("out/production/Defender/TextFiles/highScores.txt");
+            FileWriter fr1 = new FileWriter("CS319-1C-DE/Defender/out/production/Defender/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
                 String str = names.get(i);
                 String scoreStr = scores.get(i) + "\n";

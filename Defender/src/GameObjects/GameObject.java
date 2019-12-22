@@ -24,7 +24,7 @@ class GameObject {
 
     public GameObject(int x, int y) {
         coordinates = new Coordinate(x, y);
-        setSpeed(4);
+        setSpeed(5);
         alive = true;
         invincible = false;
         explosive = false;
