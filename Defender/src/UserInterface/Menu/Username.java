@@ -51,11 +51,10 @@ public class Username extends Scene {
 
 
         // Main Headline
-        Text text = new Text("Select Username");
+        Text text = new Text("Enter Username");
         text.setTextOrigin(VPos.TOP);
-        text.setY(10);
-        text.setX(windowHeight/2 - 155);
-        text.setY(65);
+        text.setX(windowWidth/2 - 190);
+        text.setY(windowHeight/2 - 150);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
         text.setFill(Color.WHITE);
         root.getChildren().add(text);
@@ -91,9 +90,13 @@ public class Username extends Scene {
             // Set username here
             MyApplication.setScene(SceneGenerator.getInstance());
             GameEngine.getInstance().createUniverse();
-            HighScore.getInstance(false).setUsername(usernameField.getText());
+            String username = usernameField.getText();
+            if (username.length() > 10)
+                username = username.substring(0, 11);
+            HighScore.getInstance(false).setUsername(username);
         });
-        menu1.setTranslateX(windowHeight/2-50);
+        menu1.setTranslateX(windowWidth/2 - 90);
+        menu1.setTranslateY(windowHeight/2 - 80);
         menu1.getChildren().addAll(usernameField, aContinue);
         root.getChildren().add(menu1);
     }

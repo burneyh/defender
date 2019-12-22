@@ -4,9 +4,7 @@ import GameObjects.*;
 import UserInterface.Menu.GameOver;
 import UserInterface.Menu.HighScore;
 import UserInterface.Menu.PauseMenu;
-import UserInterface.Menu.Username;
 import UserInterface.MyApplication;
-import UserInterface.SceneGenerator.Map;
 import UserInterface.SceneGenerator.SceneGenerator;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -16,12 +14,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+
+import static GameObjects.AlienProjectile.ALIEN_FIRE_RATE;
 
 public class GameEngine implements EventHandler<KeyEvent> {
 
@@ -55,7 +52,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         levelTransitionState = false;
         powerUps = new ArrayList<>();
         explosions = new ArrayList<>();
-        //instantiate singletons
         motherShip = MotherShip.getInstance();
         levelManager = LevelManager.getInstance();
         collisionDetector = CollisionDetector.getInstance();
@@ -136,7 +132,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
         if (powerUpRefresher == null) {
             powerUpRefresher = new Timeline(new KeyFrame(
                     Duration.millis(10000), e -> {
-                System.out.println("End of power up");
                 motherShip.setPowerUp(null);
                 motherShip.setInvincible(false);
             }
@@ -203,14 +198,6 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 case SHIELD:
                     motherShip.setInvincible(true);
                     break;
-                case TRIPLE_SHOT: //Needs fixing or changing
-                    break;
-                case EMPOWERED_SHOT:
-                    break;
-                case EXPLOSIVE_SHOT:
-                    break;
-                case FROST: //Implemented. Remove in production
-                    break;
             }
         }
 
@@ -226,13 +213,15 @@ public class GameEngine implements EventHandler<KeyEvent> {
         // calculate bias
         int midScreen = MyApplication.WIDTH / 2;
         int perifScreen = (int) (0.2 * MyApplication.WIDTH);
+        int centerOfMothership = motherShip.getX() + (int) motherShip.getImage().getWidth() / 2;
         double biasPerc;
+
         if (motherShip.getDirection() == MotherShip.moveDirection.RIGHT &&
-                motherShip.getX() >= midScreen)
-            biasPerc = -(double) (motherShip.getX() - midScreen) / (midScreen - perifScreen);
+                centerOfMothership >= midScreen)
+            biasPerc = -(double) (centerOfMothership - midScreen) / (midScreen - perifScreen);
         else if (motherShip.getDirection() == MotherShip.moveDirection.LEFT &&
-                motherShip.getX() < midScreen)
-            biasPerc = (double) (midScreen - motherShip.getX()) / (midScreen - perifScreen);
+                centerOfMothership < midScreen)
+            biasPerc = (double) (midScreen - centerOfMothership) / (midScreen - perifScreen);
         else
             biasPerc = 0;
 
@@ -259,13 +248,18 @@ public class GameEngine implements EventHandler<KeyEvent> {
             }
         }
 
+        ArrayList<Alien> nearbyAliens = new ArrayList<>();
+
         //remove dead aliens and apply bias
+        // populate nearbyAliens list
         for (Alien alien : aliens) {
             if (alien.isAlive()) {
                 alien.applyBias(bias);
                 tempAliens.add(alien);
                 if ((motherShip.getPowerUp() == null) || (motherShip.getPowerUp().getType() != PowerUp.Type.FROST))
                     alien.move();
+                if(checkNearby(alien))
+                    nearbyAliens.add(alien);
             } else {
                 countDeadAliens++;
                 score += alien.getScore();
@@ -273,12 +267,12 @@ public class GameEngine implements EventHandler<KeyEvent> {
             }
         }
 
-        Random rand = new Random();
-        if (tempAliens.size() > 0) {
-            int i = rand.nextInt(tempAliens.size());
-            Projectile projectile2 = tempAliens.get(i).fire();
-            if (projectile2 != null)
-                tempProjectiles.add(projectile2);
+        for( Alien alien : nearbyAliens) {
+            if( Math.random() < ALIEN_FIRE_RATE) {
+                Projectile projectile2 = alien.fire();
+                if (projectile2 != null)
+                    tempProjectiles.add(projectile2);
+            }
         }
 
         //remove projectile
@@ -327,6 +321,12 @@ public class GameEngine implements EventHandler<KeyEvent> {
 
         sceneGenerator.updateMap(motherShip, aliens, humans, projectiles, score, totalScore, levelManager.getLevelTarget(),
                 levelManager.getLevel(), motherShip.getHealth(), powerUps, explosions);
+    }
+
+    private boolean checkNearby(Alien alien){
+        if (alien == null)
+            return false;
+        return -50 <= alien.getX() && alien.getX() <= MyApplication.WIDTH + 50;
     }
 
     private void nextLevel() {
@@ -388,49 +388,63 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private void recordHighScore() {
         // high score
         try {
-            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/highScores.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+//            InputStream inputStream = getClass().getResourceAsStream("Defender/res/TextFiles/highScores.txt");
+//            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+
+            BufferedReader br = new BufferedReader(new FileReader(new File("Defender/res/TextFiles/highScores.txt")));
 
             ArrayList<Integer> scores = new ArrayList<>();
             ArrayList<String> names = new ArrayList<>();
             String st;
             while ((st = br.readLine()) != null) {
-                Integer i = Integer.parseInt(st.substring(st.lastIndexOf("-") + 2));
-                scores.add(i);
-                String string = st.substring(0, st.indexOf("-"));
-                names.add(string.replace(" ", ""));
+                if (st.replace(" ","").length() > 0) {
+                    Integer i = Integer.parseInt(st.substring(st.lastIndexOf(" ") + 1));
+                    scores.add(i);
+                    String string = st.substring(0, st.indexOf(" "));
+                    names.add(string.replace(" ", ""));
+                }
             }
-            inputStream.close();
+            //inputStream.close();
             br.close();
 
             if (scores.size() == 0) {
                 scores.add(totalScore);
                 names.add(HighScore.getInstance(false).getUsername());
             }
-            if (scores.get(scores.size() - 1) >= totalScore && scores.size() < 10) {
+            else if (scores.get(scores.size() - 1) >= totalScore && scores.size() < 10) {
                 scores.add(scores.size(), totalScore);
                 names.add(names.size(), HighScore.getInstance(false).getUsername());
             }
-            for (int i = 0; i < scores.size() && i <= 10; i++) {
-                if (totalScore > scores.get(i)) {
-                    scores.add(i, totalScore);
-                    names.add(i, HighScore.getInstance(false).getUsername());
-                    break;
+            else{
+                for (int i = 0; i < scores.size() && i <= 10; i++) {
+                    if (totalScore > scores.get(i)) {
+                        scores.add(i, totalScore);
+                        names.add(i, HighScore.getInstance(false).getUsername());
+                        break;
+                    }
                 }
             }
-
-            FileWriter fr = new FileWriter("res/TextFiles/highScores.txt");
+            int pad = 30;
+            FileWriter fr = new FileWriter("Defender/res/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
-                String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
-                fr.write(str);
+                String str = names.get(i);
+                String scoreStr = scores.get(i) + "\n";
+                String padded = String.format("%-" + pad + "s", str);
+                scoreStr = String.format("%10s", scoreStr);
+                padded += scoreStr;
+                fr.write(padded);
             }
             fr.flush();
             fr.close();
 
-            FileWriter fr1 = new FileWriter("out/production/Defender/TextFiles/highScores.txt");
+            FileWriter fr1 = new FileWriter("Defender/out/production/Defender/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
-                String str = names.get(i) + " ---------- " + scores.get(i) + "\n";
-                fr1.write(str);
+                String str = names.get(i);
+                String scoreStr = scores.get(i) + "\n";
+                String padded = String.format("%-" + pad + "s", str);
+                scoreStr = String.format("%10s", scoreStr);
+                padded += scoreStr;
+                fr1.write(padded);
             }
             fr1.flush();
             fr1.close();

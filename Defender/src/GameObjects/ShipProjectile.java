@@ -1,5 +1,7 @@
 package GameObjects;
 
+import UserInterface.MyApplication;
+
 public class ShipProjectile extends Projectile{
     public ShipProjectile(Coordinate coordinates, moveDirection direction){
         super(coordinates.getX(), coordinates.getY());
@@ -57,8 +59,8 @@ public class ShipProjectile extends Projectile{
             }
 
 
-            if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
-                this.kill();
+        if (this.getX() > MyApplication.WIDTH + 50|| this.getX() < -50 || this.getY() > 500 || this.getY() < 0)
+            this.kill();
 
         }
 

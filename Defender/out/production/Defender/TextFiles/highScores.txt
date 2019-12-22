@@ -1,11 +1,9 @@
-Jimmy ---------- 2350
-EnterUsername ---------- 2100
-EnterUsername ---------- 1400
-Perman ---------- 1300
-EnterUsername ---------- 1250
-Sam ---------- 900
-EnterUsername ---------- 800
-EnterUsername ---------- 700
-EnterUsername ---------- 650
-Ugur ---------- 450
-EnterUsername ---------- 450
+Amy                                2100
+Jonathan                           1450
+Mark                                900
+Jim                                 700
+Bill                                650
+Ken                                 450
+James                               400
+Pat                                 300
+Roland                              150
