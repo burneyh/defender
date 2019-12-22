@@ -3,88 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="27c63536-5e96-4d06-9c81-8906946dd6b2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Controllers/CollisionDetector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Controllers/GameEngine$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Controllers/GameEngine$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Controllers/GameEngine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Controllers/LevelManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Alien$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Alien.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/AlienProjectile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Baiter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Bomber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Coordinate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Explosion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/GameObject$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/GameObject$moveDirection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/GameObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Human.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Lander.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Mine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/MotherShip.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Mutant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/PowerUp$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/PowerUp$Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/PowerUp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Projectile$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/Projectile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/ShipProjectile$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/GameObjects/ShipProjectile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Gif/explosion.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/001-rocket.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/002-lander.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/003-workers.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/004-rocket-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/005-airplane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/AlienProjectile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/bomber.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/empoweredProjectile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/empoweredShot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/explosiveShot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/fillHealthPower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/freeze.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/frozen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/mine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/monster.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/mutantShip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/shield.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/shieldPower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/tesla.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/Icons/tripleShot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/TextFiles/about.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/TextFiles/help.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/TextFiles/highScores.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/About.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/GameOver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/Help.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/HighScore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/MainMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/MenuButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/MenuSection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/PauseMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/Menu/Username.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/MyApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/SceneGenerator/Map.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/SceneGenerator/SceneGenerator$1LevelTransition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/UserInterface/SceneGenerator/SceneGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/back-button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/bg_image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS319-1C-DE/black_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Controllers/GameEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/Coordinate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/GameObjects/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/Icons/tesla.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/Icons/tesla.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/TextFiles/highScores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/HighScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/HighScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/Username.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/Menu/Username.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator$1LevelTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator$1LevelTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Defender/UserInterface/SceneGenerator/SceneGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/TextFiles/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/TextFiles/highScores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/HighScore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface/Menu/Username.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/Menu/Username.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface/SceneGenerator/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface/SceneGenerator/Map.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,22 +90,22 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="400" y="85" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1576933357098" />
-    <state width="1237" height="208" key="GridCell.Tab.0.bottom" timestamp="1576958704825">
+    <state width="1237" height="166" key="GridCell.Tab.0.bottom" timestamp="1577006549037">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1576958704825" />
-    <state width="1237" height="208" key="GridCell.Tab.0.center" timestamp="1576958704825">
+    <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1577006549037" />
+    <state width="1237" height="166" key="GridCell.Tab.0.center" timestamp="1577006549037">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1576958704825" />
-    <state width="1237" height="208" key="GridCell.Tab.0.left" timestamp="1576958704825">
+    <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1577006549037" />
+    <state width="1237" height="166" key="GridCell.Tab.0.left" timestamp="1577006549037">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1576958704825" />
-    <state width="1237" height="208" key="GridCell.Tab.0.right" timestamp="1576958704825">
+    <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1577006549037" />
+    <state width="1237" height="166" key="GridCell.Tab.0.right" timestamp="1577006549037">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1576958704825" />
+    <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1577006549037" />
     <state width="1237" height="208" key="GridCell.Tab.1.bottom" timestamp="1576958704825">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

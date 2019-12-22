@@ -2,6 +2,7 @@ package UserInterface.Menu;
 
 import UserInterface.MyApplication;
 import UserInterface.SceneGenerator.Map;
+import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +15,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class HighScore extends Scene {
     private static HighScore highScoreInstance;
@@ -85,34 +88,59 @@ public class HighScore extends Scene {
             System.out.println("File Not Found");
         }
 
-        Text ta = new Text();
-
+        HBox hbox = new HBox();
+        VBox vbox_name = new VBox();
+        VBox vbox_score = new VBox();
         try{
             BufferedReader br = new BufferedReader(new FileReader(new File("res/TextFiles/highScores.txt")));
-
-            StringBuilder sb = new StringBuilder();
-            String st, str;
-            str = "NAME";
-            String padded = String.format("%-30s", str);
-            padded += "SCORE";
-            sb.append(padded + "\n");
-            while ((st = br.readLine()) != null){
-                sb.append(st + "\n");
+            ArrayList<Integer> scores = new ArrayList<>();
+            ArrayList<String> names = new ArrayList<>();
+            String st;
+            while ((st = br.readLine()) != null) {
+                if (st.replace(" ","").length() > 0) {
+                    Integer i = Integer.parseInt(st.substring(st.lastIndexOf(" ") + 1));
+                    scores.add(i);
+                    String string = st.substring(0, st.indexOf(" "));
+                    names.add(string.replace(" ", ""));
+                }
             }
             br.close();
 
-            ta.setX(windowHeight/2 - 100);
-            ta.setY(100);
-            ta.setFont(Font.font("Times New Roman", FontWeight.BOLD, 20));
-            ta.setFill(Color.WHITE);
-            ta.setText(sb.toString());
+            vbox_name.setPadding(new Insets(30));
+            vbox_name.setSpacing(8);
+            Text title = new Text("NAME");
+            title.setFill(Color.WHITE);
+            title.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+            vbox_name.getChildren().add(title);
+            for (int i = 0; i < names.size(); i++){
+                Text temp = new Text(names.get(i));
+                temp.setFill(Color.WHITE);
+                temp.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+                vbox_name.getChildren().add(temp);
+            }
 
+            vbox_score.setPadding(new Insets(30));
+            vbox_score.setSpacing(8);
+            Text title2 = new Text("SCORE");
+            title2.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+            title2.setFill(Color.WHITE);
+            vbox_score.getChildren().add(title2);
+            for (int i = 0; i < scores.size(); i++){
+                Text temp = new Text(Integer.toString(scores.get(i)));
+                temp.setFill(Color.WHITE);
+                temp.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+                vbox_score.getChildren().add(temp);
+            }
+
+            hbox.getChildren().addAll(vbox_name, vbox_score);
+            hbox.setLayoutX(MyApplication.WIDTH/2-160);
+            hbox.setLayoutY(MyApplication.HEIGHT/2 - 200);
         }
         catch (Exception e){
             System.out.println("File Not Found in HighScore");
         }
 
-        root.getChildren().add(ta);
+        root.getChildren().add(hbox);
     }
 
     public static HighScore getInstance(boolean isPause){
