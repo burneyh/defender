@@ -40,7 +40,6 @@ public class MainMenu extends Scene {
             System.out.println("Resource not found on " + "bg_image_jpg");
         }
 
-//        root.getChildren().add(bg);
 
         // Main Headline
         Text text = new Text("DEFENDER");

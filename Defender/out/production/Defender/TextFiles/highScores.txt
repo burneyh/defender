@@ -1,3 +1,4 @@
+Amy                                2100
 Jonathan                           1450
 Jack                               1000
 Mark                                900

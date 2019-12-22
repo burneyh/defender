@@ -31,14 +31,6 @@ public class HighScore extends Scene {
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
 
-//        // Main Menu Background
-//        Rectangle bg = new Rectangle(windowWidth,windowHeight);
-//        Color gameCol = Color.rgb(38,6,71);
-//        bg.setFill(gameCol);
-//
-//        // Add background to root
-//        root.getChildren().add(bg);
-
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
                     MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
@@ -92,7 +84,7 @@ public class HighScore extends Scene {
         VBox vbox_name = new VBox();
         VBox vbox_score = new VBox();
         try{
-            BufferedReader br = new BufferedReader(new FileReader(new File("res/TextFiles/highScores.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(new File("CS319-1C-DE/Defender/res/TextFiles/highScores.txt")));
             ArrayList<Integer> scores = new ArrayList<>();
             ArrayList<String> names = new ArrayList<>();
             String st;
@@ -104,7 +96,7 @@ public class HighScore extends Scene {
                     names.add(string.replace(" ", ""));
                 }
             }
-            br.close();
+            //br.close();
 
             vbox_name.setPadding(new Insets(30));
             vbox_name.setSpacing(8);
