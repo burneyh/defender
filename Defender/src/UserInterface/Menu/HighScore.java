@@ -84,7 +84,7 @@ public class HighScore extends Scene {
         VBox vbox_name = new VBox();
         VBox vbox_score = new VBox();
         try{
-            BufferedReader br = new BufferedReader(new FileReader(new File("CS319-1C-DE/Defender/res/TextFiles/highScores.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(new File("Defender/res/TextFiles/highScores.txt")));
             ArrayList<Integer> scores = new ArrayList<>();
             ArrayList<String> names = new ArrayList<>();
             String st;
