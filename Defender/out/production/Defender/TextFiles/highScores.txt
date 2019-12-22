@@ -1,11 +1,10 @@
 Jonathan                           1450
+Jack                               1000
 Mark                                900
+Joe                                 900
 Jim                                 700
 Bill                                650
 Ken                                 450
 James                               400
 Pat                                 300
 Roland                              150
-Patrick                             150
-Holly                               150
-Coral                                50

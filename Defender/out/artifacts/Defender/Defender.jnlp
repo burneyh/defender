@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Defender.jnlp">
+  <information>
+    <title>Defender</title>
+    <vendor>Unknown</vendor>
+    <description>Defender</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Defender.jar" size="3060641" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="UserInterface.MyApplication"  name="Defender" />
+  <update check="background"/>
+</jnlp>
