@@ -1,9 +1,6 @@
 package GameObjects;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
-
-import java.io.FileInputStream;
 //import javafx.scene.shape.Rectangle;
 
 class GameObject {
@@ -12,14 +9,27 @@ class GameObject {
     private int width, height, speed;
     private boolean alive;
     private Image image;
+    private Image mapImage;
     private Rectangle hitbox;
+    private boolean invincible;
+    private boolean explosive;
 
+    public void setInvincible(boolean flag){
+        invincible = flag;
+    }
+
+    public boolean getInvincible(){
+        return invincible;
+    }
 
     public GameObject(int x, int y) {
         coordinates = new Coordinate(x, y);
-        setSpeed(10);
+        setSpeed(4);
         alive = true;
+        invincible = false;
+        explosive = false;
     }
+
 
     public GameObject(int x, int y, int speed) {
         coordinates.setX(x);
@@ -35,9 +45,11 @@ class GameObject {
     }
 
     public void setCoordinates(Coordinate coordinates) {
-        this.coordinates = coordinates;
+        this.coordinates.setX(coordinates.getX());
+        this.coordinates.setY(coordinates.getY());
     }
     public void setCoordinates(int x, int y ){ this.setX(x); this.setY(y);}
+
     protected void getImageDimensions() {
         width = (int)image.getWidth();
         height = (int)image.getHeight();
@@ -45,17 +57,54 @@ class GameObject {
     }
 
     protected void loadImage(String imageName) {
+        String mapImgName = null;
+
         try {
-            int width = 30;
-            int height = 30;
-            if (this instanceof Projectile){
-                width = 10;
-                height = 10;
+            width = 30;
+            height = 30;
+
+            if(this instanceof Explosion){
+                width = 150;
+                height = 150;
             }
+            else if (this instanceof Mine){
+                width = 20;
+                height = 20;
+            }
+            else if (this instanceof Projectile && this.getExplosive()){
+                width = 50;
+                height = 15;
+            }
+            else if (this instanceof Projectile){
+                width = 15;
+                height = 15;
+            }
+
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
                     width, height, false, false);
+
         } catch (NullPointerException e){
             System.out.println("Resource not found on " + imageName);
+        }
+
+        try{
+            if(this instanceof MotherShip)
+                mapImgName = "MapIcons/mMothership.png";
+            else if(this instanceof Alien)
+                mapImgName = "MapIcons/mAlien.png";
+            else if(this instanceof Human)
+                mapImgName = "MapIcons/mHuman.png";
+            else if(this instanceof PowerUp)
+                mapImgName = "MapIcons/mPowerUp.png";
+
+            if(mapImgName != null)
+                mapImage = new Image(getClass().getClassLoader().getResource(mapImgName).toString(),
+                        width, height, false, false);
+            else
+                mapImage = null;
+
+        } catch (NullPointerException e){
+            System.out.println("Resource not found on " + mapImgName);
         }
     }
 
@@ -72,6 +121,8 @@ class GameObject {
         return image;
     }
 
+    public Image getMapImage() {return mapImage;}
+
     public void kill() {
         alive = false;
     }
@@ -85,18 +136,26 @@ class GameObject {
     }
 
     public void setX(int x) {
+        if (hitbox != null)
+            hitbox = new Rectangle(x, hitbox.getY(), width, height);
         coordinates.setX(x);
     }
 
     public void setY(int y) {
+        if (hitbox != null)
+            hitbox = new Rectangle(hitbox.getX(), y, width, height);
         coordinates.setY(y);
     }
 
     public int getX() {
+        if (hitbox != null)
+            return (int)hitbox.getX();
         return coordinates.getX();
     }
 
     public int getY() {
+        if (hitbox != null)
+            return (int)hitbox.getY();
         return coordinates.getY();
     }
 
@@ -104,33 +163,20 @@ class GameObject {
         return speed;
     }
 
-    public void move(moveDirection direction) {
-        switch(direction){
-            case UP:
-                setY(getY() - speed);
-                break;
-            case DOWN:
-                setY(getY() + speed);
-                break;
-            case LEFT:
-                setY(getX() + speed);
-                break;
-            case RIGHT:
-                setY(getX() - speed);
-                break;
-        }
-
-        if (this.getX() > 600) setX(20);
-        if (this.getX() < 0)   setX(580);
-        if (this.getY() > 500) setX(10);
-        if (this.getY() < 0)   setX(480);
-
+    public void applyBias( int bias){
+        setX( getX() + bias);
     }
 
-    public void draw() {
-
+    public Image getShield(){
+        Image shield;
+        shield = new Image(getClass().getClassLoader().getResource("Icons/shield.png").toString(),
+                45, 45, false, false);
+        return shield;
     }
 
+
+    public void setExplosive(boolean explosive){this.explosive = explosive;}
+    public boolean getExplosive(){return explosive;}
 }
 
 class Coordinate {

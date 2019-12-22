@@ -2,9 +2,11 @@ package GameObjects;
 
 public class Baiter extends Alien{
 
+    public static final int SCORE = 50;
+
     public Baiter() {
         super();
-        points = 50;
+        points = SCORE;
         loadImage("Icons/monster.png");
         getImageDimensions();
         this.move();

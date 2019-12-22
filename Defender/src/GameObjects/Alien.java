@@ -1,7 +1,8 @@
 package GameObjects;
-import UserInterface.MyApplication;
 //import com.sun.javafx.scene.traversal.Direction;
 
+
+import UserInterface.MyApplication;
 
 import java.util.Random;
 
@@ -12,16 +13,26 @@ public class Alien extends GameObject {
     int points;
 
     public Alien(){
-        super((450 - (int)(Math.random() * 200)), (int)(Math.random() * 400));
-        setSpeed(2);
+        super(randX(), (int)(Math.random() * 400));
+        setSpeed(1);
         move();
     }
     public Alien(int x,int  y){
         super(x,y);
-        setSpeed(2);
+        setSpeed(1);
         move();
-
     }
+
+    private static int randX(){
+        int x;
+        do{
+            x = (int)(Math.random() * (MyApplication.WIDTH * 3));
+            x -= MyApplication.WIDTH;
+        }while(x >= 0 && x <= 250);
+
+        return x;
+    }
+
     public int getScore() {
         return points;
     }
@@ -65,8 +76,8 @@ public class Alien extends GameObject {
                     break;
             }
 
-            if (this.getX() > 600) setX(20);
-            if (this.getX() < 0)   setX(580);
+            if (this.getX() > 2 * MyApplication.WIDTH) setX(-MyApplication.WIDTH + 20);
+            if (this.getX() < -MyApplication.WIDTH)   setX( 2 * MyApplication.WIDTH - 20);
             if (this.getY() > 500) setY(490);
             if (this.getY() < 0)   setY(10);
         }

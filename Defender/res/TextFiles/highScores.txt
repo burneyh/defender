@@ -1,10 +1,11 @@
-user1 ---------- 783
-user2 ---------- 443
-user3 ---------- 123
-user4 ---------- 100
-user9 ---------- 87
-user6 ---------- 64
-user1 ---------- 56
-user8 ---------- 33
-user9 ---------- 24
-user2 ---------- 12
+Jonathan                           1450
+Mark                                900
+Jim                                 700
+Bill                                650
+Ken                                 450
+James                               400
+Pat                                 300
+Roland                              150
+Patrick                             150
+Holly                               150
+Coral                                50

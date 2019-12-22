@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Defender/Defender.iml" filepath="$PROJECT_DIR$/Defender/Defender.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fm-service.iml" filepath="$PROJECT_DIR$/fm-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CS319-1C-DE.iml" filepath="$PROJECT_DIR$/.idea/CS319-1C-DE.iml" />
     </modules>
   </component>
 </project>

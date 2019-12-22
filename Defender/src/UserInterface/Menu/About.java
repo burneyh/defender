@@ -1,24 +1,19 @@
 package UserInterface.Menu;
 
 import UserInterface.MyApplication;
+import UserInterface.SceneGenerator.Map;
 import javafx.geometry.VPos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
+import java.io.*;
 
 public class About extends Scene {
     private static About aboutInstance;
@@ -27,7 +22,7 @@ public class About extends Scene {
 
         // Initialize window width and height
         int windowWidth = MyApplication.WIDTH;
-        int windowHeight = MyApplication.HEIGHT;
+        int windowHeight = MyApplication.HEIGHT + Map.HEIGHT;
 
         // Window pane
         root.setPrefSize(windowWidth,windowHeight);
@@ -42,7 +37,7 @@ public class About extends Scene {
 
         try{
             Image image = new Image(getClass().getClassLoader().getResource("bg_image.jpg").toString(),
-                    MyApplication.WIDTH, MyApplication.HEIGHT, false, false);
+                    MyApplication.WIDTH, MyApplication.HEIGHT + Map.HEIGHT, false, false);
 
             // create a background image
             BackgroundImage backgroundimage = new BackgroundImage(image,
@@ -62,7 +57,7 @@ public class About extends Scene {
         Text text = new Text("About");
         text.setTextOrigin(VPos.TOP);
         text.setY(10);
-        text.setX(200);
+        text.setX(windowHeight/2 - 75);
         text.setY(this.getHeight()/6);
         text.setFont(Font.font("ARIAL", FontWeight.BOLD, 50));
         text.setFill(Color.WHITE);
@@ -92,17 +87,15 @@ public class About extends Scene {
 
         Text ta = new Text();
         try{
-            File input = new File(getClass().getClassLoader().getResource("TextFiles/about.txt").getFile());
-            FileReader fr = new FileReader(input);
-            BufferedReader br = new BufferedReader(fr);
-
+            InputStream inputStream = getClass().getResourceAsStream("/TextFiles/about.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder sb = new StringBuilder();
             String st;
             while ((st = br.readLine()) != null){
                 sb.append(st);
                 sb.append('\n');
             }
-            ta.setTranslateX(15);
+            ta.setTranslateX(windowHeight/2 - 220);
             ta.setY(75);
             ta.setFont(Font.font("Times New Roman",16));
             ta.setFill(Color.WHITE);

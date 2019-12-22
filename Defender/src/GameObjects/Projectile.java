@@ -1,22 +1,18 @@
 package GameObjects;
 
+import UserInterface.MyApplication;
+
 public class Projectile extends GameObject {
     protected int damage;
     private moveDirection direction;
-
+    public int oblique;
 
     public Projectile(int x, int y){
         super(x, y);
-        setSpeed(5);
+        setSpeed(7);
+        oblique = 2;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDirection(moveDirection direction) {
-        this.direction = direction;
-    }
 
     public void move(moveDirection direction){
         switch(direction){
@@ -28,9 +24,16 @@ public class Projectile extends GameObject {
                 break;
         }
 
-        if (this.getX() > 600 || this.getX() < 0 || this.getY() > 500 || this.getY() < 0)
+        if (this.getX() > MyApplication.WIDTH + 50|| this.getX() < -50 || this.getY() > 500 || this.getY() < 0)
             this.kill();
 
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+    public void setDirection(moveDirection direction) {
+        this.direction = direction;
     }
 
     public moveDirection getDirection() {
