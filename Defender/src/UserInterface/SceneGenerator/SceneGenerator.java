@@ -11,10 +11,15 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
 
 import java.util.ArrayList;
 
@@ -72,6 +77,7 @@ public class SceneGenerator extends Scene {
                           ArrayList<Projectile> projectiles, int score, int totalScore, int levelTarget, int level, int health, ArrayList<PowerUp> powerUps, ArrayList<Explosion> explosions) {
         map.updateMap(motherShip, aliens, humans, projectiles, powerUps, explosions);
 
+
         graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
         graphics2.drawImage(bg_black, 0, 0, Map.WIDTH, Map.HEIGHT);
         graphics2.fillText("Score: " + score + " / " + levelTarget, 10, 25);
@@ -114,6 +120,17 @@ public class SceneGenerator extends Scene {
         if (explosions != null) {
             for (Explosion explosion : explosions) {
                 graphics.drawImage(explosion.getImage(), explosion.getX() - 40, explosion.getY() - 40);
+
+//                try {
+//                    Media media = new Media(new File("Defender/res/Sounds/chafing.mp3").toURI().toString());
+//                    MediaPlayer mediaPlayer = new MediaPlayer(media);
+//                    mediaPlayer.setVolume(0.1);
+//                    mediaPlayer.stop();
+//                    mediaPlayer.play();
+//                }
+//                catch(RuntimeException e) {
+//                    System.out.println(e);
+//                }
             }
         }
     }
