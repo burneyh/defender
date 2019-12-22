@@ -12,6 +12,8 @@ import javafx.scene.text.FontWeight;
 
 import java.util.ArrayList;
 
+import static UserInterface.SceneGenerator.SceneGenerator.setHalves;
+
 public class Map extends Pane {
     static private Map map = null;
 
@@ -47,57 +49,80 @@ public class Map extends Pane {
 //    }
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
-                          ArrayList<Projectile> projectiles, ArrayList<PowerUp> powerUps, ArrayList<Explosion> explosions) {
+                          ArrayList<PowerUp> powerUps) {
         graphics.drawImage(bgImage, 0, 0, WIDTH, HEIGHT);
 
         // subtract and add at the x and y coordinates with 1/2 the width and the height of the picture
         // not an arbitrary number
 
-        if(motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
-            graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH,
-                    (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT,
-                    WIDTH /20, HEIGHT /17);
-        else
-            graphics.drawImage(motherShip.getImage(), (motherShip.getX() * WIDTH) / MyApplication.WIDTH,
-                    (motherShip.getY() * HEIGHT) / MyApplication.HEIGHT,
-                    -WIDTH /20, HEIGHT /17);
+        int appWidth = MyApplication.WIDTH;
+        int appHeight = MyApplication.HEIGHT;
+
+        int mapWidth = WIDTH / 3;
+        int mapHeight = HEIGHT;
+
+        final int H_WIDTH = 0;
+        final int H_HEIGHT = 1;
+        int[] halvesContainer = new int[2];
+
+        setHalves( motherShip.getMapImage(), halvesContainer);
+
+        graphics.drawImage(motherShip.getMapImage(),
+            0.33 * WIDTH + adjust( motherShip.getX() + halvesContainer[H_WIDTH], appWidth, mapWidth),
+            adjust( motherShip.getY() + halvesContainer[H_HEIGHT], appHeight, mapHeight),
+            adjust( -2 * halvesContainer[H_WIDTH], appWidth, mapWidth),
+            adjust(-2 * halvesContainer[H_HEIGHT], appHeight, mapHeight));
 
 
-        for(Alien alien : aliens)
-            graphics.drawImage(alien.getImage(), (alien.getX()  * WIDTH) / MyApplication.WIDTH - WIDTH / 40,
-                    (alien.getY()* HEIGHT) / MyApplication.HEIGHT - HEIGHT / 34,
-                    WIDTH /20, HEIGHT /17);
-
-        // exception for human y coordinate, the hole height of the human is subtracted by its y coordinate
-        for(Human human : humans)
-            graphics.drawImage(human.getImage(), (human.getX() * WIDTH) / MyApplication.WIDTH - WIDTH / 40,
-                    HEIGHT - HEIGHT / 17, WIDTH /20, HEIGHT /17);
-
-        if(projectiles != null)
-            for(Projectile projectile : projectiles) {
-                if(projectile.getDirection() == Projectile.moveDirection.RIGHT)
-                    graphics.drawImage(projectile.getImage(),
-                            (projectile.getX() * WIDTH) / MyApplication.WIDTH,
-                            (projectile.getY()* HEIGHT) / MyApplication.HEIGHT ,
-                            WIDTH /40, HEIGHT /50);
-                else
-                    graphics.drawImage(projectile.getImage(),
-                            (projectile.getX()* WIDTH) / MyApplication.WIDTH ,
-                            (projectile.getY()* HEIGHT) / MyApplication.HEIGHT,
-                            -WIDTH /40, HEIGHT /50);
-            }
-
-        if (explosions != null) {
-            for (Explosion explosion : explosions) {
-                graphics.drawImage(explosion.getImage(), (explosion.getX()*WIDTH) / MyApplication.WIDTH - 20,
-                        (explosion.getY() * HEIGHT) / MyApplication.HEIGHT - 10, WIDTH /10, HEIGHT /20);
-            }
+        for (Alien alien : aliens) {
+            setHalves(alien.getMapImage(), halvesContainer);
+            graphics.drawImage(alien.getMapImage(),
+                    0.33 * WIDTH + adjust( alien.getX() - halvesContainer[H_WIDTH], appWidth, mapWidth),
+                    adjust(alien.getY() - halvesContainer[H_HEIGHT], appHeight, mapHeight),
+                    adjust(2 * halvesContainer[H_WIDTH], appWidth, mapWidth),
+                    adjust(2 * halvesContainer[H_HEIGHT], appHeight, mapHeight));
         }
+
+        if(humans.size() > 0)
+            setHalves(humans.get(0).getMapImage(), halvesContainer);
+        for (Human human : humans)
+            graphics.drawImage(human.getMapImage(),
+                    0.33 * WIDTH + adjust( human.getX() - halvesContainer[H_WIDTH], appWidth, mapWidth),
+                    adjust(human.getY() - halvesContainer[H_HEIGHT], appHeight, mapHeight),
+                    adjust(2 * halvesContainer[H_WIDTH], appWidth, mapWidth),
+                    adjust(2 * halvesContainer[H_HEIGHT], appHeight, mapHeight));
 
         if (powerUps != null) {
-            for (PowerUp powerUp : powerUps)
-                graphics.drawImage(powerUp.getImage(), (powerUp.getX()*WIDTH)/ MyApplication.WIDTH - 15,
-                        (powerUp.getY()* HEIGHT) / MyApplication.HEIGHT  + 15,WIDTH /30, HEIGHT /10);
+            for (PowerUp powerUp : powerUps) {
+                setHalves(powerUp.getMapImage(), halvesContainer);
+                graphics.drawImage(powerUp.getMapImage(),
+                        0.33 * WIDTH + adjust( powerUp.getX() - halvesContainer[H_WIDTH], appWidth, mapWidth),
+                        adjust( powerUp.getY() - halvesContainer[H_HEIGHT], appHeight, mapHeight),
+                        adjust(2 * halvesContainer[H_WIDTH], appWidth, mapWidth),
+                        adjust(2 * halvesContainer[H_HEIGHT], appHeight, mapHeight));
+            }
         }
+        graphics.setStroke(Color.VIOLET);
+        graphics.setLineWidth(2);
+        graphics.setLineDashes(5);
+
+        double l = 0.33 * WIDTH;
+        double r = 0.66 * WIDTH;
+        double u = 5;
+        double d = HEIGHT - 5;
+        int length = 5;
+
+        graphics.strokeLine(l, u, r, u);
+        graphics.strokeLine(l, d, r, d);
+
+        graphics.strokeLine(l, u, l, u + length);
+        graphics.strokeLine(r, u, r, u + length);
+
+        graphics.strokeLine(l, d, l, d - length);
+        graphics.strokeLine(r, d, r, d - length);
+    }
+
+    private double adjust(int initLength, int initDim, int newDim){
+        return ((double)initLength / initDim) * newDim;
     }
 }

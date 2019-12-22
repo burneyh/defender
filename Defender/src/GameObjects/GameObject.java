@@ -9,6 +9,7 @@ class GameObject {
     private int width, height, speed;
     private boolean alive;
     private Image image;
+    private Image mapImage;
     private Rectangle hitbox;
     private boolean invincible;
     private boolean explosive;
@@ -56,6 +57,8 @@ class GameObject {
     }
 
     protected void loadImage(String imageName) {
+        String mapImgName = null;
+
         try {
             width = 30;
             height = 30;
@@ -79,8 +82,29 @@ class GameObject {
 
             image = new Image(getClass().getClassLoader().getResource(imageName).toString(),
                     width, height, false, false);
+
         } catch (NullPointerException e){
             System.out.println("Resource not found on " + imageName);
+        }
+
+        try{
+            if(this instanceof MotherShip)
+                mapImgName = "MapIcons/mMothership.png";
+            else if(this instanceof Alien)
+                mapImgName = "MapIcons/mAlien.png";
+            else if(this instanceof Human)
+                mapImgName = "MapIcons/mHuman.png";
+            else if(this instanceof PowerUp)
+                mapImgName = "MapIcons/mPowerUp.png";
+
+            if(mapImgName != null)
+                mapImage = new Image(getClass().getClassLoader().getResource(mapImgName).toString(),
+                        width, height, false, false);
+            else
+                mapImage = null;
+
+        } catch (NullPointerException e){
+            System.out.println("Resource not found on " + mapImgName);
         }
     }
 
@@ -96,6 +120,8 @@ class GameObject {
     public Image getImage() {
         return image;
     }
+
+    public Image getMapImage() {return mapImage;}
 
     public void kill() {
         alive = false;
@@ -137,31 +163,8 @@ class GameObject {
         return speed;
     }
 
-    public void move(moveDirection direction) {
-        switch(direction){
-            case UP:
-                setY(getY() - speed);
-                break;
-            case DOWN:
-                setY(getY() + speed);
-                break;
-            case LEFT:
-                setX(getX() + speed);
-                break;
-            case RIGHT:
-                setX(getX() - speed);
-                break;
-        }
-
-        if (this.getX() > 600) setX(20);
-        if (this.getX() < 0)   setX(580);
-        if (this.getY() > 500) setX(10);
-        if (this.getY() < 0)   setX(480);
-
-    }
-
     public void applyBias( int bias){
-        this.coordinates.setX( this.coordinates.getX() + bias);
+        setX( getX() + bias);
     }
 
     public Image getShield(){

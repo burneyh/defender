@@ -6,12 +6,12 @@ import GameObjects.Lander;
 
 public class LevelManager {
 
-    private final static int HUMAN_NO_INIT = 5;
-    private final static int LANDER_NO_INIT = 5;
-    private final static int BOMBER_NO_INIT = 1;
-    private final static int BAITER_NO_INIT = 1;
+    private final static int HUMAN_NO_INIT = 6;
+    private final static int LANDER_NO_INIT = 8;
+    private final static int BOMBER_NO_INIT = 3;
+    private final static int BAITER_NO_INIT = 3;
 
-    private final static double PERCENTAGE_OF_TOTAL_SCORE = 0.75;
+    private final static double PERCENTAGE_OF_TOTAL_SCORE = 0.65;
 
     private static LevelManager levelManager = null;
 

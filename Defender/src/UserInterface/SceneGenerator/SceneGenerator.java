@@ -25,11 +25,9 @@ public class SceneGenerator extends Scene {
     private int height;
     private Image bgImage;
     private Image bg_black;
-    private GraphicsContext graphics;
-    private GraphicsContext graphics2;
+    private GraphicsContext gameplayGraphics;
+    private GraphicsContext gameStatsGraphics;
     private Map map;
-
-    private boolean transitionScreen = false;
 
     synchronized static public SceneGenerator getInstance() {
         if (sceneGenerator == null) {
@@ -47,12 +45,12 @@ public class SceneGenerator extends Scene {
         height = MyApplication.HEIGHT;
 
         Canvas canvas = new Canvas(width, height);
-        graphics = canvas.getGraphicsContext2D();
+        gameplayGraphics = canvas.getGraphicsContext2D();
 
         Canvas canvas2 = new Canvas(width / 2, Map.HEIGHT);
-        graphics2 = canvas2.getGraphicsContext2D();
-        graphics2.setFont(Font.font("Times New Roman", FontWeight.BOLD, 16));
-        graphics2.setFill(Color.WHITE);
+        gameStatsGraphics = canvas2.getGraphicsContext2D();
+        gameStatsGraphics.setFont(Font.font("Times New Roman", FontWeight.BOLD, 16));
+        gameStatsGraphics.setFill(Color.WHITE);
 
         bgImage = new Image("bg_image.jpg");
         bg_black = new Image("black_bg.jpg");
@@ -70,52 +68,84 @@ public class SceneGenerator extends Scene {
 
     public void updateMap(MotherShip motherShip, ArrayList<Alien> aliens, ArrayList<Human> humans,
                           ArrayList<Projectile> projectiles, int score, int totalScore, int levelTarget, int level, int health, ArrayList<PowerUp> powerUps, ArrayList<Explosion> explosions) {
-        map.updateMap(motherShip, aliens, humans, projectiles, powerUps, explosions);
+        map.updateMap(motherShip, aliens, humans, powerUps);
 
-        graphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
-        graphics2.drawImage(bg_black, 0, 0, Map.WIDTH, Map.HEIGHT);
-        graphics2.fillText("Score: " + score + " / " + levelTarget, 10, 25);
-        graphics2.fillText("Health: " + health, Map.WIDTH / 2, 25);
-        graphics2.fillText("Level: " + level, Map.WIDTH / 2, 85);
-        graphics2.fillText("Total Score: " + totalScore, 10, 85);
+        gameplayGraphics.drawImage(bgImage, 0, 0, MyApplication.WIDTH, MyApplication.HEIGHT);
+        gameStatsGraphics.drawImage(bg_black, 0, 0, Map.WIDTH, Map.HEIGHT);
+        gameStatsGraphics.fillText("Score: " + score + " / " + levelTarget, 10, 25);
+        gameStatsGraphics.fillText("Health: " + health, Map.WIDTH / 2, 25);
+        gameStatsGraphics.fillText("Level: " + level, Map.WIDTH / 2, 85);
+        gameStatsGraphics.fillText("Total Score: " + totalScore, 10, 85);
 
-        if(motherShip.getInvincible())
-            graphics.drawImage(motherShip.getShield(), motherShip.getX()-23 , motherShip.getY()-23);
+        final int H_WIDTH = 0;
+        final int H_HEIGHT = 1;
+        int[] halvesContainer = new int[2];
 
+        if(motherShip.getInvincible()) {
+            setHalves(motherShip.getShield(), halvesContainer);
+            gameplayGraphics.drawImage(motherShip.getShield(), motherShip.getX() - halvesContainer[H_WIDTH],
+                    motherShip.getY() - halvesContainer[H_HEIGHT]);
+        }
+
+
+        setHalves( motherShip.getImage(), halvesContainer);
         if (motherShip.getDirection() == MotherShip.moveDirection.RIGHT)
-            graphics.drawImage(motherShip.getImage(), motherShip.getX() - 15, motherShip.getY() - 15);
+            gameplayGraphics.drawImage(motherShip.getImage(), motherShip.getX() - halvesContainer[H_WIDTH],
+                    motherShip.getY() - halvesContainer[H_HEIGHT]);
         else
-            graphics.drawImage(motherShip.getImage(), motherShip.getX() + 15, motherShip.getY() + 15, -30, -30);
+            gameplayGraphics.drawImage(motherShip.getImage(), motherShip.getX() + halvesContainer[H_WIDTH]
+                    , motherShip.getY() + halvesContainer[H_HEIGHT],
+                    -2 * halvesContainer[H_WIDTH], -2 * halvesContainer[H_HEIGHT]);
 
 
-        for (Alien alien : aliens)
-            graphics.drawImage(alien.getImage(), alien.getX() - 15, alien.getY() - 15);
+        for (Alien alien : aliens) {
+            setHalves(alien.getImage(), halvesContainer);
+            gameplayGraphics.drawImage(alien.getImage(), alien.getX() - halvesContainer[H_WIDTH],
+                    alien.getY() - halvesContainer[H_HEIGHT]);
+        }
 
 
+        if(humans.size() > 0)
+            setHalves(humans.get(0).getImage(), halvesContainer);
         for (Human human : humans)
-            graphics.drawImage(human.getImage(), human.getX() - 15, human.getY() - 15);
+            gameplayGraphics.drawImage(human.getImage(), human.getX() - halvesContainer[H_WIDTH],
+                    human.getY() - halvesContainer[H_HEIGHT]);
 
         if (powerUps != null) {
-            for (PowerUp powerUp : powerUps)
-                graphics.drawImage(powerUp.getImage(), powerUp.getX() - 15, powerUp.getY() + 15);
+            for (PowerUp powerUp : powerUps) {
+                setHalves(powerUp.getImage(), halvesContainer);
+                gameplayGraphics.drawImage(powerUp.getImage(), powerUp.getX() - halvesContainer[H_WIDTH],
+                        powerUp.getY() - halvesContainer[H_HEIGHT]);
+            }
         }
 
         if (projectiles != null)
             for (Projectile projectile : projectiles) {
+                setHalves(projectile.getImage(), halvesContainer);
+
                 if (projectile.getDirection() == Projectile.moveDirection.RIGHT || projectile instanceof Mine)
-                    graphics.drawImage(projectile.getImage(), projectile.getX() - 5, projectile.getY() - 5);
-                else if(projectile.getDirection() == Projectile.moveDirection.LEFT && projectile.getExplosive())
-                    graphics.drawImage(projectile.getImage(), projectile.getX() - 5, projectile.getY() - 5, -50, 15);
+                    gameplayGraphics.drawImage(projectile.getImage(), projectile.getX() - halvesContainer[H_WIDTH],
+                            projectile.getY() - halvesContainer[H_HEIGHT]);
                 else
-                    graphics.drawImage(projectile.getImage(), projectile.getX() + 5, projectile.getY(), -15, 15);
+                    gameplayGraphics.drawImage(projectile.getImage(), projectile.getX() + halvesContainer[H_WIDTH],
+                            projectile.getY() - halvesContainer[H_HEIGHT],
+                            -2 * halvesContainer[H_WIDTH], 2 * halvesContainer[H_HEIGHT]);
             }
 
 
         if (explosions != null) {
+            if(explosions.size() > 0)
+            setHalves(explosions.get(0).getImage(), halvesContainer);
             for (Explosion explosion : explosions) {
-                graphics.drawImage(explosion.getImage(), explosion.getX() - 40, explosion.getY() - 40);
+                gameplayGraphics.drawImage(explosion.getImage(), explosion.getX() - halvesContainer[H_WIDTH],
+                        explosion.getY() - halvesContainer[H_HEIGHT]);
             }
         }
+    }
+
+    static void setHalves(Image image, int[] halves) {
+        halves[0] = (int) image.getWidth() / 2;
+        halves[1] = (int) image.getHeight() / 2;
     }
 
     public void showLevelTransition(int level, int levelTarget) {
