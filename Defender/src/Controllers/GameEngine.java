@@ -388,10 +388,10 @@ public class GameEngine implements EventHandler<KeyEvent> {
     private void recordHighScore() {
         // high score
         try {
-//            InputStream inputStream = getClass().getResourceAsStream("CS319-1C-DE/Defender/res/TextFiles/highScores.txt");
+//            InputStream inputStream = getClass().getResourceAsStream("Defender/res/TextFiles/highScores.txt");
 //            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
-            BufferedReader br = new BufferedReader(new FileReader(new File("CS319-1C-DE/Defender/res/TextFiles/highScores.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(new File("Defender/res/TextFiles/highScores.txt")));
 
             ArrayList<Integer> scores = new ArrayList<>();
             ArrayList<String> names = new ArrayList<>();
@@ -425,7 +425,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
                 }
             }
             int pad = 30;
-            FileWriter fr = new FileWriter("CS319-1C-DE/Defender/res/TextFiles/highScores.txt");
+            FileWriter fr = new FileWriter("Defender/res/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
                 String str = names.get(i);
                 String scoreStr = scores.get(i) + "\n";
@@ -437,7 +437,7 @@ public class GameEngine implements EventHandler<KeyEvent> {
             fr.flush();
             fr.close();
 
-            FileWriter fr1 = new FileWriter("CS319-1C-DE/Defender/out/production/Defender/TextFiles/highScores.txt");
+            FileWriter fr1 = new FileWriter("Defender/out/production/Defender/TextFiles/highScores.txt");
             for (int i = 0; i < scores.size() && i <= 10; i++) {
                 String str = names.get(i);
                 String scoreStr = scores.get(i) + "\n";
